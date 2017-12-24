@@ -102,7 +102,7 @@ feed:
 deploy:
   type: sftp
   host: otaku.mogita.cn
-  user: root
+  user: gitlab
   remotePath: /mnt/www/otaku_blog
   port: 8765
   privateKey: ./smn_rsa

@@ -3,6 +3,5 @@ deploy_to_server:
   stage: deploy
   script:
     - yarn
-    - hexo g
     - chmod 600 smn_rsa
-    - hexo deploy
+    - yarn ci

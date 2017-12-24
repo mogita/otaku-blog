@@ -5,6 +5,12 @@
   "hexo": {
     "version": "3.3.9"
   },
+  "scripts": {
+    "serve": "hexo serve",
+    "build": "hexo g",
+    "deploy": "hexo d",
+    "ci": "hexo g -d"
+  },
   "dependencies": {
     "hexo": "^3.3.7",
     "hexo-browsersync": "^0.2.0",

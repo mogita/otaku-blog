@@ -1,14 +1,8 @@
-build_the_project:
-  image: node:8
-  stage: build
-  script:
-    - npm i -g yarn hexo-cli
-    - yarn
-    - hexo g
-
 deploy_to_server:
-  image: alpine:3.6
+  image: node:8
   stage: deploy
   script:
+    - yarn
+    - hexo g
     - chmod 600 smn_rsa
     - hexo deploy

@@ -1,7 +1,8 @@
 build_the_project:
+  image: node:8
   stage: build
   script:
-    - npm i -g hexo-cli
+    - npm i -g yarn hexo-cli
     - yarn
     - hexo g
 

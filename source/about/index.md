@@ -34,5 +34,6 @@ comment: false
 
 #### 兴趣
 
-* 猫
+* [猫](https://fanfou.com/yocat)
 * [音乐](https://site.douban.com/mogita/room/195849/)
+

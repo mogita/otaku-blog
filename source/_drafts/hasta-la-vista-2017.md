@@ -15,3 +15,6 @@ tags:
 
 把老项目里开发的一个对话框组件 [Vue ZyDialog](https://github.com/mogita/vue-zydialog) 做成了一个独立的轮子，几乎没有任何观众。2017 年最后一个月下载量仅 18 次，估计 17.9 次都是爬虫吧😂
 
+## 游戏
+
+Steam 收藏进入正轨，开始像一个普通的 Steamer 有事没事喜加一。

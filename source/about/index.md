@@ -6,7 +6,7 @@ comment: false
 
 我叫 mogita（aka 知一），宜昌人生活在北京。
 
-我是一名 Web 开发者，主要使用 Node.js、Go、PHP 开发后端服务，用 ES6 和 MV\* 框架开发前端应用。
+我是一名 Web 开发者，主要使用 Node.js、Go、PHP 开发后端服务，用 ES6 与 MV\* 框架或 jQuery 开发前端应用。
 
 #### 联系
 

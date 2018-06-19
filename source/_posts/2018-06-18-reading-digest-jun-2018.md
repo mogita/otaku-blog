@@ -2,7 +2,7 @@
 title: Reading Digest [Jun. 2018]
 permalink: reading-digest-jun-2018
 date: 2018-06-18 18:24:49
-updated:
+updated: 2018-06-19 16:55:55
 tags:
 cover:
 desc:
@@ -18,4 +18,16 @@ I was playing with RPG Maker MV recently. It supports iOS/Android packaging with
   Q&A on making a right `config.xml` and styles.
 - [Supporting iPhone X for mobile web & Cordova app using Onsen UI](https://medium.com/the-web-tub/supporting-iphone-x-for-mobile-web-cordova-app-using-onsen-ui-f17a4c272fcd)
   A detailed guide on how to make the web app looks and behaves more like a native app.
+
+On the Go based micro-service, gRPC is a must-know technology.
+
+- [From Monolith to Microservice: Building APIs with gRPC & golang](https://speakerdeck.com/cecyc/from-monolith-to-microservice-building-apis-with-grpc-and-golang)
+
+  > Case study & tutorial on how to break up a legacy monolith codebase into microservices using gRPC + Protobuf + golang + the language of your choice!
+
+- [What is gRPC](https://grpc.io/docs/guides/)
+  The official portal for gRPC knowledge.
+
+- [Dependency Injection In Go](https://medium.com/full-stack-tips/dependency-injection-in-go-99b09e2cc480)
+  A basic tutorial on how and why for DI in the Go language.
 

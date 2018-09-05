@@ -30,3 +30,16 @@ As [WebAssembly Specification](https://webassembly.github.io/spec/core/index.htm
 
 > [WebAssembly: How and why](https://blog.logrocket.com/webassembly-how-and-why-559b7f96cd71)
 
+# Metabase
+
+This isn't a reading item actually lol. The [Metabase](https://github.com/metabase/metabase) is a tool that is `The simplest, fastest way to get business intelligence and analytics to everyone in your company`. In short, it's an open-source BI software.
+
+One of our QA team member showed me this the other day. It supports running as a Java jar package, a docker image, on AWS and some other options. The setup process was even easier than setting up a new WordPress instance.
+
+The Metabase astonished me with its simplicity of design, both on the workflow and the UI. I "ask" it questions, it shows me the answers. That's it.
+
+Digging deeper, I can gather the answers and make a dashboard to visualize the data. Or I can see the SQL it generates if I want to.
+
+Here's a screenshot from its repo:
+
+{% asset_img metabase-product-screenshot.png %}

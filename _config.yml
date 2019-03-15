@@ -12,7 +12,7 @@ timezone: Asia/Shanghai
 
 # URL
 ## If your site is put in a subdirectory, set url as 'http://yoursite.com/child' and root as '/child/'
-url: http://otaku.mogita.cn
+url: https://blog.mogita.com
 root: /
 permalink: :year/:month/:title/
 permalink_defaults:
@@ -101,8 +101,8 @@ feed:
 ## Docs: https://hexo.io/docs/deployment.html
 deploy:
   type: sftp
-  host: otaku.mogita.cn
-  user: gitlab
-  remotePath: /mnt/www/otaku_blog
+  host: blog.mogita.com
+  user: root
+  remotePath: /home/www/blog-mogita-com
   port: 8765
-  privateKey: ./smn_rsa
+  privateKey: ./blog_deploy_rsa

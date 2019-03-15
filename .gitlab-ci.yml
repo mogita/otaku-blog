@@ -3,5 +3,5 @@ deploy_to_server:
   stage: deploy
   script:
     - yarn
-    - chmod 600 smn_rsa
+    - chmod 600 blog_deploy_rsa
     - yarn ci

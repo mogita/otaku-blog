@@ -104,5 +104,4 @@ deploy:
   host: blog.mogita.com
   user: root
   remotePath: /home/www/blog-mogita-com
-  port: 8765
   privateKey: ./blog_deploy_rsa

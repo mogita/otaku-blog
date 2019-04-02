@@ -79,7 +79,6 @@ logo: /favicon.png
 
 menu:
   Home: /
-  GitHub: https://github.com/mogita
   Rss: /atom.xml
   About: /about/
 

@@ -139,6 +139,8 @@ build_the_project:
 - 在生产服务器上配置好项目所需的服务，例如 Nginx、数据库等
 - 在生产服务器上创建一个 `gitlab` 用户（用户名可以自拟）用于远程连接，并让项目所在的目录对这个用户可读写
 - 为这个用户创建一对 SSH 密钥，存放在此用户的 `.ssh` 目录下，并拷贝私钥
+  - 注意：确保 `authorized_keys` 文件权限 `chmod 600 authorized_keys`
+  - 注意：确保 `.ssh` 目录的权限 `chmod 700 ~/.ssh`
 - 进入项目的 GitLab 页面，并进入 Variables 页面（GitLab > 9 版本在 `Settings - CI/CD - Secret Variables` 下），添加一个名为 `CI_PRIVATE_KEY` 的变量，并将上一步拷贝的私钥粘贴在 Value 框内
 
 #### 提交部署脚本

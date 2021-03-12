@@ -89,7 +89,7 @@ sitemap:
   path: sitemap.xml
 
 #### Analytics
-cnzz: true
+cnzz: false
 
 feed:
   type: atom

@@ -47,21 +47,22 @@ To name just a few Email senders I've caught embedding the tracking pixels, here
 | ------------------------- | ------------------------------------------------- | ------------------------------- |
 | Sony PlayStation          | reply@txn-email.playstation.com                   | Salesforce                      |
 | IFTTT                     | alerts@ifttt.com                                  | Customer.io                     |
-| Nintendo                  | nintendo-noreply@ccg.nintendo.com                 | (Self-owned Service)            |
-| LinkedIn                  | messages-noreply@linkedin.com                     | (Self-owned Service)            |
+| Nintendo                  | nintendo-noreply@ccg.nintendo.com                 | (Self-owned Tracker)            |
+| LinkedIn                  | messages-noreply@linkedin.com                     | (Self-owned Tracker)            |
 | Duolingo                  | hello@duolingo.com                                | Amazon SES                      |
-| Lark Suite (a.k.a Feishu) | support@service.larksuite.com                     | (Self-owned Service)            |
+| Lark Suite (a.k.a Feishu) | support@service.larksuite.com                     | (Self-owned Tracker)            |
 | Bedroom Producers Blog    | tomislav@bedroomproducersblog.com                 | MailerLite                      |
-| Trello                    | taco@trello.com                                   | (Self-owned Service)            |
+| Trello                    | taco@trello.com                                   | (Self-owned Tracker)            |
+| Dropbox                   | no-reply@dropbox.com                              | (Self-owned Tracker)            |
 | Mapbox                    | newsletter@mapbox.com<br />billing@mapbox.com     | Customer.io                     |
-| Apple App Store           | no_reply@email.apple.com                          | (Self-owned Service)            |
+| Apple App Store           | no_reply@email.apple.com                          | (Self-owned Tracker)            |
 | Be My Eyes                | account@bemyeyes.com<br />onboarding@bemyeyes.com | Postmark<br />Mixpanel          |
-| GitHub                    | notifications@github.com                          | (Self-owned Service)            |
-| Microsoft 365             | Microsoft365@mail.microsoft365.com                | (Self-owned Service)            |
-| Cloudflare                | newsletter@cloudflare.com                         | (Self-owned Service)            |
+| GitHub                    | notifications@github.com                          | (Self-owned Tracker)            |
+| Microsoft 365             | Microsoft365@mail.microsoft365.com                | (Self-owned Tracker)            |
+| Cloudflare                | newsletter@cloudflare.com                         | (Self-owned Tracker)            |
 | Console.dev               | weekly@console.dev                                | Mailchimp                       |
 | AudioThing.net            | news@audiothing.net                               | Mailchimp                       |
-| BugSnag                   | bugsnagmarketing@bugsnag.com                      | (Self-owned Service)            |
+| BugSnag                   | bugsnagmarketing@bugsnag.com                      | (Self-owned Tracker)            |
 | GOG                       | newsletter@email2.gog.com                         | Google                          |
 | IMDB                      | do-not-reply@imdb.com                             | Amazon SES                      |
 

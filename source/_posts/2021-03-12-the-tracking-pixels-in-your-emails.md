@@ -61,7 +61,7 @@ To name just a few Email senders I've caught embedding the tracking pixels, here
 | GitHub                      | notifications@github.com                          | (Self-owned Tracker)                       |
 | Microsoft 365               | Microsoft365@mail.microsoft365.com                | (Self-owned Tracker)                       |
 | Cloudflare                  | newsletter@cloudflare.com                         | (Self-owned Tracker)                       |
-| Paypal                      | service@intl.paypal.com                           | (Self-owned Tracker)                       |
+| Paypal                      | service@intl.paypal.com                           | (Self-owned Tracker)<br />Return Path      |
 | Console.dev                 | weekly@console.dev                                | Mailchimp                                  |
 | AudioThing.net              | news@audiothing.net                               | Mailchimp                                  |
 | BugSnag                     | bugsnagmarketing@bugsnag.com                      | (Self-owned Tracker)                       |

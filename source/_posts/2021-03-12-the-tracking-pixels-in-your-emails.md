@@ -43,30 +43,31 @@ Actually very few people ever noticed that their behaviours were tracked (or to 
 
 To name just a few Email senders I've caught embedding the tracking pixels, here's a list:
 
-| Sender                    | From Address                                      | Tracking Pixel Service Provider |
-| ------------------------- | ------------------------------------------------- | ------------------------------- |
-| Sony PlayStation          | reply@txn-email.playstation.com                   | Salesforce                      |
-| IFTTT                     | alerts@ifttt.com                                  | Customer.io                     |
-| Nintendo                  | nintendo-noreply@ccg.nintendo.com                 | (Self-owned Tracker)            |
-| LinkedIn                  | messages-noreply@linkedin.com                     | (Self-owned Tracker)            |
-| Duolingo                  | hello@duolingo.com                                | Amazon SES                      |
-| Lark Suite (a.k.a Feishu) | support@service.larksuite.com                     | (Self-owned Tracker)            |
-| Bedroom Producers Blog    | tomislav@bedroomproducersblog.com                 | MailerLite                      |
-| Trello                    | taco@trello.com                                   | (Self-owned Tracker)            |
-| Dropbox                   | no-reply@dropbox.com                              | (Self-owned Tracker)            |
-| Mapbox                    | newsletter@mapbox.com<br />billing@mapbox.com     | Customer.io                     |
-| Apple App Store           | no_reply@email.apple.com                          | (Self-owned Tracker)            |
-| Be My Eyes                | account@bemyeyes.com<br />onboarding@bemyeyes.com | Postmark<br />Mixpanel          |
-| Baidu                     | no-reply-bce@baidu.com                            | (Self-owned Tracker)            |
-| GitHub                    | notifications@github.com                          | (Self-owned Tracker)            |
-| Microsoft 365             | Microsoft365@mail.microsoft365.com                | (Self-owned Tracker)            |
-| Cloudflare                | newsletter@cloudflare.com                         | (Self-owned Tracker)            |
-| Paypal                    | service@intl.paypal.com                           | (Self-owned Tracker)            |
-| Console.dev               | weekly@console.dev                                | Mailchimp                       |
-| AudioThing.net            | news@audiothing.net                               | Mailchimp                       |
-| BugSnag                   | bugsnagmarketing@bugsnag.com                      | (Self-owned Tracker)            |
-| GOG                       | newsletter@email2.gog.com                         | Google                          |
-| IMDB                      | do-not-reply@imdb.com                             | Amazon SES                      |
+| Sender                      | From Address                                      | Tracking Pixel Service Provider            |
+| --------------------------- | ------------------------------------------------- | ------------------------------------------ |
+| Sony PlayStation            | reply@txn-email.playstation.com                   | Salesforce                                 |
+| IFTTT                       | alerts@ifttt.com                                  | Customer.io                                |
+| Nintendo                    | nintendo-noreply@ccg.nintendo.com                 | (Self-owned Tracker)                       |
+| LinkedIn                    | messages-noreply@linkedin.com                     | (Self-owned Tracker)                       |
+| Duolingo                    | hello@duolingo.com                                | Amazon SES                                 |
+| Lark Suite (a.k.a Feishu)   | support@service.larksuite.com                     | (Self-owned Tracker)                       |
+| Bedroom Producers Blog      | tomislav@bedroomproducersblog.com                 | MailerLite                                 |
+| Trello                      | taco@trello.com                                   | (Self-owned Tracker)                       |
+| Dropbox                     | no-reply@dropbox.com                              | (Self-owned Tracker)                       |
+| Mapbox                      | newsletter@mapbox.com<br />billing@mapbox.com     | Customer.io                                |
+| Apple App Store             | no_reply@email.apple.com                          | (Self-owned Tracker)                       |
+| Be My Eyes                  | account@bemyeyes.com<br />onboarding@bemyeyes.com | Postmark<br />Mixpanel                     |
+| Baidu                       | no-reply-bce@baidu.com                            | (Self-owned Tracker)                       |
+| GitHub                      | notifications@github.com                          | (Self-owned Tracker)                       |
+| Microsoft 365               | Microsoft365@mail.microsoft365.com                | (Self-owned Tracker)                       |
+| Cloudflare                  | newsletter@cloudflare.com                         | (Self-owned Tracker)                       |
+| Paypal                      | service@intl.paypal.com                           | (Self-owned Tracker)                       |
+| Console.dev                 | weekly@console.dev                                | Mailchimp                                  |
+| AudioThing.net              | news@audiothing.net                               | Mailchimp                                  |
+| BugSnag                     | bugsnagmarketing@bugsnag.com                      | (Self-owned Tracker)                       |
+| GOG                         | newsletter@email2.gog.com                         | Google                                     |
+| IMDB                        | do-not-reply@imdb.com                             | Amazon SES                                 |
+| IHG (A hospitality company) | IHGRewards@mc.ihg.com                             | (Self-owned Tracker, more than 1 per mail) |
 
 It can go very long as more and more services I use. And I was tracked all the way long.
 

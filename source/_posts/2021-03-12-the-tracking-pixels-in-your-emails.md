@@ -68,6 +68,7 @@ To name just a few Email senders I've caught embedding the tracking pixels, here
 | GOG                         | newsletter@email2.gog.com                         | Google                                     |
 | IMDB                        | do-not-reply@imdb.com                             | Amazon SES                                 |
 | IHG (A hospitality company) | IHGRewards@mc.ihg.com                             | (Self-owned Tracker, more than 1 per mail) |
+| TuringBook.com              | ebook@turingbook.com                              | Mailchimp                                  |
 
 It can go very long as more and more services I use. And I was tracked all the way long.
 

@@ -57,6 +57,7 @@ To name just a few Email senders I've caught embedding the tracking pixels, here
 | Mapbox                      | newsletter@mapbox.com<br />billing@mapbox.com     | Customer.io                                |
 | Apple App Store             | no_reply@email.apple.com                          | (Self-owned Tracker)                       |
 | Be My Eyes                  | account@bemyeyes.com<br />onboarding@bemyeyes.com | Postmark<br />Mixpanel                     |
+| Goodreads                   | no-reply@mail.goodreads.com                       | Amazon SES                                 |
 | Baidu                       | no-reply-bce@baidu.com                            | (Self-owned Tracker)                       |
 | GitHub                      | notifications@github.com                          | (Self-owned Tracker)                       |
 | Microsoft 365               | Microsoft365@mail.microsoft365.com                | (Self-owned Tracker)                       |

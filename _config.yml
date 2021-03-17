@@ -89,6 +89,7 @@ sitemap:
   path: sitemap.xml
 
 #### Analytics
+goat_counter: true
 cnzz: false
 
 feed:

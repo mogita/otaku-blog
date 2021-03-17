@@ -15,8 +15,6 @@ GPG 指纹：`6DB7 2FE7 20F6 19F7 10CD B4C9 A0AA 1B9C 57A4 8ECF`
 
 工作之余我会折腾一些小项目：[YoCat](https://fanfou.com/yocat)、[Soundmono](http://soundmono.com)、[FanstaFou（已下线）](http://fanstafou.mogita.com)
 
->  本站统计功能基于隐私友好的 [Goat Counter](https://www.goatcounter.com)，不收集任何个人数据。
-
 #### Portkeys [<a href="https://harrypotter.fandom.com/wiki/Portkey" target="_blank">?</a>]
 
 - [配信中](https://www.yocson.com)

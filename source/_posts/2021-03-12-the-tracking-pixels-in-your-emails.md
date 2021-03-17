@@ -74,6 +74,7 @@ To name just a few Email senders I've caught embedding the tracking pixels, here
 | Bandcamp                        | noreply@bandcamp.com                              | (Self-owned Tracker)                       |
 | Craft.do                        | team@craft.do                                     | (Self-owned Tracker)                       |
 | Ghost.org (A blogging software) | hello@ghost.org                                   | (Self-owned Tracker)                       |
+| Asana                           | no-reply@asana.com                                | (Self-owned Tracker)                       |
 
 It can go very long as more and more services I use. And I was tracked all the way long.
 

@@ -56,12 +56,14 @@ To name just a few Email senders I've caught embedding the tracking pixels, here
 | Dropbox                         | no-reply@dropbox.com                              | (Self-owned Tracker)                       |
 | Mapbox                          | newsletter@mapbox.com<br />billing@mapbox.com     | Customer.io                                |
 | Apple App Store                 | no_reply@email.apple.com                          | (Self-owned Tracker)                       |
+| Apple iTunes Connect            | do_not_reply@email.apple.com                      | (Self-owned Tracker)                       |
 | Be My Eyes                      | account@bemyeyes.com<br />onboarding@bemyeyes.com | Postmark<br />Mixpanel                     |
 | Goodreads                       | no-reply@mail.goodreads.com                       | Amazon SES                                 |
 | Baidu                           | no-reply-bce@baidu.com                            | (Self-owned Tracker)                       |
 | GitHub                          | notifications@github.com                          | (Self-owned Tracker)                       |
 | Microsoft 365                   | Microsoft365@mail.microsoft365.com                | (Self-owned Tracker)                       |
 | Cloudflare                      | newsletter@cloudflare.com                         | (Self-owned Tracker)                       |
+| Sentry                          | webinars@sentry.io                                | (Self-owned Tracker)                       |
 | Paypal                          | service@intl.paypal.com                           | (Self-owned Tracker)<br />Return Path      |
 | Console.dev                     | weekly@console.dev                                | Mailchimp                                  |
 | AudioThing.net                  | news@audiothing.net                               | Mailchimp                                  |
@@ -71,6 +73,7 @@ To name just a few Email senders I've caught embedding the tracking pixels, here
 | IHG (A hospitality company)     | IHGRewards@mc.ihg.com                             | (Self-owned Tracker, more than 1 per mail) |
 | TuringBook.com                  | ebook@turingbook.com                              | Mailchimp                                  |
 | Raycast                         | thomas@raycast.com                                | (Self-owned Tracker)                       |
+| Chatra                          | support@chatra.com                                | Postmark                                   |
 | Bandcamp                        | noreply@bandcamp.com                              | (Self-owned Tracker)                       |
 | Craft.do                        | team@craft.do                                     | (Self-owned Tracker)                       |
 | Ghost.org (A blogging software) | hello@ghost.org                                   | (Self-owned Tracker)                       |

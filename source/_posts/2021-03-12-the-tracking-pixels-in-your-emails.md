@@ -86,6 +86,7 @@ To name just a few Email senders I've caught embedding the tracking pixels, here
 | uTalk                           | hello@offers2.utalk.com                           | (Self-owned Tracker)                       |
 | Envato                          | do-not-reply@market.envato.com                    | Mandrillapp                                |
 | BundleHunt                      | support@bundlehunt.com                            | Mailchimp                                  |
+| ClickUp                         | katie@clickup.com                                 | Close                                      |
 
 It can go very long as more and more services I use. And I was tracked all the way long.
 

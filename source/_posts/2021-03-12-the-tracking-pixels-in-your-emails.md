@@ -64,6 +64,9 @@ To name just a few Email senders I've caught embedding the tracking pixels, here
 | Microsoft 365                   | Microsoft365@mail.microsoft365.com                | (Self-owned Tracker)                       |
 | Cloudflare                      | newsletter@cloudflare.com                         | (Self-owned Tracker)                       |
 | Sentry                          | webinars@sentry.io                                | (Self-owned Tracker)                       |
+| Upwork                          | donotreply@upwork.com                             | Upwork                                     |
+| AWS                             | no-reply@marketplace.aws                          | Amazon SES                                 |
+| Baidu                           | no-reply-bce@baidu.com                            | (Self-owned Tracker)                       |
 | Paypal                          | service@intl.paypal.com                           | (Self-owned Tracker)<br />Return Path      |
 | Console.dev                     | weekly@console.dev                                | Mailchimp                                  |
 | AudioThing.net                  | news@audiothing.net                               | Mailchimp                                  |

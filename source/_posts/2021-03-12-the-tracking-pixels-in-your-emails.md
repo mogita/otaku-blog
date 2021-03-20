@@ -68,6 +68,7 @@ To name just a few Email senders I've caught embedding the tracking pixels, here
 | AWS                             | no-reply@marketplace.aws                          | Amazon SES                                 |
 | Baidu                           | no-reply-bce@baidu.com                            | (Self-owned Tracker)                       |
 | Paypal                          | service@intl.paypal.com                           | (Self-owned Tracker)<br />Return Path      |
+| Stripe                          | receipts+masked@stripe.com                        | (Self-owned Tracker)                       |
 | Console.dev                     | weekly@console.dev                                | Mailchimp                                  |
 | AudioThing.net                  | news@audiothing.net                               | Mailchimp                                  |
 | BugSnag                         | bugsnagmarketing@bugsnag.com                      | (Self-owned Tracker)                       |

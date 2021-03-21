@@ -66,7 +66,7 @@ To name just a few Email senders I've caught embedding the tracking pixels, here
 | Sentry                          | webinars@sentry.io                                | (Self-owned Tracker)                       |
 | Upwork                          | donotreply@upwork.com                             | Upwork                                     |
 | AWS                             | no-reply@marketplace.aws                          | Amazon SES                                 |
-| Baidu                           | no-reply-bce@baidu.com                            | (Self-owned Tracker)                       |
+| Facebook                        | security@facebookmail.com                         | Facebook                                   |
 | Paypal                          | service@intl.paypal.com                           | (Self-owned Tracker)<br />Return Path      |
 | Stripe                          | receipts+masked@stripe.com                        | (Self-owned Tracker)                       |
 | Airbnb                          | automated@airbnb.com                              | (Self-owned Tracker)                       |

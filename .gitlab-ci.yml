@@ -16,7 +16,7 @@ build:
     - yarn build
   artifacts:
     paths:
-      - build
+      - public
   only:
     - master
 

@@ -89,8 +89,11 @@ To name just a few Email senders I've caught embedding the tracking pixels, here
 | Envato                          | do-not-reply@market.envato.com                    | Mandrillapp                                |
 | BundleHunt                      | support@bundlehunt.com                            | Mailchimp                                  |
 | ClickUp                         | katie@clickup.com                                 | Close                                      |
+| Taiga                           | peter@mail.taiga.io                               | SendGrid                                   |
 
 It can go very long as more and more services I use. And I was tracked all the way long.
+
+> Update 2021-03-22: It appears that many of the "Self-owned Trackers" are not owned by the business owners. They don't reveal the actual vendor by using the custom domain names. Certain tracing was done to disover the actual campaign Email sender and the tracker, which showed a certain pattern of how the custom domain names are formed. E.g. `http://url1234.mail.some-service.io` (certain parts were masked with dummy characters) points to the IP address that resolves to be in possession of SendGrid. Oh my they use the `http` that scatters people's information all around the web un-encrypted while relentlessly collecting them.
 
 ## How to avoid being tracked?
 

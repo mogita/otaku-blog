@@ -24,7 +24,7 @@ build:
 deploy:
   stage: deploy
   script:
-    - npm i -g netlify-cli
+    - npm i -g --unsafe-perm=true netlify-cli
     - netlify deploy --site $NETLIFY_SITE_ID --auth $NETLIFY_AUTH_TOKEN --prod
   dependencies:
     - build

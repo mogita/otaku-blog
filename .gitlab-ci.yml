@@ -1,7 +1,8 @@
-image: node:alpine
+image: node:14-alpine
 
 cache:
   untracked: true
+  key: "$CI_COMMIT_REF_NAME"
   paths:
     - node_modules/
 

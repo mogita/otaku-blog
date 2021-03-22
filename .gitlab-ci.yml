@@ -1,7 +1,31 @@
-deploy_to_server:
-  image: node:8
-  stage: deploy
+image: node:alpine
+
+cache:
+  untracked: true
+  paths:
+    - node_modules/
+
+stages:
+  - build
+  - deploy
+
+build:
+  stage: build
   script:
     - yarn
-    - chmod 600 blog_deploy_rsa
-    - yarn ci
+    - yarn build
+  artifacts:
+    paths:
+      - build
+  only:
+    - master
+
+deploy:
+  stage: deploy
+  script:
+    - npm i -g netlify-cli
+    - netlify deploy --site $NETLIFY_SITE_ID --auth $NETLIFY_AUTH_TOKEN --prod
+  dependencies:
+    - build
+  only:
+    - master

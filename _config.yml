@@ -96,12 +96,3 @@ feed:
   type: atom
   path: atom.xml
   limit: 20
-
-# Deployment
-## Docs: https://hexo.io/docs/deployment.html
-deploy:
-  type: sftp
-  host: fanfou.cat
-  user: root
-  remotePath: /home/www/blog-mogita-com
-  privateKey: ./blog_deploy_rsa

@@ -34,6 +34,7 @@ jobs:
         
       - uses: actions/upload-artifact@master
         with:
+          name: public
           path: public/
           if-no-files-found: error
           
@@ -44,8 +45,12 @@ jobs:
     steps:
       - uses: actions/download-artifact@master
         with:
+          name: public
           path: public/
-      
+          
+      - name: Show PWD
+        run: pwd
+        
       - name: Show Artifacts
         run: ls -lah
         working-directory: public/

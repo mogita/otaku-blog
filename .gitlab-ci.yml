@@ -2,6 +2,9 @@ stages:
   - build
   - deploy
 
+before_script:
+  - apk add ssh
+
 variables:
   GIT_SUBMODULE_STRATEGY: recursive
 

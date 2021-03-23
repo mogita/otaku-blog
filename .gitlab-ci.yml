@@ -2,13 +2,16 @@ stages:
   - build
   - deploy
 
+variables:
+  GIT_SUBMODULE_STRATEGY: recursive
+
 build:
   image:
     name: klakegg/hugo:0.82.0-alpine
     entrypoint: ["/bin/sh", "-c"]
   stage: build
   script:
-    - hugo -D
+    - hugo --minify
   artifacts:
     paths:
       - public

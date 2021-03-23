@@ -1,0 +1,24 @@
+stages:
+  - build
+  - deploy
+
+build:
+  image: klakegg/hugo:0.82.0-alpine
+  stage: build
+  script:
+    - hugo -D
+  artifacts:
+    paths:
+      - public
+  only:
+    - master
+
+deploy:
+  image: williamjackson/netlify-cli:3.13.5
+  stage: deploy
+  script:
+    - netlify deploy --site $NETLIFY_SITE_ID --auth $NETLIFY_AUTH_TOKEN --prod
+  dependencies:
+    - build
+  only:
+    - master

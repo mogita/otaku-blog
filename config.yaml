@@ -1,0 +1,34 @@
+baseURL: "https://blog.mogita.com/"
+languageCode: "en-us"
+title: "Otaku Blog"
+theme: "hugo-tania"
+paginate: 10
+paginatePath: "page"
+permalinks:
+  /about: /about.html
+  /articles: /:slug.html
+trimTrailingSlash: true
+
+params:
+  titleEmoji: "🏡"
+  socialOptions:
+    github: https://github.com/mogita
+    twitter: https://twitter.com/mogita
+
+menu:
+  header:
+    - name: About
+      url: "/about"
+    - name: RSS
+      url: "/index.xml"
+  footer:
+    - name: RSS
+      url: "/index.xml"
+
+markup:
+  highlight:
+    noClasses: false
+    lineNos: true
+  goldmark:
+    renderer:
+      unsafe: true

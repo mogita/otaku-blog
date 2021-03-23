@@ -1,0 +1,6 @@
+[submodule "hugo-tania"]
+	path = hugo-tania
+	url = git@github.com:WingLim/hugo-tania.git
+[submodule "themes/hugo-tania"]
+	path = themes/hugo-tania
+	url = git@github.com:mogita/hugo-tania.git

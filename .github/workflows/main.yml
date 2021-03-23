@@ -34,7 +34,8 @@ jobs:
         
       - uses: actions/upload-artifact@master
         with:
-          path: public
+          path: public/
+          if-no-files-found: error
           
   publish:
     needs: build
@@ -43,12 +44,16 @@ jobs:
     steps:
       - uses: actions/download-artifact@master
         with:
-          path: public
-        
+          path: public/
+      
+      - name: Show Artifacts
+        run: ls -lah
+        working-directory: public/
+
       - name: Publish
         uses: netlify/actions/cli@master
         with:
-          args: deploy --dir=public
+          args: deploy --prod
         env:
           NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID }}
           NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}

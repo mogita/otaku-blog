@@ -3,7 +3,9 @@ stages:
   - deploy
 
 build:
-  image: klakegg/hugo:0.82.0-alpine
+  image:
+    name: klakegg/hugo:0.82.0-alpine
+    entrypoint: ["/bin/sh", "-c"]
   stage: build
   script:
     - hugo -D

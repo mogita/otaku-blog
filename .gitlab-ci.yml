@@ -16,7 +16,9 @@ build:
     - master
 
 deploy:
-  image: williamjackson/netlify-cli:3.13.5
+  image:
+    name: williamjackson/netlify-cli:3.13.5
+    entrypoint: ["/bin/sh", "-c"]
   stage: deploy
   script:
     - netlify deploy --site $NETLIFY_SITE_ID --auth $NETLIFY_AUTH_TOKEN --prod

@@ -16,7 +16,7 @@ build:
     paths:
       - public
   only:
-    - master
+    - tags
 
 deploy:
   image:
@@ -28,4 +28,4 @@ deploy:
   dependencies:
     - build
   only:
-    - master
+    - tags

@@ -23,7 +23,7 @@ menu:
       url: "/index.xml"
   footer:
     - name: RSS
-      url: "/index.xml"
+      url: "/articles/index.xml"
 
 markup:
   highlight:

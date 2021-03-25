@@ -75,6 +75,7 @@ To name just a few Email senders I've caught embedding the tracking pixels, here
 | BugSnag                         | bugsnagmarketing@bugsnag.com                                 | (Self-owned Tracker)                       |
 | GOG                             | newsletter@email2.gog.com                                    | Google                                     |
 | IMDB                            | do-not-reply@imdb.com                                        | Amazon SES                                 |
+| Internet Archive                | info@archive.org                                             | Mailchimp                                  |
 | Box                             | boxteam@customer.box.com                                     | spmailtechnol                              |
 | IHG (A hospitality company)     | IHGRewards@mc.ihg.com                                        | (Self-owned Tracker, more than 1 per mail) |
 | TuringBook.com                  | ebook@turingbook.com                                         | Mailchimp                                  |
@@ -90,9 +91,11 @@ To name just a few Email senders I've caught embedding the tracking pixels, here
 | Envato                          | do-not-reply@market.envato.com                               | Mandrillapp                                |
 | BundleHunt                      | support@bundlehunt.com                                       | Mailchimp                                  |
 | ClickUp                         | katie@clickup.com<br />success@clickup.com<br />help@clickup.com | Close                                      |
+| Clubhouse.io                    | support@clubhouse.io                                         | Intercom                                   |
 | Taiga                           | peter@mail.taiga.io                                          | SendGrid                                   |
 | Koingo Software                 | appdeals@koingo.com                                          | SendGrid                                   |
 | Lobe.ai                         | lobe@e-mail.microsoft.com                                    | Salesforce                                 |
+| Native Instruments              | newsletter@news.native-instruments.com                       | (Self-owned Tracker)                       |
 
 It can go very long as more and more services I use. And I was tracked all the way long.
 

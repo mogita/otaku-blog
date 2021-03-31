@@ -58,6 +58,7 @@ To name just a few Email senders I've caught embedding the tracking pixels, here
 | Apple App Store                 | no_reply@email.apple.com                                     | (Self-owned Tracker)                       |
 | iCloud (GCBD)                   | no_reply@iCloud.gzdata.com.cn                                | (Self-owned Tracker)                       |
 | Apple iTunes Connect            | do_not_reply@email.apple.com                                 | (Self-owned Tracker)                       |
+| Apple Developer                 | developer@insideapple.apple.com                              | Apple                                      |
 | Be My Eyes                      | account@bemyeyes.com<br />onboarding@bemyeyes.com            | Postmark<br />Mixpanel                     |
 | Goodreads                       | no-reply@mail.goodreads.com                                  | Amazon SES                                 |
 | Baidu                           | no-reply-bce@baidu.com                                       | (Self-owned Tracker)                       |
@@ -98,6 +99,7 @@ To name just a few Email senders I've caught embedding the tracking pixels, here
 | Lobe.ai                         | lobe@e-mail.microsoft.com                                    | Salesforce                                 |
 | Native Instruments              | newsletter@news.native-instruments.com                       | (Self-owned Tracker)                       |
 | Atlassian                       | info@e.atlassian.com                                         | Return Path                                |
+| Twitch                          | no-reply@twitch.tv                                           | (Self-owned Tracker)                       |
 
 It can go very long as more and more services I use. And I was tracked all the way long.
 

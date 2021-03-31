@@ -100,6 +100,7 @@ To name just a few Email senders I've caught embedding the tracking pixels, here
 | Native Instruments              | newsletter@news.native-instruments.com                       | (Self-owned Tracker)                       |
 | Atlassian                       | info@e.atlassian.com                                         | Return Path                                |
 | Twitch                          | no-reply@twitch.tv                                           | (Self-owned Tracker)                       |
+| JustFont                        | su.weihsiang@justfont.com                                    | Google                                     |
 
 It can go very long as more and more services I use. And I was tracked all the way long.
 

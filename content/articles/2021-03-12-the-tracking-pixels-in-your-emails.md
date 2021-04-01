@@ -101,6 +101,8 @@ To name just a few Email senders I've caught embedding the tracking pixels, here
 | Atlassian                       | info@e.atlassian.com                                         | Return Path                                |
 | Twitch                          | no-reply@twitch.tv                                           | (Self-owned Tracker)                       |
 | JustFont                        | su.weihsiang@justfont.com                                    | Google                                     |
+| JFrog                           | team@go.jfrog.com                                            | (Self-owned Tracker)                       |
+| NameSilo                        | abnous@namesilo.com                                          | MailerLite                                 |
 
 It can go very long as more and more services I use. And I was tracked all the way long.
 

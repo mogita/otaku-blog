@@ -104,6 +104,9 @@ To name just a few Email senders I've caught embedding the tracking pixels, here
 | JFrog                           | team@go.jfrog.com                                            | (Self-owned Tracker)                       |
 | NameSilo                        | abnous@namesilo.com                                          | MailerLite                                 |
 | NASA Mars                       | no-reply-mars@jpl.nasa.gov                                   | iContact                                   |
+| Zeplin                          | hi@zeplin.io                                                 | Mailchimp                                  |
+| Pipedream                       | sacerdoti@pipedream.com                                      | SendGrid                                   |
+| Google Payments                 | payments-noreply@google.com                                  | Google                                     |
 
 It can go very long as more and more services I use. And I was tracked all the way long.
 

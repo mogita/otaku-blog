@@ -55,12 +55,13 @@ To name just a few Email senders I've caught embedding the tracking pixels, here
 | Trello                          | taco@trello.com                                              | (Self-owned Tracker)                       |
 | Dropbox                         | no-reply@dropbox.com                                         | (Self-owned Tracker)                       |
 | Mapbox                          | newsletter@mapbox.com<br />billing@mapbox.com                | Customer.io                                |
-| Apple App Store                 | no_reply@email.apple.com                                     | (Self-owned Tracker)                       |
+| Apple App Store                 | no_reply@email.apple.com                                     | Apple                                      |
 | iCloud (GCBD)                   | no_reply@iCloud.gzdata.com.cn                                | (Self-owned Tracker)                       |
 | Apple iTunes Connect            | do_not_reply@email.apple.com                                 | (Self-owned Tracker)                       |
 | Apple Developer                 | developer@insideapple.apple.com                              | Apple                                      |
 | Be My Eyes                      | account@bemyeyes.com<br />onboarding@bemyeyes.com            | Postmark<br />Mixpanel                     |
 | Goodreads                       | no-reply@mail.goodreads.com                                  | Amazon SES                                 |
+| Foursquare                      | noreply@foursquare.com                                       | SendGrid                                   |
 | Baidu                           | no-reply-bce@baidu.com                                       | (Self-owned Tracker)                       |
 | GitHub                          | notifications@github.com                                     | GitHub                                     |
 | Microsoft 365                   | Microsoft365@mail.microsoft365.com                           | (Self-owned Tracker)                       |
@@ -68,7 +69,7 @@ To name just a few Email senders I've caught embedding the tracking pixels, here
 | Sentry                          | webinars@sentry.io                                           | (Self-owned Tracker)                       |
 | Upwork                          | donotreply@upwork.com                                        | Upwork                                     |
 | AWS                             | no-reply@marketplace.aws                                     | Amazon SES                                 |
-| Facebook                        | security@facebookmail.com                                    | Facebook                                   |
+| Facebook                        | security@facebookmail.com<br />notification@facebookmail.com | Facebook                                   |
 | Paypal                          | service@intl.paypal.com                                      | (Self-owned Tracker)<br />Return Path      |
 | Stripe                          | receipts+masked@stripe.com                                   | (Self-owned Tracker)                       |
 | Airbnb                          | automated@airbnb.com                                         | (Self-owned Tracker)                       |
@@ -77,6 +78,8 @@ To name just a few Email senders I've caught embedding the tracking pixels, here
 | BugSnag                         | bugsnagmarketing@bugsnag.com                                 | (Self-owned Tracker)                       |
 | GOG                             | newsletter@email2.gog.com                                    | <del>Google</del><br />GetResponse         |
 | IMDB                            | do-not-reply@imdb.com                                        | Amazon SES                                 |
+| CloudApp                        | no-reply@getcloudapp.com                                     | Customer.io                                |
+| PreSonus                        | presonus@e.presonus.com                                      | (Self-owned Tracker)                       |
 | Internet Archive                | info@archive.org                                             | Mailchimp                                  |
 | Box                             | boxteam@customer.box.com                                     | spmailtechnol                              |
 | IHG (A hospitality company)     | IHGRewards@mc.ihg.com                                        | (Self-owned Tracker, more than 1 per mail) |
@@ -103,10 +106,12 @@ To name just a few Email senders I've caught embedding the tracking pixels, here
 | JustFont                        | su.weihsiang@justfont.com                                    | Google                                     |
 | JFrog                           | team@go.jfrog.com                                            | (Self-owned Tracker)                       |
 | NameSilo                        | abnous@namesilo.com                                          | MailerLite                                 |
+| Riot Games                      | noreply@mail.accounts.riotgames.com                          | SendGrid                                   |
 | NASA Mars                       | no-reply-mars@jpl.nasa.gov                                   | iContact                                   |
 | Zeplin                          | hi@zeplin.io                                                 | Mailchimp                                  |
 | Pipedream                       | sacerdoti@pipedream.com                                      | SendGrid                                   |
 | Google Payments                 | payments-noreply@google.com                                  | Google                                     |
+| Climb App                       | (hidden due to Apple Login)                                  | SendGrid                                   |
 
 It can go very long as more and more services I use. And I was tracked all the way long.
 

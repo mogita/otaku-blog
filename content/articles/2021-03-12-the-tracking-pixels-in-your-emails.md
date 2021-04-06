@@ -95,7 +95,7 @@ To name just a few Email senders I've caught embedding the tracking pixels, here
 | uTalk                           | hello@offers2.utalk.com                                      | (Self-owned Tracker)                       |
 | Envato                          | do-not-reply@market.envato.com                               | Mandrillapp                                |
 | BundleHunt                      | support@bundlehunt.com                                       | Mailchimp                                  |
-| ClickUp                         | katie@clickup.com<br />success@clickup.com<br />help@clickup.com | Close                                      |
+| ClickUp                         | katie@clickup.com<br />success@clickup.com<br />help@clickup.com<br />clickupdates@clickup.com | Close                                      |
 | Clubhouse.io                    | support@clubhouse.io                                         | Intercom                                   |
 | Taiga                           | peter@mail.taiga.io                                          | SendGrid                                   |
 | Koingo Software                 | appdeals@koingo.com                                          | SendGrid                                   |
@@ -112,6 +112,7 @@ To name just a few Email senders I've caught embedding the tracking pixels, here
 | Pipedream                       | sacerdoti@pipedream.com                                      | SendGrid                                   |
 | Google Payments                 | payments-noreply@google.com                                  | Google                                     |
 | Climb App                       | (hidden due to Apple Login)                                  | SendGrid                                   |
+| China Merchants Bank            | 95555ad@message.cmbchina.com                                 | (Self-owned Tracker)                       |
 
 It can go very long as more and more services I use. And I was tracked all the way long.
 

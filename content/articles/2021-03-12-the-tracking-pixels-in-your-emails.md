@@ -73,6 +73,7 @@ To name just a few Email senders I've caught embedding the tracking pixels, here
 | Paypal                          | service@intl.paypal.com                                      | (Self-owned Tracker)<br />Return Path      |
 | Stripe                          | receipts+masked@stripe.com                                   | (Self-owned Tracker)                       |
 | Airbnb                          | automated@airbnb.com                                         | (Self-owned Tracker)                       |
+| Coursera                        | no-reply@m.mail.coursera.org                                 | (Self-owned Tracker)                       |
 | Console.dev                     | weekly@console.dev                                           | Mailchimp                                  |
 | AudioThing.net                  | news@audiothing.net                                          | Mailchimp                                  |
 | BugSnag                         | bugsnagmarketing@bugsnag.com                                 | (Self-owned Tracker)                       |
@@ -113,6 +114,7 @@ To name just a few Email senders I've caught embedding the tracking pixels, here
 | Google Payments                 | payments-noreply@google.com                                  | Google                                     |
 | Climb App                       | (hidden due to Apple Login)                                  | SendGrid                                   |
 | China Merchants Bank            | 95555ad@message.cmbchina.com                                 | (Self-owned Tracker)                       |
+| Magoosh                         | help@magoosh.com                                             | SendGrid                                   |
 
 It can go very long as more and more services I use. And I was tracked all the way long.
 

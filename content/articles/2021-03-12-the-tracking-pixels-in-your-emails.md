@@ -95,6 +95,7 @@ To name just a few Email senders I've caught embedding the tracking pixels, here
 | Remove.bg                       | noreply@remove.bg                                            | (Self-owned Tracker)                       |
 | uTalk                           | hello@offers2.utalk.com                                      | (Self-owned Tracker)                       |
 | Envato                          | do-not-reply@market.envato.com                               | Mandrillapp                                |
+| RapidAPI                        | support@rapidapi.com                                         | Mailchimp                                  |
 | BundleHunt                      | support@bundlehunt.com                                       | Mailchimp                                  |
 | TIDAL                           | account@info.tidal.com                                       | SendGrid                                   |
 | ClickUp                         | katie@clickup.com<br />success@clickup.com<br />help@clickup.com<br />clickupdates@clickup.com | Close                                      |

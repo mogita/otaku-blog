@@ -100,6 +100,7 @@ To name just a few Email senders I've caught embedding the tracking pixels, here
 | TIDAL                           | account@info.tidal.com                                       | SendGrid                                   |
 | ClickUp                         | katie@clickup.com<br />success@clickup.com<br />help@clickup.com<br />clickupdates@clickup.com | Close                                      |
 | Clubhouse.io                    | support@clubhouse.io                                         | Intercom                                   |
+| Postman.com                     | postman-team@notifications.postman.com                       | Fastic                                     |
 | Taiga                           | peter@mail.taiga.io                                          | SendGrid                                   |
 | Koingo Software                 | appdeals@koingo.com                                          | SendGrid                                   |
 | Lobe.ai                         | lobe@e-mail.microsoft.com                                    | Salesforce                                 |

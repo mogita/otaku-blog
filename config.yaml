@@ -1,34 +1,40 @@
 baseURL: "https://blog.mogita.com/"
 languageCode: "en-us"
 title: "Otaku Blog"
-theme: "hugo-tania"
+theme: "etch"
+enableInlineShortcodes: true
+pygmentsCodeFences: true
+pygmentsUseClasses: true
+
 paginate: 10
 paginatePath: "page"
 permalinks:
-  /about: /about.html
-  /articles: /:slug.html
+  /about: "/about.html"
+  posts: "/:slug.html"
 trimTrailingSlash: true
 
 params:
-  titleEmoji: "🏡"
-  socialOptions:
-    github: https://github.com/mogita
-    twitter: https://twitter.com/mogita
+  description: "mogita's personal blog"
+  dark: "off"
+  copyright: "Copyright © 2015-2021 mogita"
+  highlight: true
 
 menu:
-  header:
-    - name: About
+  main:
+    - identifier: "about"
+      name: "About"
+      title: "About"
       url: "/about"
-    - name: RSS
-      url: "/articles/index.xml"
-  footer:
-    - name: RSS
-      url: "/articles/index.xml"
+      weight: 20
+    - identifier: "rss"
+      name: "RSS"
+      title: "RSS"
+      url: "/index.xml"
+      weight: 10
 
 markup:
   highlight:
     noClasses: false
-    lineNos: true
   goldmark:
     renderer:
       unsafe: true

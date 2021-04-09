@@ -90,6 +90,8 @@ To name just a few Email senders I've caught embedding the tracking pixels, here
 | Chatra                          | support@chatra.com                                           | Postmark                                   |
 | Bandcamp                        | noreply@bandcamp.com                                         | (Self-owned Tracker)                       |
 | Craft.do                        | team@craft.do                                                | (Self-owned Tracker)                       |
+| Journal                         | hello@usejournal.com                                         | SendGrid                                   |
+| Mockaroo                        | no-reply@mockaroo.com                                        | Mailchimp                                  |
 | Ghost.org (A blogging software) | hello@ghost.org                                              | (Self-owned Tracker)                       |
 | Asana                           | no-reply@asana.com                                           | (Self-owned Tracker)                       |
 | Remove.bg                       | noreply@remove.bg                                            | (Self-owned Tracker)                       |

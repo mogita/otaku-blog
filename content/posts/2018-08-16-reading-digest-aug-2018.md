@@ -1,5 +1,5 @@
 ---
-title: Reading Digest [Aug. 2018]
+title: Reading Digest
 slug: reading-digest-aug-2018
 date: 2018-08-16 17:21:30
 updated:
@@ -43,4 +43,3 @@ Digging deeper, I can gather the answers and make a dashboard to visualize the d
 Here's a screenshot from its repo:
 
 ![metabase screenshot](/img/metabase-product-screenshot.png)
-

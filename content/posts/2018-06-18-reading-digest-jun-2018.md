@@ -1,5 +1,5 @@
 ---
-title: Reading Digest [Jun. 2018]
+title: Reading Digest
 slug: reading-digest-jun-2018
 date: 2018-06-18 18:24:49
 updated: 2018-06-19 16:55:55
@@ -30,4 +30,3 @@ On the Go based micro-service, gRPC is a must-know technology.
 
 - [Dependency Injection In Go](https://medium.com/full-stack-tips/dependency-injection-in-go-99b09e2cc480)
   A basic tutorial on how and why for DI in the Go language.
-

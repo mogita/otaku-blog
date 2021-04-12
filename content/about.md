@@ -4,7 +4,9 @@ date: 2021-03-23T12:32:03+08:00
 draft: false
 ---
 
-I'm mogita, a software engineer.
+I'm mogita, a software engineer. This site was created with [Hugo](https://gohugo.io/) and [etch](https://github.com/LukasJoswiak/etch), without any trackers.
+
+#Bio
 
 🦋 Fanfouer
 

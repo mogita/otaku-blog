@@ -6,7 +6,7 @@ draft: false
 
 I'm mogita, a software engineer. This site was created with [Hugo](https://gohugo.io/) and [etch](https://github.com/LukasJoswiak/etch), without any trackers.
 
-#Bio
+# Bio
 
 🦋 Fanfouer
 

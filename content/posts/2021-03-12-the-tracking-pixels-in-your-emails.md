@@ -121,6 +121,9 @@ To name just a few Email senders I've caught embedding the tracking pixels, here
 | Climb App                       | (hidden due to Apple Login)                                  | SendGrid                                   |
 | China Merchants Bank            | 95555ad@message.cmbchina.com                                 | (Self-owned Tracker)                       |
 | Magoosh                         | help@magoosh.com                                             | SendGrid                                   |
+| Todoist                         | no-reply@todoist.com                                         | SendGrid                                   |
+| MuseScore                       | no-reply@musescore.com                                       | (Self-owned Tracker)                       |
+| GitGuardian                     | support@gitguardian.com<br />security@mail.gitguardian.com   | SendGrid<br />Mailgun                      |
 
 It can go very long as more and more services I use. And I was tracked all the way long.
 

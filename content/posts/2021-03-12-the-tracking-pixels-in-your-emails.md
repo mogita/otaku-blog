@@ -124,6 +124,7 @@ To name just a few Email senders I've caught embedding the tracking pixels, here
 | Todoist                         | no-reply@todoist.com                                         | SendGrid                                   |
 | MuseScore                       | no-reply@musescore.com                                       | (Self-owned Tracker)                       |
 | GitGuardian                     | support@gitguardian.com<br />security@mail.gitguardian.com   | SendGrid<br />Mailgun                      |
+| Speed Dial 2                    | hello@speeddial2.com                                         | Postmark                                   |
 
 It can go very long as more and more services I use. And I was tracked all the way long.
 

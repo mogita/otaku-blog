@@ -22,7 +22,7 @@ Instant messages are fun and for fun. Seriously, write an Email.
 
 [me@mogita.com](mailto:me@mogita.com)
 
-GPG: `6DB7 2FE7 20F6 19F7 10CD B4C9 A0AA 1B9C 57A4 8ECF`
+GPG: [`6DB7 2FE7 20F6 19F7 10CD B4C9 A0AA 1B9C 57A4 8ECF`](http://hkps.pool.sks-keyservers.net/pks/lookup?op=vindex&fingerprint=on&search=0xA0AA1B9C57A48ECF)
 
 # Projects
 

@@ -74,6 +74,7 @@ To name just a few Email senders I've caught embedding the tracking pixels, here
 | Facebook                        | security@facebookmail.com<br />notification@facebookmail.com | Facebook                                   |
 | Paypal                          | service@intl.paypal.com                                      | (Self-owned Tracker)<br />Return Path      |
 | Stripe                          | receipts+masked@stripe.com                                   | (Self-owned Tracker)                       |
+| Auth0                           | no-reply@emails.auth0.com                                    | SendGrid                                   |
 | Airbnb                          | automated@airbnb.com                                         | (Self-owned Tracker)                       |
 | Coursera                        | no-reply@m.mail.coursera.org                                 | (Self-owned Tracker)                       |
 | Console.dev                     | weekly@console.dev                                           | Mailchimp                                  |

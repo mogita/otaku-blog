@@ -50,6 +50,7 @@ To name just a few Email senders I've caught embedding the tracking pixels, here
 | Nintendo                        | nintendo-noreply@ccg.nintendo.com                            | (Self-owned Tracker)                       |
 | LinkedIn                        | messages-noreply@linkedin.com                                | (Self-owned Tracker)                       |
 | Duolingo                        | hello@duolingo.com                                           | Amazon SES                                 |
+| Flickr                          | flickrteam@arrow.flickr.com                                  | SparkPost                                  |
 | Lark Suite (a.k.a Feishu)       | support@service.larksuite.com                                | (Self-owned Tracker)                       |
 | Bedroom Producers Blog          | tomislav@bedroomproducersblog.com                            | MailerLite                                 |
 | Trello                          | taco@trello.com                                              | (Self-owned Tracker)                       |

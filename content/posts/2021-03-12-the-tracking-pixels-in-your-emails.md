@@ -46,6 +46,7 @@ To name just a few Email senders I've caught embedding the tracking pixels, here
 | Sender                          | From Address                                                 | Tracking Pixel Service Provider            |
 | ------------------------------- | ------------------------------------------------------------ | ------------------------------------------ |
 | Sony PlayStation                | reply@txn-email.playstation.com                              | Salesforce                                 |
+| Adobe                           | mail@mail.adobe.com<br />message@adobe.com                   | Adobe                                      |
 | IFTTT                           | alerts@ifttt.com                                             | Customer.io                                |
 | Nintendo                        | nintendo-noreply@ccg.nintendo.com                            | (Self-owned Tracker)                       |
 | LinkedIn                        | messages-noreply@linkedin.com                                | (Self-owned Tracker)                       |

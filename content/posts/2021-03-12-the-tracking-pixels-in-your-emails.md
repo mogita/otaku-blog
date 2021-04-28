@@ -49,7 +49,7 @@ To name just a few Email senders I've caught embedding the tracking pixels, here
 | Adobe                           | mail@mail.adobe.com<br />message@adobe.com                   | Adobe                                      |
 | IFTTT                           | alerts@ifttt.com                                             | Customer.io                                |
 | Nintendo                        | nintendo-noreply@ccg.nintendo.com                            | (Self-owned Tracker)                       |
-| LinkedIn                        | messages-noreply@linkedin.com                                | (Self-owned Tracker)                       |
+| LinkedIn                        | messages-noreply@linkedin.com                                | LinkedIn                                   |
 | Duolingo                        | hello@duolingo.com                                           | Amazon SES                                 |
 | Flickr                          | flickrteam@arrow.flickr.com                                  | SparkPost                                  |
 | Lark Suite (a.k.a Feishu)       | support@service.larksuite.com                                | SendGrid                                   |
@@ -68,7 +68,7 @@ To name just a few Email senders I've caught embedding the tracking pixels, here
 | Foursquare                      | noreply@foursquare.com                                       | SendGrid                                   |
 | Baidu                           | no-reply-bce@baidu.com                                       | (Self-owned Tracker)                       |
 | GitHub                          | notifications@github.com                                     | GitHub                                     |
-| Microsoft                       | Microsoft365@mail.microsoft365.com<br />msa@communication.microsoft.com | Microsoft                                  |
+| Microsoft                       | Microsoft365@mail.microsoft365.com<br />msa@communication.microsoft.com<br />azure@email.microsoft.com | Microsoft                                  |
 | Cloudflare                      | newsletter@cloudflare.com                                    | (Self-owned Tracker)                       |
 | Sentry                          | webinars@sentry.io                                           | Hubspot                                    |
 | Upwork                          | donotreply@upwork.com                                        | Upwork                                     |
@@ -131,6 +131,7 @@ To name just a few Email senders I've caught embedding the tracking pixels, here
 | GitGuardian                     | support@gitguardian.com<br />security@mail.gitguardian.com   | SendGrid<br />Mailgun                      |
 | Speed Dial 2                    | hello@speeddial2.com                                         | Postmark                                   |
 | Sococo                          | noreply@sococo.net                                           | Mandrill                                   |
+| Chamaileon                      | hello@chamaileon.io                                          | Sendy                                      |
 
 It can go very long as more and more services I use. And I was tracked all the way long.
 

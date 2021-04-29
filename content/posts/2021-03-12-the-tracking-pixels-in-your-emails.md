@@ -80,7 +80,7 @@ To name just a few Email senders I've caught embedding the tracking pixels, here
 | Airbnb                          | automated@airbnb.com                                         | (Self-owned Tracker)                       |
 | Coursera                        | no-reply@m.mail.coursera.org                                 | (Self-owned Tracker)                       |
 | Console.dev                     | weekly@console.dev                                           | Mailchimp                                  |
-| AudioThing.net                  | news@audiothing.net                                          | Mailchimp                                  |
+| AudioThing                      | news@audiothing.net                                          | Mailchimp                                  |
 | BugSnag                         | bugsnagmarketing@bugsnag.com                                 | (Self-owned Tracker)                       |
 | GOG                             | newsletter@email2.gog.com                                    | <del>Google</del><br />GetResponse         |
 | IMDB                            | do-not-reply@imdb.com                                        | Amazon SES                                 |
@@ -132,6 +132,9 @@ To name just a few Email senders I've caught embedding the tracking pixels, here
 | Speed Dial 2                    | hello@speeddial2.com                                         | Postmark                                   |
 | Sococo                          | noreply@sococo.net                                           | Mandrill                                   |
 | Chamaileon                      | hello@chamaileon.io                                          | Sendy                                      |
+| Browserstack Team               | news@browserstack.com                                        | Mailchimp                                  |
+| Ultimate Guitar                 | no_reply@ultimate-guitar.com                                 | Mailtrain                                  |
+| Bunny Studio                    | support@bunnystudio.com                                      | SendGrid                                   |
 
 It can go very long as more and more services I use. And I was tracked all the way long.
 

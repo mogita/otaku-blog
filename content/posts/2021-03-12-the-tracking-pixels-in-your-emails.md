@@ -82,6 +82,7 @@ To name just a few Email senders I've caught embedding the tracking pixels, here
 | Console.dev                     | weekly@console.dev                                           | Mailchimp                                  |
 | AudioThing                      | news@audiothing.net                                          | Mailchimp                                  |
 | BugSnag                         | bugsnagmarketing@bugsnag.com                                 | (Self-owned Tracker)                       |
+| Slite                           | marc@slite.com                                               | SendGrid                                   |
 | GOG                             | newsletter@email2.gog.com                                    | <del>Google</del><br />GetResponse         |
 | IMDB                            | do-not-reply@imdb.com                                        | Amazon SES                                 |
 | CloudApp                        | no-reply@getcloudapp.com                                     | Customer.io                                |

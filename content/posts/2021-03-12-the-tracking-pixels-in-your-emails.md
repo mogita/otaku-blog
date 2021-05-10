@@ -136,7 +136,8 @@ To name just a few Email senders I've caught embedding the tracking pixels, here
 | Browserstack Team               | news@browserstack.com                                        | Mailchimp                                  |
 | Ultimate Guitar                 | no_reply@ultimate-guitar.com                                 | Mailtrain                                  |
 | Bunny Studio                    | support@bunnystudio.com                                      | SendGrid                                   |
-| Waymo                           | -noreply@waymo.com                                           | Google                                     |
+| Waymo                           | noreply@waymo.com                                            | Google                                     |
+| 数码荔枝 lizhi.io               | hi@tongxun.lizhi.io                                          | Mailchimp                                  |
 
 It can go very long as more and more services I use. And I was tracked all the way long.
 

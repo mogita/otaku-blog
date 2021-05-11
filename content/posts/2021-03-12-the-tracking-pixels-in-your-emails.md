@@ -74,6 +74,7 @@ To name just a few Email senders I've caught embedding the tracking pixels, here
 | Upwork                          | donotreply@upwork.com                                        | Upwork                                     |
 | AWS                             | no-reply@marketplace.aws                                     | Amazon SES                                 |
 | Facebook                        | security@facebookmail.com<br />notification@facebookmail.com | Facebook                                   |
+| Instagram                       | security@mail.instagram.com                                  | Facebook                                   |
 | Paypal                          | service@intl.paypal.com                                      | (Self-owned Tracker)<br />Return Path      |
 | Stripe                          | receipts+masked@stripe.com                                   | (Self-owned Tracker)                       |
 | Auth0                           | no-reply@emails.auth0.com                                    | SendGrid                                   |

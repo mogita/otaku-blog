@@ -77,7 +77,7 @@ To name just a few Email senders I've caught embedding the tracking pixels, here
 | Instagram                       | security@mail.instagram.com                                  | Facebook                                   |
 | Paypal                          | service@intl.paypal.com                                      | (Self-owned Tracker)<br />Return Path      |
 | Stripe                          | receipts+masked@stripe.com                                   | (Self-owned Tracker)                       |
-| Auth0                           | no-reply@emails.auth0.com                                    | SendGrid                                   |
+| Auth0                           | no-reply@emails.auth0.com<br />no-reply-support@auth0.com    | SendGrid<br />Mandrill                     |
 | Airbnb                          | automated@airbnb.com                                         | (Self-owned Tracker)                       |
 | Coursera                        | no-reply@m.mail.coursera.org                                 | (Self-owned Tracker)                       |
 | Console.dev                     | weekly@console.dev                                           | Mailchimp                                  |
@@ -108,7 +108,7 @@ To name just a few Email senders I've caught embedding the tracking pixels, here
 | BundleHunt                      | support@bundlehunt.com                                       | Mailchimp                                  |
 | TIDAL                           | account@info.tidal.com                                       | SendGrid                                   |
 | ClickUp                         | katie@clickup.com<br />success@clickup.com<br />help@clickup.com<br />clickupdates@clickup.com | Close                                      |
-| Clubhouse.io                    | support@clubhouse.io                                         | Intercom                                   |
+| Clubhouse.io                    | support@clubhouse.io<br />mayrelease@splash.events           | Intercom<br />SendGrid                     |
 | Postman.com                     | postman-team@notifications.postman.com                       | Fastic                                     |
 | Taiga                           | peter@mail.taiga.io                                          | SendGrid                                   |
 | Koingo Software                 | appdeals@koingo.com                                          | SendGrid                                   |
@@ -125,6 +125,7 @@ To name just a few Email senders I've caught embedding the tracking pixels, here
 | Pipedream                       | sacerdoti@pipedream.com                                      | SendGrid                                   |
 | Google Payments                 | payments-noreply@google.com                                  | Google                                     |
 | Google Workspace                | google-workspace-alerts-noreply@google.com                   | Google                                     |
+| Google Cloud Platform           | CloudPlatform-noreply@google.com                             | Google                                     |
 | Climb App                       | (hidden due to Apple Login)                                  | SendGrid                                   |
 | China Merchants Bank            | 95555ad@message.cmbchina.com                                 | (Self-owned Tracker)                       |
 | Magoosh                         | help@magoosh.com                                             | SendGrid                                   |

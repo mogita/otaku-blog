@@ -131,7 +131,7 @@ To name just a few Email senders I've caught embedding the tracking pixels, here
 | Magoosh                         | help@magoosh.com                                             | SendGrid                                   |
 | Todoist                         | no-reply@todoist.com                                         | SendGrid                                   |
 | MuseScore                       | no-reply@musescore.com                                       | (Self-owned Tracker)                       |
-| GitGuardian                     | support@gitguardian.com<br />security@mail.gitguardian.com   | SendGrid<br />Mailgun                      |
+| GitGuardian                     | support@gitguardian.com<br />security@mail.gitguardian.com<br />contact@gitguardian.com | SendGrid<br />Mailgun                      |
 | Speed Dial 2                    | hello@speeddial2.com                                         | Postmark                                   |
 | Sococo                          | noreply@sococo.net                                           | Mandrill                                   |
 | Chamaileon                      | hello@chamaileon.io                                          | Sendy                                      |

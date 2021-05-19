@@ -57,7 +57,7 @@ To name just a few Email senders I've caught embedding the tracking pixels, here
 | Trello                          | taco@trello.com                                              | (Self-owned Tracker)                       |
 | Dropbox                         | no-reply@dropbox.com                                         | (Self-owned Tracker)                       |
 | CodeSandbox                     | hello@codesandbox.io                                         | Mailgun                                    |
-| Mapbox                          | newsletter@mapbox.com<br />billing@mapbox.com                | Customer.io                                |
+| Mapbox                          | newsletter@mapbox.com<br />billing@mapbox.com<br />sales@mapbox.com | Customer.io                                |
 | MapTiler                        | news@maptiler.com                                            | Google                                     |
 | Apple App Store                 | no_reply@email.apple.com                                     | Apple                                      |
 | iCloud (GCBD)                   | no_reply@iCloud.gzdata.com.cn                                | (Self-owned Tracker)                       |

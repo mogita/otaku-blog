@@ -142,6 +142,7 @@ To name just a few Email senders I've caught embedding the tracking pixels, here
 | 数码荔枝 lizhi.io               | hi@tongxun.lizhi.io                                          | Mailchimp                                  |
 | Three Dots Labs                 | contact@threedotslabs.com                                    | Mailchimp                                  |
 | Vercel                          | ship@vercel.com                                              | SendGrid                                   |
+| Guitar Pro                      | contact@arobas-music.com                                     | Mailchimp                                  |
 
 It can go very long as more and more services I use. And I was tracked all the way long.
 

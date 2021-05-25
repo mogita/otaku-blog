@@ -54,7 +54,7 @@ To name just a few Email senders I've caught embedding the tracking pixels, here
 | Flickr                          | flickrteam@arrow.flickr.com                                  | SparkPost                                  |
 | Lark Suite (a.k.a Feishu)       | support@service.larksuite.com                                | SendGrid                                   |
 | Bedroom Producers Blog          | tomislav@bedroomproducersblog.com                            | MailerLite                                 |
-| Trello                          | taco@trello.com                                              | (Self-owned Tracker)                       |
+| Trello                          | taco@trello.com<br />do-not-reply@trello.com<br />invitation-do-not-reply@trello.com | Atlassian                                  |
 | Dropbox                         | no-reply@dropbox.com                                         | (Self-owned Tracker)                       |
 | CodeSandbox                     | hello@codesandbox.io                                         | Mailgun                                    |
 | Mapbox                          | newsletter@mapbox.com<br />billing@mapbox.com<br />sales@mapbox.com | Customer.io                                |
@@ -144,6 +144,7 @@ To name just a few Email senders I've caught embedding the tracking pixels, here
 | Vercel                          | ship@vercel.com                                              | SendGrid                                   |
 | Guitar Pro                      | contact@arobas-music.com                                     | Mailchimp                                  |
 | Loom                            | welcome@loom.com<br />team@loom.com<br />no-reply@loom.com   | Intercom<br />Mandrill                     |
+| Opstree                         | riya@opstree.com                                             | Hubspot                                    |
 
 It can go very long as more and more services I use. And I was tracked all the way long.
 

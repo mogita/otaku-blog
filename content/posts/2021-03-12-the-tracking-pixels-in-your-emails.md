@@ -145,6 +145,7 @@ To name just a few Email senders I've caught embedding the tracking pixels, here
 | Guitar Pro                      | contact@arobas-music.com                                     | Mailchimp                                  |
 | Loom                            | welcome@loom.com<br />team@loom.com<br />no-reply@loom.com   | Intercom<br />Mandrill                     |
 | Opstree                         | riya@opstree.com                                             | Hubspot                                    |
+| WeTransfer                      | noreply@wetransfer.com                                       | SendGrid                                   |
 
 It can go very long as more and more services I use. And I was tracked all the way long.
 

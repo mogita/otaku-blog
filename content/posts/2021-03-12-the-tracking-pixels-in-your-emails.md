@@ -57,7 +57,7 @@ To name just a few Email senders I've caught embedding the tracking pixels, here
 | Trello                          | taco@trello.com<br />do-not-reply@trello.com<br />invitation-do-not-reply@trello.com | Atlassian                                  |
 | Dropbox                         | no-reply@dropbox.com                                         | (Self-owned Tracker)                       |
 | CodeSandbox                     | hello@codesandbox.io                                         | Mailgun                                    |
-| Mapbox                          | newsletter@mapbox.com<br />billing@mapbox.com<br />sales@mapbox.com | Customer.io                                |
+| Mapbox                          | newsletter@mapbox.com<br />billing@mapbox.com<br />sales@mapbox.com<br />community@mapbox.com | Customer.io                                |
 | MapTiler                        | news@maptiler.com                                            | Google                                     |
 | Apple App Store                 | no_reply@email.apple.com                                     | Apple                                      |
 | iCloud (GCBD)                   | no_reply@iCloud.gzdata.com.cn                                | (Self-owned Tracker)                       |
@@ -147,6 +147,9 @@ To name just a few Email senders I've caught embedding the tracking pixels, here
 | Opstree                         | riya@opstree.com                                             | Hubspot                                    |
 | WeTransfer                      | noreply@wetransfer.com                                       | SendGrid                                   |
 | Flim                            | hello@flim.ai                                                | Mailjet                                    |
+| Grab                            | corpsupport.sg@grab.com                                      | Amazon SES                                 |
+| Pusher                          | team@pusher.com                                              | Customer.io                                |
+| Chess.com                       | hello@chess.com<br />alert@chess.com                         | Fastic<br />SendGrid                       |
 
 It can go very long as more and more services I use. And I was tracked all the way long.
 

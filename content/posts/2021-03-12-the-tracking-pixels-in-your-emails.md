@@ -149,7 +149,9 @@ To name just a few Email senders I've caught embedding the tracking pixels, here
 | Flim                            | hello@flim.ai                                                | Mailjet                                    |
 | Grab                            | corpsupport.sg@grab.com                                      | Amazon SES                                 |
 | Pusher                          | team@pusher.com                                              | Customer.io                                |
-| Chess.com                       | hello@chess.com<br />alert@chess.com                         | Fastic<br />SendGrid                       |
+| Chess.com                       | hello@chess.com<br />alert@chess.com<br />receipt@chess.com  | Fastic<br />SendGrid<br />SendGrid         |
+| Soundtoys                       | news@soundtoys.com                                           | Mailchimp                                  |
+| italki                          | noreply@italki.com                                           | Amazon SES                                 |
 
 It can go very long as more and more services I use. And I was tracked all the way long.
 

@@ -59,6 +59,7 @@ To name just a few Email senders I've caught embedding the tracking pixels, here
 | CodeSandbox                     | hello@codesandbox.io                                         | Mailgun                                    |
 | Mapbox                          | newsletter@mapbox.com<br />billing@mapbox.com<br />sales@mapbox.com<br />community@mapbox.com | Customer.io                                |
 | MapTiler                        | news@maptiler.com                                            | Google                                     |
+| Mapillary                       | support@mapillary.com                                        | SendGrid                                   |
 | Apple App Store                 | no_reply@email.apple.com                                     | Apple                                      |
 | iCloud (GCBD)                   | no_reply@iCloud.gzdata.com.cn                                | (Self-owned Tracker)                       |
 | Apple iTunes Connect            | do_not_reply@email.apple.com                                 | (Self-owned Tracker)                       |
@@ -152,6 +153,7 @@ To name just a few Email senders I've caught embedding the tracking pixels, here
 | Chess.com                       | hello@chess.com<br />alert@chess.com<br />receipt@chess.com  | Fastic<br />SendGrid<br />SendGrid         |
 | Soundtoys                       | news@soundtoys.com                                           | Mailchimp                                  |
 | italki                          | noreply@italki.com                                           | Amazon SES                                 |
+| Codecov                         | hello@codecov.io                                             | (Self-owned Tracker)                       |
 
 It can go very long as more and more services I use. And I was tracked all the way long.
 

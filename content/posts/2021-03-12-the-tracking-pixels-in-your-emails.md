@@ -157,6 +157,7 @@ To name just a few Email senders I've caught embedding the tracking pixels, here
 | Wurkr                           | helena@wurkr.io                                              | Hubspot                                    |
 | Coinbase                        | info@cb.mail.coinbase.com                                    | Fastic                                     |
 | Zapier                          | billing@zapier.com                                           | Litmus                                     |
+| HBO Max                         | HBOMax@mail.hbomax.com                                       | SendGrid                                   |
 
 It can go very long as more and more services I use. And I was tracked all the way long.
 

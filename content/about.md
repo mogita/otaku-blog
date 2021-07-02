@@ -4,7 +4,7 @@ date: 2021-03-23T12:32:03+08:00
 draft: false
 ---
 
-I'm mogita, a software engineer. This site was created with [Hugo](https://gohugo.io/) and [etch](https://github.com/LukasJoswiak/etch), without any trackers.
+I'm mogita, a software engineer. This site was created with [Hugo](https://gohugo.io/) and [etch](https://github.com/LukasJoswiak/etch), without any trackers but a simple site analyzer to see the traffic to my pages (if you have ad-blocker installed, the analyzer shall be blocked anyway).
 
 # Bio
 
@@ -41,3 +41,4 @@ GPG: [`6DB7 2FE7 20F6 19F7 10CD B4C9 A0AA 1B9C 57A4 8ECF`](http://hkps.pool.sks-
 # Portkeys [<a href="https://harrypotter.fandom.com/wiki/Portkey" target="_blank">?</a>]
 
 - [配信中](https://www.yocson.com)
+- [Archean's Blog](https://archeanz.com)

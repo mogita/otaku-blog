@@ -160,6 +160,7 @@ To name just a few Email senders I've caught embedding the tracking pixels, here
 | HBO Max                         | HBOMax@mail.hbomax.com                                       | SendGrid                                   |
 | Malaysia Kini                   | newslab@malaysiakini.com<br />membership@malaysiakini.com    | Amazon SES                                 |
 | Book Depository                 | reply@support.bookdepository.com                             | Litmus                                     |
+| Anytype                         | hello@anytype.io                                             | SendGrid                                   |
 
 It can go very long as more and more services I use. And I was tracked all the way long.
 

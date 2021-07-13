@@ -163,6 +163,7 @@ To name just a few Email senders I've caught embedding the tracking pixels, here
 | Anytype                         | hello@anytype.io                                             | SendGrid                                   |
 | Change.org                      | change@a.change.org                                          | (Self-owned Tracker)                       |
 | Flo                             | legal@floemail.com                                           | SendGrid                                   |
+| Medium                          | noreply@medium.com                                           | SendGrid                                   |
 
 It can go very long as more and more services I use. And I was tracked all the way long.
 

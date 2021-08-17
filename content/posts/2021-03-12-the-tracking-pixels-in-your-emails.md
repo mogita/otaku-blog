@@ -173,6 +173,8 @@ To name just a few Email senders I've caught embedding the tracking pixels, here
 | Los Angeles Valley Collage      | LAVCstudentsupport@laccd.edu                                 | iContact                                   |
 | StarWind                        | brooke.johnson@starwind.com                                  | Hubspot                                    |
 | Product Hunt                    | hello@team.producthunt.com                                   | Mailjet                                    |
+| Gengo Translator Team           | no-reply@gengo.com                                           | SendGrid                                   |
+| Robinhood Snacks                | noreply@robinhood.com                                        | SendGrid                                   |
 
 It can go very long as more and more services I use. And I was tracked all the way long.
 

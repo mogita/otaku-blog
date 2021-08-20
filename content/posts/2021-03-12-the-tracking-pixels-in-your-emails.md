@@ -175,6 +175,7 @@ To name just a few Email senders I've caught embedding the tracking pixels, here
 | Product Hunt                    | hello@team.producthunt.com                                   | Mailjet                                    |
 | Gengo Translator Team           | no-reply@gengo.com                                           | SendGrid                                   |
 | Robinhood Snacks                | noreply@robinhood.com                                        | SendGrid                                   |
+| Live2D                          | support@live2d.com                                           | Mailchimp                                  |
 
 It can go very long as more and more services I use. And I was tracked all the way long.
 

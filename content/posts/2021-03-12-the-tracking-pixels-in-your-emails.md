@@ -80,7 +80,7 @@ To name just a few Email senders I've caught embedding the tracking pixels, here
 | Stripe                          | receipts+masked@stripe.com                                   | (Self-owned Tracker)                       |
 | Auth0                           | no-reply@emails.auth0.com<br />no-reply-support@auth0.com    | SendGrid<br />Mandrill                     |
 | Airbnb                          | automated@airbnb.com                                         | (Self-owned Tracker)                       |
-| Coursera                        | no-reply@m.mail.coursera.org                                 | (Self-owned Tracker)                       |
+| Coursera                        | no-reply@m.mail.coursera.org                                 | SparkPost                                  |
 | Console.dev                     | weekly@console.dev                                           | Mailchimp                                  |
 | AudioThing                      | news@audiothing.net                                          | Mailchimp                                  |
 | BugSnag                         | bugsnagmarketing@bugsnag.com                                 | (Self-owned Tracker)                       |
@@ -176,6 +176,7 @@ To name just a few Email senders I've caught embedding the tracking pixels, here
 | Gengo Translator Team           | no-reply@gengo.com                                           | SendGrid                                   |
 | Robinhood Snacks                | noreply@robinhood.com                                        | SendGrid                                   |
 | Live2D                          | support@live2d.com                                           | Mailchimp                                  |
+| JetBrains                       | news@jetbrains.com                                           | Adobe                                      |
 
 It can go very long as more and more services I use. And I was tracked all the way long.
 

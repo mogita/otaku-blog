@@ -179,6 +179,7 @@ To name just a few Email senders I've caught embedding the tracking pixels, here
 | JetBrains                       | news@jetbrains.com                                           | Adobe                                      |
 | Docker                          | no-reply@notify.docker.com                                   | Mailgun                                    |
 | Discord                         | noreply@discord.com                                          | SendGrid                                   |
+| Skillshare                      | hello@skillshare.com                                         | SendGrid                                   |
 
 It can go very long as more and more services I use. And I was tracked all the way long.
 

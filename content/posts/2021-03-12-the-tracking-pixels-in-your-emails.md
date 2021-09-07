@@ -181,6 +181,8 @@ To name just a few Email senders I've caught embedding the tracking pixels, here
 | Discord                         | noreply@discord.com                                          | SendGrid                                   |
 | Skillshare                      | hello@skillshare.com                                         | SendGrid                                   |
 | Kickstarter                     | no-reply@kickstarter.com                                     | SendGrid                                   |
+| MakeML                          | alexander@makeml.app                                         | SendGrid                                   |
+| Roboflow                        | hello@roboflow.com                                           | Customer.io                                |
 
 It can go very long as more and more services I use. And I was tracked all the way long.
 

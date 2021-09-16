@@ -183,6 +183,8 @@ To name just a few Email senders I've caught embedding the tracking pixels, here
 | Kickstarter                     | no-reply@kickstarter.com                                     | SendGrid                                   |
 | MakeML                          | alexander@makeml.app                                         | SendGrid                                   |
 | Roboflow                        | hello@roboflow.com                                           | Customer.io                                |
+| Unity                           | accounts@unity3d.com                                         | SendGrid                                   |
+| Otoy                            | help@otoy.com                                                | Mailchimp                                  |
 
 It can go very long as more and more services I use. And I was tracked all the way long.
 

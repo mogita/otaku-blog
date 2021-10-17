@@ -1,10 +1,11 @@
 ---
 title: "About"
 date: 2021-03-23T12:32:03+08:00
+type: "page"
 draft: false
 ---
 
-I'm mogita, a software engineer. This site was created with [Hugo](https://gohugo.io/) and [etch](https://github.com/LukasJoswiak/etch), without any trackers but a simple site analyzer to see the traffic to my pages (if you have ad-blocker installed, the analyzer shall be blocked anyway).
+I'm mogita, a software engineer. This site was created with [Hugo](https://gohugo.io/) and [ezhil](https://github.com/vividvilla/ezhil), without any trackers.
 
 # Bio
 
@@ -12,7 +13,7 @@ I'm mogita, a software engineer. This site was created with [Hugo](https://gohug
 
 🧑‍💻 Working @ [NextBillion AI](https://nb.ai), ex @ [Grab](https://grab.com)
 
-🎧 Drummer, bedroom producer
+🎧 [Drummer](https://space.bilibili.com/70342), bedroom producer
 
 🇨🇳 汉语 🇬🇧 English 🇯🇵 日本語を勉強中です
 
@@ -38,7 +39,7 @@ GPG: [`6DB7 2FE7 20F6 19F7 10CD B4C9 A0AA 1B9C 57A4 8ECF`](http://hkps.pool.sks-
 - [SoundCloud](https://soundcloud.com/mogita)
 - [LinkedIn](https://www.linkedin.com/in/mogita/)
 
-# Portkeys [<a href="https://harrypotter.fandom.com/wiki/Portkey" target="_blank">?</a>]
+# Portkeys <sup><a href="https://harrypotter.fandom.com/wiki/Portkey" target="_blank">?</a></sup>
 
 - [配信中](https://www.yocson.com)
 - [Archean's Blog](https://archeanz.com)

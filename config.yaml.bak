@@ -1,12 +1,11 @@
 baseURL: "https://blog.mogita.com/"
 languageCode: "en-us"
 title: "Otaku Blog"
-theme: "ezhil"
+theme: "etch"
 enableInlineShortcodes: true
 pygmentsCodeFences: true
 pygmentsUseClasses: true
 
-summaryLength: 5
 paginate: 10
 paginatePath: "page"
 permalinks:
@@ -15,26 +14,13 @@ permalinks:
 trimTrailingSlash: true
 
 params:
-  subtitle: "personal writing from mogita"
-  # description: "mogita's personal blog"
-  mode: "auto"
+  description: "mogita's personal blog"
+  dark: "off"
   copyright: "Copyright © 2015-2021 mogita"
   highlight: true
-  social:
-    - name: "Twitter"
-      icon: "twitter"
-      url: "https://twitter.com/mogita"
-    - name: "Github"
-      icon: "github"
-      url: "https://github.com/mogita/otaku-blog"
 
 menu:
   main:
-    - identifier: "home"
-      name: "Home"
-      title: "Home"
-      url: "/"
-      weight: 1
     - identifier: "about"
       name: "About"
       title: "About"

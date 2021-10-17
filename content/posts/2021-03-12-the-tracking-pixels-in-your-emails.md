@@ -10,9 +10,9 @@ share_cover:
 from:
 ---
 
-## What Is Tracking Pixel
+## What Is A Tracking Pixel
 
-The Tracking Pixel is a technique found these days in Email marketing, promotions, newsletters and even casual notifications from mostly the companies or through an Email campaign service. It inserts a transparent 1px x 1px image to the mail body that is invisible to human and use the good-old Web technology to send information to whoever's on the other end collecting many aspects about the Email reader:
+A Tracking Pixel is a technique found these days in Email marketing, promotions, newsletters and even casual notifications from mostly the companies or through an Email campaign service. It inserts a transparent 1px x 1px image to the mail body that is invisible to human and use the good-old Web technology to send information to whoever's on the other end collecting many aspects about the Email reader:
 
 - Operating system
 - Device model
@@ -191,7 +191,7 @@ To name just a few Email senders I've caught embedding the tracking pixels, here
 
 It can go very long as more and more services I use. And I was tracked all the way long.
 
-> Update 2021-03-22: It appears that many of the "Self-owned Trackers" are not owned by the business owners. They don't reveal the actual vendor by using the custom domain names. Certain tracing was done to disover the actual campaign Email sender and the tracker, which showed a certain pattern of how the custom domain names are formed. E.g. `http://url1234.mail.some-service.io` (certain parts were masked with dummy characters) points to the IP address that resolves to be in possession of SendGrid. Oh my they use the `http` that scatters people's information all around the web un-encrypted while relentlessly collecting them.
+> Update 2021-03-22: It appears that many of the "Self-owned Trackers" are not owned by the business owners. They don't reveal the actual vendor by using the custom domain names. Certain tracing was done to discover the actual campaign Email sender and the tracker, which showed a certain pattern of how the custom domain names are formed. E.g. `http://url1234.mail.some-service.io` (certain parts were masked with dummy characters) points to the IP address that resolves to be in possession of SendGrid. Oh my they use the `http` that scatters people's information all around the web un-encrypted while relentlessly collecting them.
 
 ## How to avoid being tracked?
 

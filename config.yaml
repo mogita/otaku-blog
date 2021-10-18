@@ -15,7 +15,7 @@ trimTrailingSlash: true
 uglyURLs: true
 
 params:
-  subtitle: "personal writing from mogita"
+  subtitle: "personal writings from mogita"
   copyright: "Copyright © 2015-2021 mogita"
   highlight: true
   customCSS: "css/ezhil-custom.css"

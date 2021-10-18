@@ -9,7 +9,7 @@ summaryLength: 0
 paginate: 10
 paginatePath: "page"
 permalinks:
-  /about: "/about"
+  /about: "/about.html"
   posts: "/:slug"
 trimTrailingSlash: true
 uglyURLs: true
@@ -34,16 +34,21 @@ menu:
       title: "Home"
       url: "/"
       weight: 1
-    - identifier: "about"
-      name: "About"
-      title: "About"
-      url: "/about"
-      weight: 20
     - identifier: "rss"
       name: "RSS"
       title: "RSS"
       url: "/index.xml"
       weight: 10
+    - identifier: "tags"
+      name: "Tags"
+      title: "Tags"
+      url: "/tags.html"
+      weight: 15
+    - identifier: "about"
+      name: "About"
+      title: "About"
+      url: "/about.html"
+      weight: 20
 
 markup:
   goldmark:

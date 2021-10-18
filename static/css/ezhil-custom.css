@@ -56,6 +56,10 @@ body {
 	line-height: 1.6;
 }
 
+a, a:hover {
+	color: #09d;
+}
+
 .wrapper {
 	max-width: 800px;
 }
@@ -117,9 +121,18 @@ li + li, ol ol, ol ul, ul ol, ul ul {
 
 blockquote {
 	font-size: 1.05em;
+	border-color: #09d;
 }
 
 .highlight pre {
 	background-color: #002b36 !important;
 }
 
+.post .draft-label {
+	color: #09d;
+}
+
+.post-tags .tags a {
+	border: 1px solid #09d;
+	color: #09d;
+}

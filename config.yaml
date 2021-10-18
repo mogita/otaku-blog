@@ -5,7 +5,7 @@ theme: "ezhil"
 enableInlineShortcodes: true
 pygmentsStyle: "solarized-dark"
 
-summaryLength: 5
+summaryLength: 0
 paginate: 10
 paginatePath: "page"
 permalinks:
@@ -45,3 +45,7 @@ menu:
       url: "/index.xml"
       weight: 10
 
+markup:
+  goldmark:
+    renderer:
+      unsafe: true

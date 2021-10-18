@@ -3,23 +3,22 @@ languageCode: "en-us"
 title: "Otaku Blog"
 theme: "ezhil"
 enableInlineShortcodes: true
-pygmentsCodeFences: true
-pygmentsUseClasses: true
+pygmentsStyle: "solarized-dark"
 
 summaryLength: 5
 paginate: 10
 paginatePath: "page"
 permalinks:
-  /about: "/about.html"
-  posts: "/:slug.html"
+  /about: "/about"
+  posts: "/:slug"
 trimTrailingSlash: true
+uglyURLs: true
 
 params:
   subtitle: "personal writing from mogita"
-  # description: "mogita's personal blog"
-  mode: "auto"
   copyright: "Copyright © 2015-2021 mogita"
   highlight: true
+  customCSS: "css/ezhil-custom.css"
   social:
     - name: "Twitter"
       icon: "twitter"
@@ -46,9 +45,3 @@ menu:
       url: "/index.xml"
       weight: 10
 
-markup:
-  highlight:
-    noClasses: false
-  goldmark:
-    renderer:
-      unsafe: true

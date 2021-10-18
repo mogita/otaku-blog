@@ -12,7 +12,7 @@ from:
 
 ## What Is A Tracking Pixel
 
-A Tracking Pixel is a technique found these days in Email marketing, promotions, newsletters and even casual notifications from mostly the companies or through an Email campaign service. It inserts a transparent 1px x 1px image to the mail body that is invisible to human and use the good-old Web technology to send information to whoever's on the other end collecting many aspects about the Email reader:
+A Tracking Pixel is a technique found these days in Email marketing, promotions, newsletters and even casual notifications contents of Email campaign services. It inserts a transparent `1px x 1px` image to the mail body that is invisible to human eyes and uses the good-old Web technology to send information to whoever's on the other end collecting as many aspects as they want about the person who reads the Email:
 
 - Operating system
 - Device model

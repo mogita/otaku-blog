@@ -188,6 +188,7 @@ To name just a few Email senders I've caught embedding the tracking pixels, here
 | Memrise                         | hello@mail.memrise.com                                       | SendGrid                                   |
 | Clozemaster                     | hello@clozemaster.com                                        | SendGrid                                   |
 | Descript                        | mail@descript.com                                            | Customer.io                                |
+| Heroku                          | noreply@mail.salesforce.com                                  | Salesforce                                 |
 
 It can go very long as more and more services I use. And I was tracked all the way long.
 

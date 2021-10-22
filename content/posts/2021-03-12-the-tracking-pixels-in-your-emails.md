@@ -94,7 +94,7 @@ To name just a few Email senders I've caught embedding the tracking pixels, here
 | IHG (A hospitality company)     | IHGRewards@mc.ihg.com                                        | (Self-owned Tracker, more than 1 per mail) |
 | TuringBook.com                  | ebook@turingbook.com                                         | Mailchimp                                  |
 | Raycast                         | thomas@raycast.com                                           | SendGrid                                   |
-| RescueTime                      | notifications@rescuetime.com                                 | (Self-owned Tracker)                       |
+| RescueTime                      | notifications@rescuetime.com                                 | Customer.io                                |
 | Chatra                          | support@chatra.com                                           | Postmark                                   |
 | Bandcamp                        | noreply@bandcamp.com                                         | (Self-owned Tracker)                       |
 | Craft.do                        | team@craft.do                                                | (Self-owned Tracker)                       |

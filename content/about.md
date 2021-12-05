@@ -29,7 +29,7 @@ PGP: [`6DB7 2FE7 20F6 19F7 10CD B4C9 A0AA 1B9C 57A4 8ECF`](https://keybase.io/mo
 
 - [Go Fanfou](https://github.com/mogita/go-fanfou) - A Fanfou API library for Go
 - [Vue Zydialog](https://github.com/mogita/vue-zydialog) - A dialog component for Vue.js
-- [YoCat](https://fanfou.com/yocat)
+- [YoCat](https://mastodon.social/@yocat)
 - [Soundmono](https://soundmono.com)
 - [FanstaFou](http://fanstafou.mogita.com) (Retired)
 

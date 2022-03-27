@@ -14,8 +14,8 @@ permalinks:
 uglyURLs: true
 
 params:
-  subtitle: "personal writings from mogita"
-  copyright: "Copyright © 2015-2021 mogita"
+  subtitle: "personal writings by mogita"
+  copyright: "Copyright © 2015-2022 mogita"
   highlight: true
   customCSS: "css/ezhil-custom.css"
   social:

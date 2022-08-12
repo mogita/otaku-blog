@@ -52,8 +52,9 @@ body, h1, h2, h3, h4, h5, h6 {
 }
 
 body {
-  font-size: 1em;
+	font-size: 1em;
 	line-height: 1.6;
+	background-color: #232327;
 }
 
 a, a:hover {
@@ -61,7 +62,7 @@ a, a:hover {
 }
 
 .wrapper {
-	max-width: 800px;
+	max-width: 820px;
 }
 
 @media screen and (min-width: 40em) {
@@ -73,12 +74,12 @@ a, a:hover {
 @media screen and (min-width: 45em) {
 	html {
 		font-size: 1.15em;
-  }
+	}
 }
 
 h1, h2, h3, h4, h5, h6 {
 	font-weight: 700;
-  margin: 2.4em 0 0;
+	margin: 2.4em 0 0;
 }
 
 h1 {
@@ -124,10 +125,6 @@ blockquote {
 	border-color: #09d;
 }
 
-.highlight pre {
-	background-color: #002b36 !important;
-}
-
 .post .draft-label {
 	color: #09d;
 }
@@ -137,6 +134,14 @@ blockquote {
 	color: #09d;
 }
 
+.post .markdown p {
+	margin: 1em 0 2.4em 0;
+}
+
+.post code, .post kbd, .post pre, .post samp {
+	font-size: 0.9em;
+}
+
 .dsq-brlink {
-	display: none;
+	display: none !important;
 }

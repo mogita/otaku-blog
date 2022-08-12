@@ -9,20 +9,15 @@ I'm mogita, a software engineer. This site was created with [Hugo](https://gohug
 
 # Bio
 
-🦋 Fanfouer
-
-🧑‍💻 Working @ [NextBillion AI](https://nb.ai), ex @ [Grab](https://grab.com)
-
-🎧 [Drummer](https://space.bilibili.com/70342), bedroom [producer](https://soundcloud.com/mogita)
-
+🦋 Fanfouer<br />
+🧑‍💻 Working @ [NextBillion AI](https://nb.ai), ex @ [Grab](https://grab.com)<br />
+🎧 [Drummer](https://space.bilibili.com/70342), bedroom [producer](https://soundcloud.com/mogita)<br />
 🇨🇳 汉语 🇬🇧 English 🇯🇵 日本語を勉強中です
 
 # Contact
 
-Instant messages are fun and for fun. Seriously, write an Email.
-
-[me@mogita.com](mailto:me@mogita.com)
-
+Instant messages are fun and for fun. Seriously, write an Email.<br />
+[me@mogita.com](mailto:me@mogita.com)<br />
 PGP: [`6DB7 2FE7 20F6 19F7 10CD B4C9 A0AA 1B9C 57A4 8ECF`](https://keybase.io/mogita/pgp_keys.asc?fingerprint=6db72fe720f619f710cdb4c9a0aa1b9c57a48ecf)
 
 # Projects

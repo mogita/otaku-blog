@@ -3,8 +3,12 @@ languageCode: "en-us"
 title: "Otaku Blog"
 theme: "ezhil"
 enableInlineShortcodes: true
-pygmentsStyle: "solarized-dark"
 disqusShortname: otaku-mogita
+enableGitInfo: true
+
+pygmentsStyle: "nord"
+pygmentscodefences: true
+pygmentscodefencesguesssyntax: true
 
 summaryLength: 0
 paginate: 10
@@ -19,13 +23,15 @@ params:
   copyright: "Copyright © 2015-2022 mogita"
   highlight: true
   customCSS: "css/ezhil-custom.css"
+  customDarkCSS: "css/ezhil-custom.css"
+  mode: dark
   social:
     - name: "Twitter"
       icon: "twitter"
       url: "https://twitter.com/mogita"
-    - name: "Github"
-      icon: "github"
-      url: "https://github.com/mogita/otaku-blog"
+    - name: "GitLab"
+      icon: "gitlab"
+      url: "https://gitlab.com/mogita"
     - name: "LinkedIn"
       icon: "linkedin"
       url: "https://linkedin.com/in/mogita"
@@ -57,3 +63,11 @@ markup:
   goldmark:
     renderer:
       unsafe: true
+
+frontmatter:
+  lastmod:
+    - lastmod
+    - :git
+    - date
+    - publishDate
+

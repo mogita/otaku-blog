@@ -136,3 +136,7 @@ blockquote {
 	border: 1px solid #09d;
 	color: #09d;
 }
+
+.dsq-brlink {
+	display: none;
+}

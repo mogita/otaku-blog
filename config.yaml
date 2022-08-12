@@ -4,6 +4,7 @@ title: "Otaku Blog"
 theme: "ezhil"
 enableInlineShortcodes: true
 pygmentsStyle: "solarized-dark"
+disqusShortname: otaku-mogita
 
 summaryLength: 0
 paginate: 10

@@ -1,6 +1,7 @@
 baseURL: "https://blog.mogita.com/"
 languageCode: "en-us"
 title: "Otaku Blog"
+copyright: "Copyright © 2010-{year} mogita"
 theme: "ezhil"
 enableInlineShortcodes: true
 disqusShortname: otaku-mogita
@@ -20,7 +21,6 @@ uglyURLs: true
 
 params:
   subtitle: "personal writings by mogita"
-  copyright: "Copyright © 2015-2022 mogita"
   highlight: true
   customCSS: "css/ezhil-custom.css"
   customDarkCSS: "css/ezhil-custom.css"
@@ -63,11 +63,4 @@ markup:
   goldmark:
     renderer:
       unsafe: true
-
-frontmatter:
-  lastmod:
-    - lastmod
-    - :git
-    - date
-    - publishDate
 

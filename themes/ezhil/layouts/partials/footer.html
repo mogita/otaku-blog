@@ -1,6 +1,6 @@
 <div class="footer wrapper">
 	<nav class="nav">
-		<div>{{ with .Site.Copyright }} {{ . }} | {{ end }} <a href="https://github.com/vividvilla/ezhil">Ezhil theme</a> | Built with <a href="https://gohugo.io">Hugo</a></div>
+		<div>{{ replace .Site.Copyright "{year}" now.Year }} | Built with <a href="https://gohugo.io">Hugo</a> and <a href="https://github.com/vividvilla/ezhil">Ezhil</a> theme</div>
 	</nav>
 </div>
 

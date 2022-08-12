@@ -7,7 +7,7 @@ variables:
 
 build:
   image:
-    name: klakegg/hugo:0.82.0-alpine
+    name: klakegg/hugo:0.101.0-alpine
     entrypoint: ["/bin/sh", "-c"]
   stage: build
   script:

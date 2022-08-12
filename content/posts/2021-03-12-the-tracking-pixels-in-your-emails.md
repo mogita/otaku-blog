@@ -10,7 +10,7 @@ share_cover:
 from:
 ---
 
-## What Is A Tracking Pixel
+# What Is A Tracking Pixel
 
 A Tracking Pixel is a technique found these days in Email marketing, promotions, newsletters and even casual notifications contents of Email campaign services. It inserts a transparent `1px x 1px` image to the mail body that is invisible to human eyes and uses the good-old Web technology to send information to whoever's on the other end collecting as many aspects as they want about the person who reads the Email:
 
@@ -39,7 +39,15 @@ Note that the highlighted line of code inserts the invisible pixel of image to t
 
 Actually very few people ever noticed that their behaviours were tracked (or to say harvested) by the people who sent the Emails. But as soon as one realises it, bad feelings come pouring in: you don't know which Emails have tracking pixels; you can never "opt-out" a tracking pixel; you don't know exactly what information were collected by the trackers and what they plan to do with it.
 
-## Who Are Tracking Me
+# How to avoid being tracked?
+
+If you are using a macOS computer, check out the open-source project [MailTrackerBlocker](https://github.com/apparition47/MailTrackerBlocker). It's a plug-in for the Apple Mail app. Actually the list above was sorted out using this plug-in.
+
+Alternatively you can choose an Email service that provides tracking pixel blocking natively, like [Hey](https://hey.com) (paid). In fact the makers of Hey mail made this website to stand up against tracking pixels: https://notospypixels.com
+
+For blocking tracking pixels on other platforms, applications or Email providers, you can [write to me](mailto:me@mogita.com?subject=[Otaku%20Blog]%20Avoid%20Tracking%20Pixels) and tell me your method or tools. I'd be happy to add them here.
+
+# Who Are Tracking Me
 
 To name just a few Email senders I've caught embedding the tracking pixels, here's a list:
 
@@ -194,11 +202,5 @@ It can go very long as more and more services I use. And I was tracked all the w
 
 > Update 2021-03-22: It appears that many of the "Self-owned Trackers" are not owned by the business owners. They don't reveal the actual vendor by using the custom domain names. Certain tracing was done to discover the actual campaign Email sender and the tracker, which showed a certain pattern of how the custom domain names are formed. E.g. `http://url1234.mail.some-service.io` (certain parts were masked with dummy characters) points to the IP address that resolves to be in possession of SendGrid. Oh my they use the `http` that scatters people's information all around the web un-encrypted while relentlessly collecting them.
 
-## How to avoid being tracked?
 
-If you are using a macOS computer, check out the open-source project [MailTrackerBlocker](https://github.com/apparition47/MailTrackerBlocker). It's a plug-in for the Apple Mail app. Actually the list above was sorted out using this plug-in.
-
-Alternatively you can choose an Email service that provides tracking pixel blocking natively, like [Hey](https://hey.com) (paid). In fact the makers of Hey mail made this website to stand up against tracking pixels: https://notospypixels.com
-
-For blocking tracking pixels on other platforms, applications or Email providers, you can [write to me](mailto:me@mogita.com?subject=[Otaku%20Blog]%20Avoid%20Tracking%20Pixels) and tell me your method or tools. I'd be happy to add them here.
 

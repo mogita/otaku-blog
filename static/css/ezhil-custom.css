@@ -1,4 +1,6 @@
 @charset "UTF-8";
+
+/*
 @font-face {
 	font-family: 'Libre Baskerville';
 	font-style: normal;
@@ -46,13 +48,20 @@
 	src: local("Libre Baskerville Italic"), local("LibreBaskerville-Italic"), url(fonts/librebaskerville-italic-latin-subset.woff2) format("woff2"), url(fonts/librebaskerville-italic-latin-subset.woff) format("woff");
 	unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD
 }
-
-body, h1, h2, h3, h4, h5, h6 {
-  font-family: "Libre Baskerville", Georgia, serif;
+*/
+@font-face {font-family: "Seravek Basic";
+  src: url("fonts/seravek.eot"); /* IE9*/
+  src: url("fonts/seravek.eot?#iefix") format("embedded-opentype"), /* IE6-IE8 */
+  url("fonts/seravek.woff2") format("woff2"), /* chrome、firefox */
+  url("fonts/seravek.woff") format("woff"), /* chrome、firefox */
+  url("fonts/seravek.ttf") format("truetype"), /* chrome、firefox、opera、Safari, Android, iOS 4.2+*/
+  url("fonts/seravek.svg#Seravek Basic") format("svg"); /* iOS 4.1- */
 }
 
 body {
-	font-size: 1em;
+	font-size: 16px;
+	/* font-family: "Libre Baskerville", Georgia, serif; */
+	font-family: "Seravek", "Avenir Next", "Luxi Sans", "Segoe UI", "Hiragino Sans GB", "Microsoft Yahei", sans-serif, "Apple Logo";
 	line-height: 1.6;
 	background-color: #232327;
 }
@@ -62,7 +71,7 @@ a, a:hover {
 }
 
 .wrapper {
-	max-width: 820px;
+	max-width: 720px;
 }
 
 @media screen and (min-width: 40em) {
@@ -76,51 +85,69 @@ a, a:hover {
 		font-size: 1.15em;
 	}
 }
+.header nav ul.flat li {
+	font-size: 1.25em;
+}
+
+.posts .title, .posts .description {
+	font-size: 1.125em;
+}
+
+.recent-posts .posts .post .meta, .post .post-header .meta, .list .posts .post .meta {
+	margin: 0;
+}
 
 .post-header h1 {
+	font-weight: normal;
 	font-size: 1.802em;
 }
 
 .markdown {
-	font-size: 0.98em;
 	line-height: 1.8em;
 }
 
 .markdown h1, .markdown h2, .markdown h3, .markdown h4, .markdown h5, .markdown h6 {
-	margin: 2.4em 0 0;
+	margin-top: 1.5em;
+	margin-bottom: 0.6em;
 }
 
 .markdown h1 {
+	font-weight: normal;
 	font-size: 1.5em;
 	padding-bottom: .3em;
 	border-bottom: 1px solid #5a5a5a;
 }
 
 .markdown h2 {
+	font-weight: normal;
 	font-size: 1.402em;
 	padding-bottom: .3em;
 	border-bottom: 1px solid #5a5a5a;
 }
 
 .markdown h3 {
+	font-weight: normal;
 	font-size: 1.324em;
 	padding-bottom: .3em;
 	border-bottom: 1px solid #5a5a5a;
 }
 
 .markdown h4 {
+	font-weight: normal;
 	font-size: 1.266em;
 	padding-bottom: .3em;
 	border-bottom: 1px solid #5a5a5a;
 }
 
 .markdown h5 {
+	font-weight: normal;
 	font-size: 1.125em;
 	padding-bottom: .3em;
 	border-bottom: 1px solid #5a5a5a;
 }
 
 .markdown h6 {
+	font-weight: normal;
 	font-size: 1em;
 	padding-bottom: .3em;
 	border-bottom: 1px solid #5a5a5a;
@@ -132,8 +159,8 @@ a, a:hover {
 }
 
 .markdown ul li {
-	margin-bottom: 0.6em;
-	line-height: 1.6em;
+	margin: 0;
+	line-height: 1.7em;
 }
 
 li + li, ol ol, ol ul, ul ol, ul ul {
@@ -154,8 +181,14 @@ blockquote {
 	color: #09d;
 }
 
-.post .markdown p {
-	margin: 1em 0 2.4em 0;
+.markdown {
+	font-size: 1.125em;
+}
+
+.markdown p {
+	line-height: 1.75;
+	margin-top: 0;
+	margin-bottom: 1em;
 }
 
 blockquote p {

@@ -1,6 +1,6 @@
 baseURL: "https://blog.mogita.com/"
 languageCode: "en-us"
-title: "Otaku Blog"
+title: "mogita"
 copyright: "Copyright © 2010-{year} mogita"
 theme: "ezhil"
 enableInlineShortcodes: true
@@ -20,7 +20,7 @@ permalinks:
 uglyURLs: true
 
 params:
-  subtitle: "personal writings by mogita"
+  subtitle: "満開の花が似合いのカタストロフィー"
   highlight: true
   customCSS: "css/ezhil-custom.css"
   customDarkCSS: "css/ezhil-custom.css"

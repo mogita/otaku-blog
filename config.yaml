@@ -1,4 +1,4 @@
-baseURL: "https://blog.mogita.com/"
+baseURL: "https://mogita.com/"
 languageCode: "en-us"
 title: "mogita"
 copyright: "Copyright © 2010-{year} mogita"

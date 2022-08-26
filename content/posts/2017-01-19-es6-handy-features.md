@@ -1,11 +1,12 @@
 ---
 title: 8 个 ES6 实用特性
 slug: es6-handy-features
+category: tech
 date: 2017-01-19 10:45:49
 updated:
 tags: [ES6, JavaScript]
 cover:
-share_cover:
+isCJKLanguage: true
 ---
 
 ## 模板字符串（Template String）

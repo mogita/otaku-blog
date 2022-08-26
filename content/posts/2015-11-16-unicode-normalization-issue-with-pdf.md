@@ -1,11 +1,10 @@
 ---
 title: 解决 PDF 复制文字重复的问题
 slug: unicode-normalization-issue-with-pdf
+category: tech
 date: 2015-11-16 17:16:19
-updated:
 tags: Python
-cover:
-share_cover:
+isCJKLanguage: true
 ---
 
 今天整理一些 pdf 格式的文稿时，为了统计字数而把文字全选并拷贝到一个 txt 文件中。但是发现拷贝出来的文字会偶尔产生重复文字，例如：

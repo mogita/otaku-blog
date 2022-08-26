@@ -1,11 +1,12 @@
 ---
 title: 解决 AS3 推流无法发送 MetaData 的问题
 slug: flash-as3-rtmp-metadata-sending-issue
+category: tech
 date: 2016-07-18 13:55:08
 updated:
 tags: ActionScript3
 cover:
-share_cover:
+isCJKLanguage: true
 ---
 
 在学习 ActionScript 3 推流的过程中遇到了一个棘手的问题，用 `ns.publish()` 方法可以正常推流，但无法发送任何 MetaData。

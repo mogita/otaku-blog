@@ -1,11 +1,12 @@
 ---
 title: 构建 Vue.js 工程时 .vue 文件解析报错
 slug: vue-js-doesn-t-export-content
+category: tech
 date: 2017-04-10 00:00:51
 updated:
 tags: [Vue.js, node-sass, gcc, webpack]
 cover:
-share_cover:
+isCJKLanguage: true
 ---
 
 在一台 CentOS 6 服务器上构建 Vue.js 项目时，`.vue` 文件大量报错：

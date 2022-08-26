@@ -1,11 +1,12 @@
 ---
 title: CodeIgniter 的多版本 RESTful 接口
 slug: build-versioned-restful-service-with-codeigniter
+category: tech
 date: 2016-01-17 19:55:34
 updated:
 tags: [PHP, CodeIgniter, Nginx]
 cover:
-share_cover:
+isCJKLanguage: true
 ---
 
 [CodeIgniter](https://www.codeigniter.com/) 是基于 PHP 的框架程序，采用 MVC 式设计。配合 [codeigniter-restserver](https://github.com/chriskacerguis/codeigniter-restserver) 能够快速搭建 RESTful 服务。

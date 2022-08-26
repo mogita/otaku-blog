@@ -6,9 +6,11 @@
 		{{ partial "head.html" . }}
 
 		<div class="post-header">
-			<h1 class="title">{{ .Title }}</h1>
-			<div class="meta">Posted at &mdash; {{ dateFormat "Jan 2, 2006" .Date }} | Modified at &mdash; {{ dateFormat "Jan 2, 2006" .Lastmod }} {{ if .Draft }} <span class="draft-label">DRAFT</span> {{ end }}</div>
-			<div class="meta"></div>
+			{{ if .Params.Cover }}<div class="cover"><img src="{{ .Params.Cover }}" alt="{{ .Title }}" /></div>{{ end }}
+			<h1 class="title">{{ index .Site.Params.Categories .Params.Category }}{{ if .Params.Category }} {{ end }}{{.Title}}</h1>
+			<div class="meta">{{ dateFormat "Jan 2, 2006" .Date }}{{ if .Params.Updated }} (Updated at {{ dateFormat "Jan 2, 2006" .Params.Updated }}){{ end }} {{ if .Draft }} <span class="draft-label">DRAFT</span> {{ end }}{{ if .Params.From }} <span class="original-link"> &mdash; <a href="{{ .Params.From }}" target="_blank">Original Post</a></span>{{ end }}</div>
+			{{ $readTime := math.Round (div .WordCount 200.0) }}
+			<div class="meta" title="{{ .WordCount }} words">{{ $readTime }} min read</div>
 		</div>
 
 		<div class="markdown">

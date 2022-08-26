@@ -1,11 +1,12 @@
 ---
 title: Remove Nth Node From End of List 数组实现
 slug: remove-nth-node-from-end-of-list-with-array
+category: tech
 date: 2017-02-07 01:54:30
 updated:
 tags: [LeetCode, Algorithm, JavaScript]
 cover:
-share_cover:
+isCJKLanguage: true
 ---
 
 ## 原题

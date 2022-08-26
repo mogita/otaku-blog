@@ -6,13 +6,14 @@ theme: "ezhil"
 enableInlineShortcodes: true
 disqusShortname: otaku-mogita
 enableGitInfo: true
+assetDir: "static"
 
 pygmentsStyle: "nord"
 pygmentscodefences: true
 pygmentscodefencesguesssyntax: true
 
 summaryLength: 0
-paginate: 10
+paginate: 100
 paginatePath: "page"
 permalinks:
   /about: "/about.html"
@@ -25,6 +26,10 @@ params:
   customCSS: "css/ezhil-custom.css"
   customDarkCSS: "css/ezhil-custom.css"
   mode: dark
+  categories:
+    tech: 🛠️
+    journal: 📖
+    music: 🎸
   social:
     - name: "Twitter"
       icon: "twitter"

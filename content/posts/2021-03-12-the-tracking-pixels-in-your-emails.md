@@ -1,6 +1,7 @@
 ---
 title: The Tracking Pixels in Your Emails
 slug: the-tracking-pixels-in-your-emails
+category: tech
 date: 2021-03-12 12:41:00
 description: An Email tracking pixel was made to steal your personal information. Stop the madness.
 updated: 2021-10-18 23:39:10

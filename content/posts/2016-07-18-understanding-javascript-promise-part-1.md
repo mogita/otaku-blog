@@ -1,15 +1,14 @@
 ---
 title: 理解 JavaScript Promises：上、背景和基础
 slug: understanding-javascript-promise-part-1
+category: tech
 date: 2016-07-18 15:34:24
 updated:
 tags: 译文
-cover: 
+cover: /img/js_promises.png
 from: https://scotch.io/tutorials/understanding-javascript-promises-pt-i-background-basics
-share_cover:
+isCJKLanguage: true
 ---
-
-![header image](/img/js_promises.png)
 
 ## 许诺之地
 

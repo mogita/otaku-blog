@@ -1,12 +1,11 @@
 ---
 title: React 状态管理
 slug: managing-react-state
+category: tech
 date: 2018-03-27 00:02:38
 updated:
 tags: React
-cover:
-desc:
-share_cover:
+isCJKLanguage: true
 from: http://maksimivanov.com/posts/react-state
 ---
 

@@ -1,14 +1,13 @@
 ---
 title: 用 gulp 压缩 CSS 和 JavaScript
 slug: compress-css-and-js-with-gulp
+category: tech
 date: 2016-05-03 19:44:10
 updated:
 tags: 前端
-cover:
-share_cover:
+cover: /img/gulp.jpg
+isCJKLanguage: true
 ---
-
-![gulp](/img/gulp.jpg)
 
 最近接触前端工作比较多，所以需要学习一些自动化的工作方式。今天的学习内容是 [gulp](http://gulpjs.com/)。本文直接以 CSS 和 JavaScript 文件压缩作为入门范例，这两种自动化处理也是最常见的处理之一，能对前端页面字节精简，缩短用户的页面载入等待，也能减少数据流量消耗。
 

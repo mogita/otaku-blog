@@ -1,11 +1,12 @@
 ---
 title: 多个域名访问同一个 CodeIgniter 的不同 Controllers
 slug: codeigniter-map-controllers-to-multiple-domains
+category: tech
 date: 2016-01-18 23:03:17
 updated:
 tags: [PHP, CodeIgniter]
 cover:
-share_cover:
+isCJKLanguage: true
 ---
 
 一套 CodeIgniter 部署，可以承载不同的业务：不同的 MVC 模块，用不同的域名访问。严格来讲，要让一个模块独立形成一套 MVC，需使用 wiredesignz 的 [codeigniter-modular-extensions-hmvc](https://bitbucket.org/wiredesignz/codeigniter-modular-extensions-hmvc) 扩展。后者则是 CI 自身的路由所提供的特性。

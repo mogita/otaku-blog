@@ -1,15 +1,16 @@
 ---
 title: Laravel 5 Homestead 日常工作流程
 slug: laravel-homestead-daily-workflow
+category: tech
 date: 2015-11-23 10:51:15
 updated:
 tags: [PHP, Laravel, Homestead]
 cover:
 from: http://laravelcoding.com/blog/laravel-5-beauty-homestead-and-the-laravel-installer
-share_cover:
+isCJKLanguage: true
 ---
 
-<div class="tip">本文是教程的第三步，并假设你已安装好全部所需软件。</div>
+> 本文是教程的第三步，并假设你已安装好全部所需软件。
 
 本章将探索两种 composer 工具：homestead 和 laravel。接下来讲解一种典型的日常工作流程，通过 6 个步骤，来建立一个新的 Laravel 5.1 工程。
 

@@ -1,13 +1,11 @@
 ---
 title: 如何在自建 GitLab 中启用 CI Runner
 slug: how-to-setup-gitlab-ci-runner
+category: tech
 date: 2017-10-23 11:43:50
 updated:
 tags:
-cover:
-desc:
-share_cover:
-from:
+isCJKLanguage: true
 ---
 
 GitLab 内置了 CI/CD 功能，在任何自建的 [GitLab CE](https://about.gitlab.com/installation/) 服务器上都可以启用。对于中小型项目而言，这套内置的 CI/CD 工具足够用来完成测试、构建和部署自动化工作。

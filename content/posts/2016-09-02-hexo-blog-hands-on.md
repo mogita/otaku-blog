@@ -1,11 +1,12 @@
 ---
 title: Hexo 博客写作快速指南
+slug: hexo-blog-hands-on
+category: tech
 date: 2016-09-02 19:57:24
 updated: 2016-09-04 11:14:24
 tags:
 cover:
-share_cover:
-slug: hexo-blog-hands-on
+isCJKLanguage: true
 ---
 今天把博客更新到了 [Hexo](https://hexo.io/)，取代了之前的 [WordPress](http://wordpress.org) 网站。WordPress 是个十足优秀的博客程序，但 [Markdown](https://daringfireball.net/projects/markdown/) 已经成为了我日常工作中的主要文档书写方式。
 

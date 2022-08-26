@@ -1,12 +1,13 @@
 ---
 title: 11 条提升工作效率的 npm 命令
 slug: npm-useful-quick-tips
+category: tech
 date: 2016-09-04 09:55:11
 updated:
 tags: Npm
 cover:
 from: https://nodesource.com/blog/eleven-npm-tricks-that-will-knock-your-wombat-socks-off/
-share_cover:
+isCJKLanguage: true
 ---
 
 Npm 是个容易上手但不易深入的工具，因为内置了数不尽的功能。如果要挨个学习和尝试，不知何年何月能够全部学完。

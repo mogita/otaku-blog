@@ -1,0 +1,68 @@
+<style>
+  .quote-fanfou {
+    font-family: HelveticaNeue, Helvetica Neue, Helvetica, Arial, sans-serif;
+    font-style: normal;
+    display: flex;
+  }
+  .quote-fanfou .avatar {
+    margin-right: 8px;
+  }
+  .quote-fanfou .avatar img {
+    height: 48px;
+    width: 48px;
+  }
+  .quote-fanfou .content {
+    max-width: 360px;
+    flex-grow: 1;
+    font-size: 14px;
+    line-height: 20px;
+  }
+  .quote-fanfou .message {
+    word-break: break-all;
+  }
+  .quote-fanfou .meta {
+    margin-top: 4px;
+  }
+  .quote-fanfou .meta, .quote-fanfou .meta a {
+    color: #999999;
+    font-size: 12px;
+  }
+  .quote-fanfou .attachment {
+    margin-left: 8px;
+  }
+  .quote-fanfou .attachment img {
+    height: 106px;
+    width: 106px;
+    padding: 2px;
+    border: 1px solid #cccccc;
+  }
+</style>
+
+{{ $username := string (.Get "username") }}
+{{ $avatar := resources.Get (printf "img/fanfou/%s/avatar.jpg" $username) }}
+{{ $message := string (.Get "message") }}
+{{ $photoFilename := string (.Get "photo") }}
+{{ $photo := "" }}
+{{ if $photoFilename }}
+{{ $photo = resources.Get (printf "img/fanfou/%s/%s" $username $photoFilename) }}
+{{ end }}
+{{ $datetime := string (.Get "datetime") }}
+{{ $via := string (.Get "via") }}
+
+<blockquote class="quote-fanfou">
+  <div class="avatar"><img src="{{ $avatar.Permalink }}" alt="{{ $username }}" /></div>
+  <div class="content">
+    <span class="username"><a href="https://fanfou.com/{{ $username }}" target="_blank">{{ $username }}</a></span>
+    <span class="message">{{ $.Page.RenderString $message }}</span>
+    <div class="meta">
+      {{ $.Page.RenderString $datetime }} 通过 {{ $.Page.RenderString $via }}
+    </div>
+  </div>
+  <div class="attachment">
+    {{ if $photo }}
+    <a href="{{ $photo.Permalink }}" title="{{ $message }}" target="_blank">
+      <img src="{{ ($photo.Fill "106x106 q90").Permalink }}" alt="{{ $message }}" title="{{ $message }}" />
+    </a>
+    {{ end }}
+  </div>
+</blockquote>

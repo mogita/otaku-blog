@@ -1,6 +1,7 @@
 ---
-title: Reading Digest
+title: Reading Digest (Aug 2018)
 slug: reading-digest-aug-2018
+category: journal
 date: 2018-08-16 17:21:30
 updated:
 tags:

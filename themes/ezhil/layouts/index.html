@@ -12,9 +12,15 @@
 				Recent posts
 			</h2>
 			<div class="posts">
+				{{ $lastYear := "" }}
 				{{ $pages := where .Site.RegularPages "Type" "in" .Site.Params.mainSections }}
 				{{ $paginator := .Paginate (where $pages "Params.hidden" "ne" true) }}
 				{{ range $paginator.Pages }}
+				{{ $year := printf (dateFormat "2006" .Date) }}
+				{{ if ne $lastYear $year }}
+					<h1 class="year-title">{{ $year }}</h1>
+					{{ $lastYear = $year }}
+				{{ end }}
 				<div class="post" style="display: flex; align-items: center;">
 					<div class="meta" style="width: 20%; max-width: 80px;">{{ dateFormat "Jan 2, 2006" .Date }}{{ if .Draft }} <span class="draft-label">DRAFT</span> {{ end }}</div>
 					<div style="flex: 1;">

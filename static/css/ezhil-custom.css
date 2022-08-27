@@ -93,6 +93,11 @@ a, a:hover {
 	font-size: 1.125em;
 }
 
+.posts .year-title {
+	color: #bbb;
+	font-size: 1.4em;
+}
+
 .recent-posts .posts .post .meta, .post .post-header .meta, .list .posts .post .meta {
 	margin: 0;
 }

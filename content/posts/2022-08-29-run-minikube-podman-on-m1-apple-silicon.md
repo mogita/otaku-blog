@@ -130,3 +130,4 @@ spec:
       storage: {{ .DiskSize }}
 ```
 
+You'll find this article helpful with understanding [dynamic provisioning of persistent storage with minikube](https://platform9.com/blog/tutorial-dynamic-provisioning-of-persistent-storage-in-kubernetes-with-minikube/).

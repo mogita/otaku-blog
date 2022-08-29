@@ -86,7 +86,7 @@ minikube start --driver=podman --container-runtime=cri-o
 minikube start
 ```
 
-# Not Working?
+# Anything Else?
 
 **Q**: If there are multiple clusters to manage, including but not limited to GKE (by Google Cloud) and EKS (by AWS) etc., how to manage and switch from these clusters?
 
@@ -95,5 +95,38 @@ minikube start
 ```
 kubectl config get-contexts
 kubectl config set current-context minikube
+```
+
+---
+
+**Q**: How to test out a named `StorageClass` in a PVC object with minikube?
+
+**A**: By default, minikube comes with a built-in SC named `standard`. It provides dynamic storage provisioning when one creates a PVC with non-named storage class. One should create a storage class with the customized name before creating the PVC with a named storage class to enable auto-creation of PV and PVC. First, create the named SC like this:
+
+```yaml
+apiVersion: storage.k8s.io/v1
+kind: StorageClass
+metadata:
+  name: your-custom-name
+  annotations:
+    storageclass.kubernetes.io/is-default-class: "false"
+provisioner: k8s.io/minikube-hostpath
+```
+
+It's important to set the provisioner field to `k8s.io/minikube-hostpath`, otherwise no auto-creation would happen. After the SC has been successfully created, when applying the following PVC object, one should observe that a PV being automatically created and the PVC gets instantly fulfilled:
+
+```yaml
+kind: PersistentVolumeClaim
+apiVersion: v1
+metadata:
+  name: {{ .Name }}
+  namespace: {{ .Namespace }}
+spec:
+  accessModes: [ "ReadWriteOnce" ]
+  storageClassName: your-custom-name
+  volumeMode: Filesystem
+  resources:
+    requests:
+      storage: {{ .DiskSize }}
 ```
 

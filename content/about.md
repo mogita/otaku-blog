@@ -20,6 +20,8 @@ Instant messages are fun and for fun. Seriously, write an Email.<br />
 [me@mogita.com](mailto:me@mogita.com)<br />
 PGP: [`6DB7 2FE7 20F6 19F7 10CD B4C9 A0AA 1B9C 57A4 8ECF`](https://keybase.io/mogita/pgp_keys.asc?fingerprint=6db72fe720f619f710cdb4c9a0aa1b9c57a48ecf)
 
+Feel like talking? Block my calendar here https://calendly.com/mogita
+
 # Projects
 
 - [Go Fanfou](https://github.com/mogita/go-fanfou) - A Fanfou API library for Go

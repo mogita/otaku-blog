@@ -7,7 +7,7 @@ draft: false
 
 I'm Yun Wang, using the handle of @[mogita](https://twitter.com/mogita) everywhere. I've worked as a software engineer since 2015. Before that, I wrote programs as a self-taught amateur. You can see my CV on [Linkedin](https://www.linkedin.com/in/mogita/).
 
-I believe in many things: open source, remote working, RSS, cats dominate the human, also Neo was not a superman, the Harry Potter folks do exist, and all those heavenly beautiful things from Michael Jackson's songs.
+I believe in many things: open source, remote working (one [book](https://www.amazon.com/Remote-Office-Not-Required/dp/0804137501) that I recommend), [RSS](/index.xml), cats dominate the human, also Neo was The One, the Harry Potter folks do exist, and all those heavenly beautiful things from Michael Jackson's songs.
 
 This site was created with [Hugo](https://gohugo.io/) and a [customized version](https://github.com/mogita/otaku-blog/blob/master/static/css/ezhil-custom.css) of [ezhil](https://github.com/vividvilla/ezhil), without any trackers. It contains my non-tech posts from my infant time in which you don't want to be interested.
 

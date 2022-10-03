@@ -5,22 +5,32 @@ type: "page"
 draft: false
 ---
 
-I'm mogita, a software engineer. This site was created with [Hugo](https://gohugo.io/) and a [customized version](https://github.com/mogita/otaku-blog/blob/master/static/css/ezhil-custom.css) of [ezhil](https://github.com/vividvilla/ezhil), without any trackers.
+I'm Yun Wang, using the handle of @[mogita](https://twitter.com/mogita) everywhere. I've worked as a software engineer since 2015. Before that, I wrote programs as a self-taught amateur. You can see my CV on [Linkedin](https://www.linkedin.com/in/mogita/).
+
+I believe in many things: open source, remote working, RSS, cats dominate the human, also Neo was not a superman, the Harry Potter folks do exist, and all those heavenly beautiful things from Michael Jackson's songs.
+
+This site was created with [Hugo](https://gohugo.io/) and a [customized version](https://github.com/mogita/otaku-blog/blob/master/static/css/ezhil-custom.css) of [ezhil](https://github.com/vividvilla/ezhil), without any trackers. It contains my non-tech posts from my infant time in which you don't want to be interested.
 
 # Bio
 
 🦋 Fanfouer<br />
 🧑‍💻 Working @ [NextBillion AI](https://nb.ai), ex @ [Grab](https://grab.com)<br />
 🎧 [Drummer](https://space.bilibili.com/70342), bedroom [producer](https://soundcloud.com/mogita)<br />
-🇨🇳 汉语 🇬🇧 English 🇯🇵 日本語を勉強中です
+🇨🇳 汉语 🇬🇧 English 🇯🇵 日本語で数えることができる 🇪🇸 A veces leo en español
 
 # Contact
 
-Instant messages are fun and for fun. Seriously, write an Email.<br />
+Quick contact through [Telegram](https://t.me/mogita). Or seriously, write an Email.<br />
 [me@mogita.com](mailto:me@mogita.com)<br />
 PGP: [`6DB7 2FE7 20F6 19F7 10CD B4C9 A0AA 1B9C 57A4 8ECF`](https://keybase.io/mogita/pgp_keys.asc?fingerprint=6db72fe720f619f710cdb4c9a0aa1b9c57a48ecf)
 
 Feel like talking? Block my calendar here https://calendly.com/mogita
+
+# Portkeys <sup><a href="https://harrypotter.fandom.com/wiki/Portkey" target="_blank">?</a></sup>
+
+- [配信中](https://www.yocson.com)
+- [Archean's Blog](https://archeanz.com)
+- [Rock Neko](https://rockneko.xyz)
 
 # Projects
 
@@ -29,16 +39,3 @@ Feel like talking? Block my calendar here https://calendly.com/mogita
 - [YoCat](https://mastodon.social/@yocat)
 - [Soundmono](https://soundmono.com)
 - [FanstaFou](http://fanstafou.mogita.com) (Retired)
-
-# Social
-
-- [Twitter](https://twitter.com/mogita)
-- [Telegram](https://t.me/mogita)
-- [LinkedIn](https://www.linkedin.com/in/mogita/)
-
-# Portkeys <sup><a href="https://harrypotter.fandom.com/wiki/Portkey" target="_blank">?</a></sup>
-
-- [配信中](https://www.yocson.com)
-- [Archean's Blog](https://archeanz.com)
-- [Rock Neko](https://rockneko.xyz)
-

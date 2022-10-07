@@ -5,7 +5,7 @@ type: "page"
 draft: false
 ---
 
-I'm Yun Wang, using the handle of @[mogita](https://twitter.com/mogita) (nearly) everywhere. I've worked as a software engineer since 2015. Before that, I wrote programs as a self-taught amateur. You can see my CV on [Linkedin](https://www.linkedin.com/in/mogita/).
+I'm Yun Wang, using the handle of @[mogita](https://twitter.com/mogita) (nearly) everywhere. Pronouns: vi/vim. I've worked as a software engineer since 2015. Before that, I wrote programs as a self-taught amateur. You can see my CV on [Linkedin](https://www.linkedin.com/in/mogita/).
 
 I believe in many things: open source, remote working (one [book](https://www.amazon.com/Remote-Office-Not-Required/dp/0804137501) that I recommend), [RSS](/index.xml), cats dominate the human, Neo was The One, the Harry Potter folks do exist, and all those heavenly beautiful things from Michael Jackson's songs.
 

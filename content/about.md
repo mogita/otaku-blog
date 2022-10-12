@@ -4,18 +4,20 @@ date: 2021-03-23T12:32:03+08:00
 type: "page"
 ---
 
-I'm Yun Wang, using the handle of @[mogita](https://twitter.com/mogita) (nearly) everywhere. I've worked as a software engineer since 2015. Before that, I wrote programs as a self-taught amateur. You can [see my resume here](/resume.html).
+I'm Yun Wang, using the handle of @[mogita](https://twitter.com/mogita) (nearly) everywhere. I've worked as a software engineer since 2015. Before that, I wrote programs as a self-taught amateur. You can see my [resume ](/resume.html)here.
 
-I believe in many things: open source, remote working (one [book](https://www.amazon.com/Remote-Office-Not-Required/dp/0804137501) that I recommend), [RSS](/index.xml), cats dominate the human, Neo was The One, the Harry Potter folks do exist, and all those heavenly beautiful things from Michael Jackson's songs.
+I believe in many things: open source, remote working (one [book](https://www.amazon.com/Remote-Office-Not-Required/dp/0804137501) that I recommend), RSS, cats dominate the human, Neo was The One, the Harry Potter folks do exist, and all those heavenly beautiful things from Michael Jackson's songs.
 
-This site was created with [Hugo](https://gohugo.io/) and a [customized version](https://github.com/mogita/otaku-blog/blob/master/static/css/ezhil-custom.css) of [ezhil](https://github.com/vividvilla/ezhil), without any trackers*. It contains my non-tech posts from my infant time in which you don't want to be interested.
+You can also find a [list](/uses.html) of devices and softwares that I use most of the time.
+
+This site was created with [Hugo](https://gohugo.io/) and a [customized](https://github.com/mogita/otaku-blog/blob/master/static/css/ezhil-custom.css) version of [ezhil](https://github.com/vividvilla/ezhil), without any trackers*. It contains my non-tech posts from my infant time in which you don't want to be interested. This is my personal website. Opinions are my own.
 
 > \* You can use [Privacy Badger](https://privacybadger.org) to block Disqus comments automatically.
 
 # Bio
 
 🦋 Fanfouer<br />
-🧑‍💻 SWE @ [NextBillion AI](https://nb.ai), ex @ [Grab](https://grab.com) ([resume](/resume.html))<br />
+🧑‍💻 Software engineer<br />
 🎧 [Drummer](https://space.bilibili.com/70342), bedroom [producer](https://soundcloud.com/mogita)<br />🇸🇬 Located in Singapore<br />
 🇨🇳 汉语 🇬🇧 English 🇯🇵 日本語で数えることができる 🇪🇸 A veces leo en español
 
@@ -32,6 +34,13 @@ Feel like talking? Block my calendar here https://cal.com/mogita
 - [配信中](https://www.yocson.com)
 - [Archean's Blog](https://archeanz.com)
 - [Rock Neko](https://rockneko.xyz)
+
+# Netizenship
+
+- [GitLab](https://gitlab.com/mogita)
+- [GitHub](https://github.com/mogita)
+- [Twitter](https://twitter.com/mogita)
+- [Lobsters](https://lobste.rs/u/mogita)
 
 # Projects
 

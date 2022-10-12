@@ -180,6 +180,11 @@ li + li, ol ol, ol ul, ul ol, ul ul {
 	margin: .4em 0 0;
 }
 
+ul > li > ul {
+	margin: 0 !important;
+	list-style: circle inside;
+}
+
 blockquote {
 	font-size: 0.9em;
 	border-color: #09d;

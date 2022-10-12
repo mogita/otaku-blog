@@ -2,21 +2,20 @@
 title: "About"
 date: 2021-03-23T12:32:03+08:00
 type: "page"
-draft: false
 ---
 
-I'm Yun Wang, using the handle of @[mogita](https://twitter.com/mogita) (nearly) everywhere. I've worked as a software engineer since 2015. Before that, I wrote programs as a self-taught amateur. You can see my CV on [Linkedin](https://www.linkedin.com/in/mogita/).
+I'm Yun Wang, using the handle of @[mogita](https://twitter.com/mogita) (nearly) everywhere. I've worked as a software engineer since 2015. Before that, I wrote programs as a self-taught amateur. You can [see my resume here](/resume.html).
 
 I believe in many things: open source, remote working (one [book](https://www.amazon.com/Remote-Office-Not-Required/dp/0804137501) that I recommend), [RSS](/index.xml), cats dominate the human, Neo was The One, the Harry Potter folks do exist, and all those heavenly beautiful things from Michael Jackson's songs.
 
 This site was created with [Hugo](https://gohugo.io/) and a [customized version](https://github.com/mogita/otaku-blog/blob/master/static/css/ezhil-custom.css) of [ezhil](https://github.com/vividvilla/ezhil), without any trackers*. It contains my non-tech posts from my infant time in which you don't want to be interested.
 
-> \* The comment areas are supported by Disqus. I cannot guarantee if or when they work their ways out for trackers. You can make them automatically blocked with the [Privacy Badger](https://privacybadger.org) browser extension.
+> \* You can use [Privacy Badger](https://privacybadger.org) to block Disqus comments automatically.
 
 # Bio
 
 🦋 Fanfouer<br />
-🧑‍💻 Working @ [NextBillion AI](https://nb.ai), ex @ [Grab](https://grab.com)<br />
+🧑‍💻 SWE @ [NextBillion AI](https://nb.ai), ex @ [Grab](https://grab.com) ([resume](/resume.html))<br />
 🎧 [Drummer](https://space.bilibili.com/70342), bedroom [producer](https://soundcloud.com/mogita)<br />🇸🇬 Located in Singapore<br />
 🇨🇳 汉语 🇬🇧 English 🇯🇵 日本語で数えることができる 🇪🇸 A veces leo en español
 

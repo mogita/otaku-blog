@@ -48,7 +48,7 @@ type: page
 
 **iPhone**
 
+- Apple Mail
 - WaterMinder
 - Overcast
 - Duolingo
-- Halide

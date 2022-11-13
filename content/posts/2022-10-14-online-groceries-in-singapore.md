@@ -38,3 +38,11 @@ Having lived in Singapore for half a year now, me and my wife have been to a few
 
 - **Things you can buy**: wide category coverage but SKU is fairly limited
 - **Physical store**: no
+
+# Meals 外卖
+
+**[Si Wei Mao Cai 思味冒菜](https://siweimaocai.meuu.online)**
+
+- Cuisine: Szechuan
+- Free delivery at $54 per order
+- Physical store: 33 Mosque St, Singapore 059511

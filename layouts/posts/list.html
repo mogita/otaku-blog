@@ -1,0 +1,32 @@
+{{ define "title" }}
+  {{ title (i18n (lower .Title)) | default .Title }} · {{ .Site.Title }}
+{{ end }}
+{{ define "content" }}
+  <section class="container list">
+    <h1 class="title">
+      <a class="title-link" href="{{ .Permalink | safeURL }}">
+        {{ title (i18n (lower .Title)) | default .Title }}
+      </a>
+    </h1>
+    {{ .Content }}
+	{{ $lastYear := "" }}
+    <ul>
+      {{- range .Paginator.Pages -}}
+	    {{ $year := printf (dateFormat "2006" .Date) }}
+		{{ if ne $lastYear $year }}
+			<ul style="margin-bottom: 0.5rem;">
+				<li>
+					<span class="date" style="font-weight: 800;">{{ $year }}</span>
+					<span class="title"></span>
+				</li>
+			</ul>
+			{{ $lastYear = $year }}
+		{{ end }}
+        {{- .Render "li" -}}
+      {{- end -}}
+    </ul>
+
+    {{ partial "pagination.html" . }}
+  </section>
+{{ end }}
+

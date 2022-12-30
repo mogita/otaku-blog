@@ -1,8 +1,9 @@
 baseURL: "https://mogita.com/"
-languageCode: "en-us"
+languageCode: "en-US"
+defaultContentLanguage: "en"
 title: "mogita"
-copyright: "Copyright © 2010-{year} mogita"
-theme: "ezhil"
+theme: "hugo-coder"
+
 enableInlineShortcodes: true
 disqusShortname: otaku-mogita
 enableGitInfo: true
@@ -12,41 +13,72 @@ pygmentsStyle: "nord"
 pygmentscodefences: true
 pygmentscodefencesguesssyntax: true
 
-summaryLength: 0
 paginate: 100
-paginatePath: "page"
 permalinks:
-  /about: "/about.html"
   posts: "/:slug"
+#  /about: "/about.html"
 uglyURLs: true
 
+# --- ezhil compatible params ---
+# copyright: "Copyright © 2010-{year} mogita"
+# paginatePath: "page"
+#
+# params:
+  # subtitle: "満開の花が似合いのカタストロフィー"
+  # customCSS: "css/ezhil-custom.css"
+  # customDarkCSS: "css/ezhil-custom.css"
+  # mode: dark
+  # categories:
+  #   tech: 🛠️
+  #   journal: 📖
+  #   music: 🎸
+  # social:
+  #   - name: "Twitter"
+  #     icon: "twitter"
+  #     url: "https://twitter.com/mogita"
+  #   - name: "GitLab"
+  #     icon: "gitlab"
+  #     url: "https://gitlab.com/mogita"
+  #   - name: "LinkedIn"
+  #     icon: "linkedin"
+  #     url: "https://linkedin.com/in/mogita"
+
+# --- hugo coder compatible params ---
 params:
-  subtitle: "満開の花が似合いのカタストロフィー"
+  author: "Yun Wang"
+  info: "Empty Stack Developer"
+  description: "mogita's personal website"
+  keywords: "blog,developer,personal"
+  gravatar: "me@mogita.com"
+  since: 2010
+  colorScheme: "auto"
   highlight: true
-  customCSS: "css/ezhil-custom.css"
-  customDarkCSS: "css/ezhil-custom.css"
-  mode: dark
-  categories:
-    tech: 🛠️
-    journal: 📖
-    music: 🎸
+  favicon_16: 'img/favicons/favicon16.png'
+  favicon_32: 'img/favicons/favicon32.png'
+  touchIcon: 'img/favicons/favicon.png'
+  # customCSS: ["css/custom.css"]
+  # customSCSS: ["scss/custom.scss"]
+  # customJS: ["js/custom.js"]
   social:
     - name: "Twitter"
-      icon: "twitter"
+      icon: "fa fa-twitter fa-2x"
       url: "https://twitter.com/mogita"
+    - name: "Fediverse"
+      icon: "fa fa-mastodon fa-2x"
+      url: "https://mog.blue/@mogita"
     - name: "GitLab"
-      icon: "gitlab"
+      icon: "fa fa-gitlab fa-2x"
       url: "https://gitlab.com/mogita"
     - name: "LinkedIn"
-      icon: "linkedin"
+      icon: "fa fa-linkedin fa-2x"
       url: "https://linkedin.com/in/mogita"
 
 menu:
   main:
-    - identifier: "home"
-      name: "Home"
-      title: "Home"
-      url: "/"
+    - identifier: "posts"
+      name: "Posts"
+      title: "Posts"
+      url: "/posts.html"
       weight: 1
     - identifier: "rss"
       name: "RSS"

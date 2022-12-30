@@ -1,0 +1,420 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>译文 on mogita</title>
+    <link>http://localhost:1313/tags/%E8%AF%91%E6%96%87.html</link>
+    <description>Recent content in 译文 on mogita</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-US</language>
+    <lastBuildDate>Mon, 18 Jul 2016 15:34:24 +0000</lastBuildDate><atom:link href="http://localhost:1313/tags/%E8%AF%91%E6%96%87/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>理解 JavaScript Promises：上、背景和基础</title>
+      <link>http://localhost:1313/posts/understanding-javascript-promise-part-1.html</link>
+      <pubDate>Mon, 18 Jul 2016 15:34:24 +0000</pubDate>
+      
+      <guid>http://localhost:1313/posts/understanding-javascript-promise-part-1.html</guid>
+      <description>&lt;h2 id=&#34;许诺之地&#34;&gt;
+  许诺之地
+  &lt;a class=&#34;heading-link&#34; href=&#34;#%e8%ae%b8%e8%af%ba%e4%b9%8b%e5%9c%b0&#34;&gt;
+    &lt;i class=&#34;fa fa-link&#34; aria-hidden=&#34;true&#34; title=&#34;Link to heading&#34;&gt;&lt;/i&gt;
+    &lt;span class=&#34;sr-only&#34;&gt;Link to heading&lt;/span&gt;
+  &lt;/a&gt;
+&lt;/h2&gt;
+&lt;p&gt;ES2015 带来的最大变化之一就是&lt;a href=&#34;https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise&#34;&gt;原生的 Promise&lt;/a&gt;（即「许诺」，下同）特性，用来解决各种回调问题，让开发者写出同步风格的异步代码。&lt;/p&gt;
+&lt;p&gt;讲道理来说，Promise 和 Generator 代表着异步的新标准。无论你是否使用它们，都应该了解一下。&lt;/p&gt;
+&lt;p&gt;Promise 特性由很简单的 API 构成，但学习曲线稍显陡峭。初学者或许会感到它的概念十分艰涩，需要一个了解的过程和充分的示例。&lt;/p&gt;
+&lt;p&gt;读完本文后，你将能做到：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;明白为什么会有 Promise，以及它们能解决什么问题；&lt;/li&gt;
+&lt;li&gt;解释什么是 Promise，包括它们的实现以及应用；&lt;/li&gt;
+&lt;li&gt;将常见的回调设计用 Promise 进行重写&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;注意，文中示例均以 Node 环境为前提，你可以手动拷贝代码，也可以 &lt;a href=&#34;https://github.com/Peleke/promises/&#34;&gt;clone 我的代码&lt;/a&gt;。&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#d8dee9;background-color:#2e3440;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;git clone https://github.com/Peleke/promises/
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;git checkout Part_1-Basics
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;下面是本文的整体框架：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;回调的问题&lt;/li&gt;
+&lt;li&gt;Promise：定义以及 A+ 规范&lt;/li&gt;
+&lt;li&gt;Promise 和反控制反转&lt;/li&gt;
+&lt;li&gt;用 Promise 控制流程&lt;/li&gt;
+&lt;li&gt;理解 &lt;code&gt;then&lt;/code&gt;、&lt;code&gt;reject&lt;/code&gt; 和 &lt;code&gt;resolve&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;异步式&#34;&gt;
+  异步式
+  &lt;a class=&#34;heading-link&#34; href=&#34;#%e5%bc%82%e6%ad%a5%e5%bc%8f&#34;&gt;
+    &lt;i class=&#34;fa fa-link&#34; aria-hidden=&#34;true&#34; title=&#34;Link to heading&#34;&gt;&lt;/i&gt;
+    &lt;span class=&#34;sr-only&#34;&gt;Link to heading&lt;/span&gt;
+  &lt;/a&gt;
+&lt;/h2&gt;
+&lt;p&gt;任何写过一些 JavaScript 代码的开发者都知道，它是「非阻塞」或「异步执行」的。这究竟是什么意思？&lt;/p&gt;
+&lt;h4 id=&#34;同步和异步&#34;&gt;
+  同步和异步
+  &lt;a class=&#34;heading-link&#34; href=&#34;#%e5%90%8c%e6%ad%a5%e5%92%8c%e5%bc%82%e6%ad%a5&#34;&gt;
+    &lt;i class=&#34;fa fa-link&#34; aria-hidden=&#34;true&#34; title=&#34;Link to heading&#34;&gt;&lt;/i&gt;
+    &lt;span class=&#34;sr-only&#34;&gt;Link to heading&lt;/span&gt;
+  &lt;/a&gt;
+&lt;/h4&gt;
+&lt;p&gt;&lt;strong&gt;同步代码&lt;/strong&gt;会逐行运行，前行执行完了才执行后行。同步代码的近义词是阻塞执行，因为一行代码的执行会阻塞下面代码的执行，直到这行代码执行完毕。&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#d8dee9;background-color:#2e3440;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-js&#34; data-lang=&#34;js&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#616e87;font-style:italic&#34;&gt;// readfile_sync.js
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#616e87;font-style:italic&#34;&gt;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#a3be8c&#34;&gt;&amp;#34;use strict&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#eceff4&#34;&gt;;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#616e87;font-style:italic&#34;&gt;// This example uses Node, and so won&amp;#39;t run in the browser. 
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#616e87;font-style:italic&#34;&gt;&lt;/span&gt;&lt;span style=&#34;color:#81a1c1;font-weight:bold&#34;&gt;const&lt;/span&gt; filename &lt;span style=&#34;color:#81a1c1&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#a3be8c&#34;&gt;&amp;#39;text.txt&amp;#39;&lt;/span&gt;&lt;span style=&#34;color:#eceff4&#34;&gt;,&lt;/span&gt; 
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            fs &lt;span style=&#34;color:#81a1c1&#34;&gt;=&lt;/span&gt; require&lt;span style=&#34;color:#eceff4&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#a3be8c&#34;&gt;&amp;#39;fs&amp;#39;&lt;/span&gt;&lt;span style=&#34;color:#eceff4&#34;&gt;);&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;console&lt;span style=&#34;color:#eceff4&#34;&gt;.&lt;/span&gt;log&lt;span style=&#34;color:#eceff4&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#a3be8c&#34;&gt;&amp;#39;Reading file . . . &amp;#39;&lt;/span&gt;&lt;span style=&#34;color:#eceff4&#34;&gt;);&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#616e87;font-style:italic&#34;&gt;// readFileSync BLOCKS execution until it returns. 
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#616e87;font-style:italic&#34;&gt;//   The program will wait to execute anything else until this operation finishes. 
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#616e87;font-style:italic&#34;&gt;&lt;/span&gt;&lt;span style=&#34;color:#81a1c1;font-weight:bold&#34;&gt;const&lt;/span&gt; file &lt;span style=&#34;color:#81a1c1&#34;&gt;=&lt;/span&gt; fs&lt;span style=&#34;color:#eceff4&#34;&gt;.&lt;/span&gt;readFileSync&lt;span style=&#34;color:#eceff4&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#a3be8c&#34;&gt;`&lt;/span&gt;&lt;span style=&#34;color:#a3be8c&#34;&gt;${&lt;/span&gt;__dirname&lt;span style=&#34;color:#a3be8c&#34;&gt;}&lt;/span&gt;&lt;span style=&#34;color:#a3be8c&#34;&gt;/&lt;/span&gt;&lt;span style=&#34;color:#a3be8c&#34;&gt;${&lt;/span&gt;filename&lt;span style=&#34;color:#a3be8c&#34;&gt;}&lt;/span&gt;&lt;span style=&#34;color:#a3be8c&#34;&gt;`&lt;/span&gt;&lt;span style=&#34;color:#eceff4&#34;&gt;);&lt;/span&gt; 
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#616e87;font-style:italic&#34;&gt;// This will ALWAYS print after readFileSync returns. . . 
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#616e87;font-style:italic&#34;&gt;&lt;/span&gt;console&lt;span style=&#34;color:#eceff4&#34;&gt;.&lt;/span&gt;log&lt;span style=&#34;color:#eceff4&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#a3be8c&#34;&gt;&amp;#39;Done reading file.&amp;#39;&lt;/span&gt;&lt;span style=&#34;color:#eceff4&#34;&gt;);&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#616e87;font-style:italic&#34;&gt;// . . . And this will ALWAYS print the contents of &amp;#39;file&amp;#39;.
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#616e87;font-style:italic&#34;&gt;&lt;/span&gt;console&lt;span style=&#34;color:#eceff4&#34;&gt;.&lt;/span&gt;log&lt;span style=&#34;color:#eceff4&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#a3be8c&#34;&gt;`Contents: &lt;/span&gt;&lt;span style=&#34;color:#a3be8c&#34;&gt;${&lt;/span&gt;file&lt;span style=&#34;color:#eceff4&#34;&gt;.&lt;/span&gt;toString&lt;span style=&#34;color:#eceff4&#34;&gt;()&lt;/span&gt;&lt;span style=&#34;color:#a3be8c&#34;&gt;}&lt;/span&gt;&lt;span style=&#34;color:#a3be8c&#34;&gt;`&lt;/span&gt;&lt;span style=&#34;color:#eceff4&#34;&gt;);&lt;/span&gt; 
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;&lt;img src=&#34;http://localhost:1313/img/1.png&#34; alt=&#34;1&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;异步代码&lt;/strong&gt;正好相反：当前正在执行的这行代码不会阻止接下来的代码，就算它正在执行需要较长时间的操作，例如 I/O 或网络请求。这就是「非阻塞代码」。下面是用异步方式模拟上面的代码段：&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#d8dee9;background-color:#2e3440;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-js&#34; data-lang=&#34;js&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#616e87;font-style:italic&#34;&gt;// readfile_async.js
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#616e87;font-style:italic&#34;&gt;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#a3be8c&#34;&gt;&amp;#34;use strict&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#eceff4&#34;&gt;;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#616e87;font-style:italic&#34;&gt;// This example uses Node, so it won&amp;#39;t run in the browser.
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#616e87;font-style:italic&#34;&gt;&lt;/span&gt;&lt;span style=&#34;color:#81a1c1;font-weight:bold&#34;&gt;const&lt;/span&gt; filename      &lt;span style=&#34;color:#81a1c1&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#a3be8c&#34;&gt;&amp;#39;text.txt&amp;#39;&lt;/span&gt;&lt;span style=&#34;color:#eceff4&#34;&gt;,&lt;/span&gt; 
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            fs      &lt;span style=&#34;color:#81a1c1&#34;&gt;=&lt;/span&gt; require&lt;span style=&#34;color:#eceff4&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#a3be8c&#34;&gt;&amp;#39;fs&amp;#39;&lt;/span&gt;&lt;span style=&#34;color:#eceff4&#34;&gt;),&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        getContents &lt;span style=&#34;color:#81a1c1&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#81a1c1;font-weight:bold&#34;&gt;function&lt;/span&gt; printContent &lt;span style=&#34;color:#eceff4&#34;&gt;(&lt;/span&gt;file&lt;span style=&#34;color:#eceff4&#34;&gt;)&lt;/span&gt; &lt;span style=&#34;color:#eceff4&#34;&gt;{&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &lt;span style=&#34;color:#81a1c1;font-weight:bold&#34;&gt;try&lt;/span&gt; &lt;span style=&#34;color:#eceff4&#34;&gt;{&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;          &lt;span style=&#34;color:#81a1c1;font-weight:bold&#34;&gt;return&lt;/span&gt; file&lt;span style=&#34;color:#eceff4&#34;&gt;.&lt;/span&gt;toString&lt;span style=&#34;color:#eceff4&#34;&gt;();&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &lt;span style=&#34;color:#eceff4&#34;&gt;}&lt;/span&gt; &lt;span style=&#34;color:#81a1c1;font-weight:bold&#34;&gt;catch&lt;/span&gt; &lt;span style=&#34;color:#eceff4&#34;&gt;(&lt;/span&gt;TypeError&lt;span style=&#34;color:#eceff4&#34;&gt;)&lt;/span&gt; &lt;span style=&#34;color:#eceff4&#34;&gt;{&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;          &lt;span style=&#34;color:#81a1c1;font-weight:bold&#34;&gt;return&lt;/span&gt; file&lt;span style=&#34;color:#eceff4&#34;&gt;;&lt;/span&gt; 
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &lt;span style=&#34;color:#eceff4&#34;&gt;}&lt;/span&gt; 
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;      &lt;span style=&#34;color:#eceff4&#34;&gt;}&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;console&lt;span style=&#34;color:#eceff4&#34;&gt;.&lt;/span&gt;log&lt;span style=&#34;color:#eceff4&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#a3be8c&#34;&gt;&amp;#39;Reading file . . . &amp;#39;&lt;/span&gt;&lt;span style=&#34;color:#eceff4&#34;&gt;);&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;console&lt;span style=&#34;color:#eceff4&#34;&gt;.&lt;/span&gt;log&lt;span style=&#34;color:#eceff4&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#a3be8c&#34;&gt;&amp;#34;=&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#eceff4&#34;&gt;.&lt;/span&gt;repeat&lt;span style=&#34;color:#eceff4&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#b48ead&#34;&gt;76&lt;/span&gt;&lt;span style=&#34;color:#eceff4&#34;&gt;));&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#616e87;font-style:italic&#34;&gt;// readFile executes ASYNCHRONOUSLY. 
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#616e87;font-style:italic&#34;&gt;//   The program will continue to execute past LINE A while 
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#616e87;font-style:italic&#34;&gt;//   readFile does its business. We&amp;#39;ll talk about callbacks in detail
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#616e87;font-style:italic&#34;&gt;//   soon -- for now, just pay mind to the the order of the log
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#616e87;font-style:italic&#34;&gt;//   statements.
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#616e87;font-style:italic&#34;&gt;&lt;/span&gt;&lt;span style=&#34;color:#81a1c1;font-weight:bold&#34;&gt;let&lt;/span&gt; file&lt;span style=&#34;color:#eceff4&#34;&gt;;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;fs&lt;span style=&#34;color:#eceff4&#34;&gt;.&lt;/span&gt;readFile&lt;span style=&#34;color:#eceff4&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#a3be8c&#34;&gt;`&lt;/span&gt;&lt;span style=&#34;color:#a3be8c&#34;&gt;${&lt;/span&gt;__dirname&lt;span style=&#34;color:#a3be8c&#34;&gt;}&lt;/span&gt;&lt;span style=&#34;color:#a3be8c&#34;&gt;/&lt;/span&gt;&lt;span style=&#34;color:#a3be8c&#34;&gt;${&lt;/span&gt;filename&lt;span style=&#34;color:#a3be8c&#34;&gt;}&lt;/span&gt;&lt;span style=&#34;color:#a3be8c&#34;&gt;`&lt;/span&gt;&lt;span style=&#34;color:#eceff4&#34;&gt;,&lt;/span&gt; &lt;span style=&#34;color:#81a1c1;font-weight:bold&#34;&gt;function&lt;/span&gt; &lt;span style=&#34;color:#eceff4&#34;&gt;(&lt;/span&gt;err&lt;span style=&#34;color:#eceff4&#34;&gt;,&lt;/span&gt; contents&lt;span style=&#34;color:#eceff4&#34;&gt;)&lt;/span&gt; &lt;span style=&#34;color:#eceff4&#34;&gt;{&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  file &lt;span style=&#34;color:#81a1c1&#34;&gt;=&lt;/span&gt; contents&lt;span style=&#34;color:#eceff4&#34;&gt;;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  console&lt;span style=&#34;color:#eceff4&#34;&gt;.&lt;/span&gt;log&lt;span style=&#34;color:#eceff4&#34;&gt;(&lt;/span&gt; &lt;span style=&#34;color:#a3be8c&#34;&gt;`Uh, actually, now I&amp;#39;m done. Contents are: &lt;/span&gt;&lt;span style=&#34;color:#a3be8c&#34;&gt;${&lt;/span&gt; getContents&lt;span style=&#34;color:#eceff4&#34;&gt;(&lt;/span&gt;file&lt;span style=&#34;color:#eceff4&#34;&gt;)&lt;/span&gt; &lt;span style=&#34;color:#a3be8c&#34;&gt;}&lt;/span&gt;&lt;span style=&#34;color:#a3be8c&#34;&gt;`&lt;/span&gt;&lt;span style=&#34;color:#eceff4&#34;&gt;);&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#eceff4&#34;&gt;});&lt;/span&gt; &lt;span style=&#34;color:#616e87;font-style:italic&#34;&gt;// LINE A
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#616e87;font-style:italic&#34;&gt;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#616e87;font-style:italic&#34;&gt;// These will ALWAYS print BEFORE the file read is complete.
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#616e87;font-style:italic&#34;&gt;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#616e87;font-style:italic&#34;&gt;// Well, that&amp;#39;s both misleading and useless.
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#616e87;font-style:italic&#34;&gt;&lt;/span&gt;console&lt;span style=&#34;color:#eceff4&#34;&gt;.&lt;/span&gt;log&lt;span style=&#34;color:#eceff4&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#a3be8c&#34;&gt;`Done reading file. Contents are: &lt;/span&gt;&lt;span style=&#34;color:#a3be8c&#34;&gt;${&lt;/span&gt;getContents&lt;span style=&#34;color:#eceff4&#34;&gt;(&lt;/span&gt;file&lt;span style=&#34;color:#eceff4&#34;&gt;)&lt;/span&gt;&lt;span style=&#34;color:#a3be8c&#34;&gt;}&lt;/span&gt;&lt;span style=&#34;color:#a3be8c&#34;&gt;`&lt;/span&gt;&lt;span style=&#34;color:#eceff4&#34;&gt;);&lt;/span&gt; 
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;console&lt;span style=&#34;color:#eceff4&#34;&gt;.&lt;/span&gt;log&lt;span style=&#34;color:#eceff4&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#a3be8c&#34;&gt;&amp;#34;=&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#eceff4&#34;&gt;.&lt;/span&gt;repeat&lt;span style=&#34;color:#eceff4&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#b48ead&#34;&gt;76&lt;/span&gt;&lt;span style=&#34;color:#eceff4&#34;&gt;));&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;&lt;img src=&#34;http://localhost:1313/img/2.png&#34; alt=&#34;2&#34;&gt;&lt;/p&gt;
+&lt;p&gt;同步代码最大的好处在于可读，便于理解。同步代码自上而下顺序执行，与我们读书的方式相同。第 n 行的代码一定比第 n+1 行代码先执行完。&lt;/p&gt;
+&lt;p&gt;但同步代码的坏处在于执行慢。比如，用户点击按钮后，浏览器要在完成一个 2 秒的网络请求之后，再继续响应用户操作，这种体验是无法接受的。&lt;/p&gt;
+&lt;p&gt;这个例子也正好说明为什么 JavaScript 是非阻塞型的。&lt;/p&gt;
+&lt;h4 id=&#34;异步式带来的挑战&#34;&gt;
+  异步式带来的挑战
+  &lt;a class=&#34;heading-link&#34; href=&#34;#%e5%bc%82%e6%ad%a5%e5%bc%8f%e5%b8%a6%e6%9d%a5%e7%9a%84%e6%8c%91%e6%88%98&#34;&gt;
+    &lt;i class=&#34;fa fa-link&#34; aria-hidden=&#34;true&#34; title=&#34;Link to heading&#34;&gt;&lt;/i&gt;
+    &lt;span class=&#34;sr-only&#34;&gt;Link to heading&lt;/span&gt;
+  &lt;/a&gt;
+&lt;/h4&gt;
+&lt;p&gt;异步代码带来了速度上的提升，但不再具有线性特征。即使上例中琐碎的代码段也是如此。请注意：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;无法知道 &lt;code&gt;file&lt;/code&gt; 什么时候可用，除非将控制权交给 &lt;code&gt;readFile&lt;/code&gt; 并让它在准备好的时刻通知我们&lt;/li&gt;
+&lt;li&gt;我们的代码不再按照它的书写顺序来执行，理解起来会不那么直观&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;这几点问题将成为本文接下来讨论的中心。&lt;/p&gt;
+&lt;h2 id=&#34;回调和回退&#34;&gt;
+  回调和回退
+  &lt;a class=&#34;heading-link&#34; href=&#34;#%e5%9b%9e%e8%b0%83%e5%92%8c%e5%9b%9e%e9%80%80&#34;&gt;
+    &lt;i class=&#34;fa fa-link&#34; aria-hidden=&#34;true&#34; title=&#34;Link to heading&#34;&gt;&lt;/i&gt;
+    &lt;span class=&#34;sr-only&#34;&gt;Link to heading&lt;/span&gt;
+  &lt;/a&gt;
+&lt;/h2&gt;
+&lt;p&gt;我们来精简一下异步 &lt;code&gt;readFile&lt;/code&gt; 代码：&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#d8dee9;background-color:#2e3440;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-javascript&#34; data-lang=&#34;javascript&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#a3be8c&#34;&gt;&amp;#34;use strict&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#eceff4&#34;&gt;;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#81a1c1;font-weight:bold&#34;&gt;const&lt;/span&gt; filename &lt;span style=&#34;color:#81a1c1&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#a3be8c&#34;&gt;&amp;#39;throwaway.txt&amp;#39;&lt;/span&gt;&lt;span style=&#34;color:#eceff4&#34;&gt;,&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;      fs       &lt;span style=&#34;color:#81a1c1&#34;&gt;=&lt;/span&gt; require&lt;span style=&#34;color:#eceff4&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#a3be8c&#34;&gt;&amp;#39;fs&amp;#39;&lt;/span&gt;&lt;span style=&#34;color:#eceff4&#34;&gt;);&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#81a1c1;font-weight:bold&#34;&gt;let&lt;/span&gt; file&lt;span style=&#34;color:#eceff4&#34;&gt;,&lt;/span&gt; useless&lt;span style=&#34;color:#eceff4&#34;&gt;;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;useless &lt;span style=&#34;color:#81a1c1&#34;&gt;=&lt;/span&gt; fs&lt;span style=&#34;color:#eceff4&#34;&gt;.&lt;/span&gt;readFile&lt;span style=&#34;color:#eceff4&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#a3be8c&#34;&gt;`&lt;/span&gt;&lt;span style=&#34;color:#a3be8c&#34;&gt;${&lt;/span&gt;__dirname&lt;span style=&#34;color:#a3be8c&#34;&gt;}&lt;/span&gt;&lt;span style=&#34;color:#a3be8c&#34;&gt;/&lt;/span&gt;&lt;span style=&#34;color:#a3be8c&#34;&gt;${&lt;/span&gt;filename&lt;span style=&#34;color:#a3be8c&#34;&gt;}&lt;/span&gt;&lt;span style=&#34;color:#a3be8c&#34;&gt;`&lt;/span&gt;&lt;span style=&#34;color:#eceff4&#34;&gt;,&lt;/span&gt; &lt;span style=&#34;color:#81a1c1;font-weight:bold&#34;&gt;function&lt;/span&gt; callback &lt;span style=&#34;color:#eceff4&#34;&gt;(&lt;/span&gt;error&lt;span style=&#34;color:#eceff4&#34;&gt;,&lt;/span&gt; contents&lt;span style=&#34;color:#eceff4&#34;&gt;)&lt;/span&gt; &lt;span style=&#34;color:#eceff4&#34;&gt;{&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  file &lt;span style=&#34;color:#81a1c1&#34;&gt;=&lt;/span&gt; contents&lt;span style=&#34;color:#eceff4&#34;&gt;;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  console&lt;span style=&#34;color:#eceff4&#34;&gt;.&lt;/span&gt;log&lt;span style=&#34;color:#eceff4&#34;&gt;(&lt;/span&gt; &lt;span style=&#34;color:#a3be8c&#34;&gt;`Got it. Contents are: &lt;/span&gt;&lt;span style=&#34;color:#a3be8c&#34;&gt;${&lt;/span&gt;contents&lt;span style=&#34;color:#a3be8c&#34;&gt;}&lt;/span&gt;&lt;span style=&#34;color:#a3be8c&#34;&gt;`&lt;/span&gt;&lt;span style=&#34;color:#eceff4&#34;&gt;);&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  console&lt;span style=&#34;color:#eceff4&#34;&gt;.&lt;/span&gt;log&lt;span style=&#34;color:#eceff4&#34;&gt;(&lt;/span&gt; &lt;span style=&#34;color:#a3be8c&#34;&gt;`. . . But useless is still &lt;/span&gt;&lt;span style=&#34;color:#a3be8c&#34;&gt;${&lt;/span&gt;useless&lt;span style=&#34;color:#a3be8c&#34;&gt;}&lt;/span&gt;&lt;span style=&#34;color:#a3be8c&#34;&gt;.`&lt;/span&gt; &lt;span style=&#34;color:#eceff4&#34;&gt;);&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#eceff4&#34;&gt;});&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#616e87;font-style:italic&#34;&gt;// Thanks to Rava for catching an error in this line.
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#616e87;font-style:italic&#34;&gt;&lt;/span&gt;console&lt;span style=&#34;color:#eceff4&#34;&gt;.&lt;/span&gt;log&lt;span style=&#34;color:#eceff4&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#a3be8c&#34;&gt;`File is &lt;/span&gt;&lt;span style=&#34;color:#a3be8c&#34;&gt;${&lt;/span&gt;useless&lt;span style=&#34;color:#a3be8c&#34;&gt;}&lt;/span&gt;&lt;span style=&#34;color:#a3be8c&#34;&gt;, but that&amp;#39;ll change soon.`&lt;/span&gt;&lt;span style=&#34;color:#eceff4&#34;&gt;);&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;由于 &lt;code&gt;readFile&lt;/code&gt; 是非阻塞的，它不得不立即返回，以便代码继续往下执行。而「立即返回」也就意味着它没有足够的时间来完成 I/O 操作，它除了返回 &lt;code&gt;undefined&lt;/code&gt; 之外也别无他法。但我们需要的是在 &lt;code&gt;readFile&lt;/code&gt; 方法真正地读完文件。&lt;/p&gt;
+&lt;p&gt;问题来了，我们怎么知道读取已经完成？&lt;/p&gt;
+&lt;p&gt;答案也很简单：无法预知。但是，&lt;code&gt;readFile&lt;/code&gt; 方法可以。上面的代码段中，我们向&lt;code&gt;readFile&lt;/code&gt; 方法传递了两个参数：文件名，以及一个函数，这个函数就叫&lt;strong&gt;回调函数&lt;/strong&gt;。在文件读取完成的时刻，它就会被执行。&lt;/p&gt;
+&lt;p&gt;把这段代码换成白话就是：「&lt;code&gt;readFile&lt;/code&gt;，请查看一下 &lt;code&gt;${__dirname}/${filename}&lt;/code&gt;这个路径里面有什么内容，这个过程需要一点时间。你查看完之后，请调用 &lt;code&gt;callback&lt;/code&gt; 方法，传入 &lt;code&gt;contents&lt;/code&gt;，如果有错误请让我知道 &lt;code&gt;error&lt;/code&gt; 是什么。」&lt;/p&gt;
+&lt;p&gt;其要点就是我们无法获知读取文件的完成时间，只有 readFile 方法自己知道。这就是为什么我们要给它传递一个回调函数，并且信任 &lt;code&gt;readFile&lt;/code&gt; 会对这个函数做正确的事情。&lt;/p&gt;
+&lt;p&gt;这便是以往人们使用异步方法的基本方式：用参数调用它，并传递一个回调函数来处理结果。&lt;/p&gt;
+&lt;p&gt;回调是一种异步解决方案，但它们并不完美。两个比较大的问题在于：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;控制反转&lt;/li&gt;
+&lt;li&gt;复杂的错误处理方式&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h4 id=&#34;控制反转&#34;&gt;
+  控制反转
+  &lt;a class=&#34;heading-link&#34; href=&#34;#%e6%8e%a7%e5%88%b6%e5%8f%8d%e8%bd%ac&#34;&gt;
+    &lt;i class=&#34;fa fa-link&#34; aria-hidden=&#34;true&#34; title=&#34;Link to heading&#34;&gt;&lt;/i&gt;
+    &lt;span class=&#34;sr-only&#34;&gt;Link to heading&lt;/span&gt;
+  &lt;/a&gt;
+&lt;/h4&gt;
+&lt;p&gt;首先是关于信任的问题。&lt;/p&gt;
+&lt;p&gt;当我们向 &lt;code&gt;readFile&lt;/code&gt; 传递回调函数时，我们&lt;strong&gt;相信&lt;/strong&gt;它会执行这个回调。然而，事实上它却从没保证过它会执行这个回调。就算它确实会被调用，也没人保证传递给这个回调函数的参数将一定正确，或者顺序一定正确，又或者执行的次数也一定正确。&lt;/p&gt;
+&lt;p&gt;现实当中，这倒不是什么致命的问题：我们已经写了 20 多年回调，从未让网络崩坏。在此基础之上，我们觉得，把控制权直接交给 Node 核心代码应该也是安全的。&lt;/p&gt;
+&lt;p&gt;但是，把一个应用中最关键的部分交给第三方去管理，总感觉有点冒险，过去已经造成了无数个难以捕捉的 &lt;a href=&#34;https://en.wikipedia.org/wiki/Heisenbug&#34;&gt;Heisenbug&lt;/a&gt;。&lt;/p&gt;
+&lt;h4 id=&#34;显式错误处理&#34;&gt;
+  显式错误处理
+  &lt;a class=&#34;heading-link&#34; href=&#34;#%e6%98%be%e5%bc%8f%e9%94%99%e8%af%af%e5%a4%84%e7%90%86&#34;&gt;
+    &lt;i class=&#34;fa fa-link&#34; aria-hidden=&#34;true&#34; title=&#34;Link to heading&#34;&gt;&lt;/i&gt;
+    &lt;span class=&#34;sr-only&#34;&gt;Link to heading&lt;/span&gt;
+  &lt;/a&gt;
+&lt;/h4&gt;
+&lt;p&gt;在同步式编程中，我们可以用 &lt;code&gt;try&lt;/code&gt;/&lt;code&gt;catch&lt;/code&gt;/&lt;code&gt;finally&lt;/code&gt; 来把握错误处理。&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#d8dee9;background-color:#2e3440;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-javascript&#34; data-lang=&#34;javascript&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#a3be8c&#34;&gt;&amp;#34;use strict&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#eceff4&#34;&gt;;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#616e87;font-style:italic&#34;&gt;// This example uses Node, and so won&amp;#39;t run in the browser. 
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#616e87;font-style:italic&#34;&gt;&lt;/span&gt;&lt;span style=&#34;color:#81a1c1;font-weight:bold&#34;&gt;const&lt;/span&gt; filename &lt;span style=&#34;color:#81a1c1&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#a3be8c&#34;&gt;&amp;#39;text.txt&amp;#39;&lt;/span&gt;&lt;span style=&#34;color:#eceff4&#34;&gt;,&lt;/span&gt; 
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;       fs        &lt;span style=&#34;color:#81a1c1&#34;&gt;=&lt;/span&gt; require&lt;span style=&#34;color:#eceff4&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#a3be8c&#34;&gt;&amp;#39;fs&amp;#39;&lt;/span&gt;&lt;span style=&#34;color:#eceff4&#34;&gt;);&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;console&lt;span style=&#34;color:#eceff4&#34;&gt;.&lt;/span&gt;log&lt;span style=&#34;color:#eceff4&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#a3be8c&#34;&gt;&amp;#39;Reading file . . . &amp;#39;&lt;/span&gt;&lt;span style=&#34;color:#eceff4&#34;&gt;);&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#81a1c1;font-weight:bold&#34;&gt;let&lt;/span&gt; file&lt;span style=&#34;color:#eceff4&#34;&gt;;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#81a1c1;font-weight:bold&#34;&gt;try&lt;/span&gt; &lt;span style=&#34;color:#eceff4&#34;&gt;{&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  &lt;span style=&#34;color:#616e87;font-style:italic&#34;&gt;// Wrong filename. D&amp;#39;oh!
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#616e87;font-style:italic&#34;&gt;&lt;/span&gt;  file &lt;span style=&#34;color:#81a1c1&#34;&gt;=&lt;/span&gt; fs&lt;span style=&#34;color:#eceff4&#34;&gt;.&lt;/span&gt;readFileSync&lt;span style=&#34;color:#eceff4&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#a3be8c&#34;&gt;`&lt;/span&gt;&lt;span style=&#34;color:#a3be8c&#34;&gt;${&lt;/span&gt;__dirname&lt;span style=&#34;color:#a3be8c&#34;&gt;}&lt;/span&gt;&lt;span style=&#34;color:#a3be8c&#34;&gt;/&lt;/span&gt;&lt;span style=&#34;color:#a3be8c&#34;&gt;${&lt;/span&gt;filename &lt;span style=&#34;color:#81a1c1&#34;&gt;+&lt;/span&gt; &lt;span style=&#34;color:#a3be8c&#34;&gt;&amp;#39;a&amp;#39;&lt;/span&gt;&lt;span style=&#34;color:#a3be8c&#34;&gt;}&lt;/span&gt;&lt;span style=&#34;color:#a3be8c&#34;&gt;`&lt;/span&gt;&lt;span style=&#34;color:#eceff4&#34;&gt;);&lt;/span&gt; 
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  console&lt;span style=&#34;color:#eceff4&#34;&gt;.&lt;/span&gt;log&lt;span style=&#34;color:#eceff4&#34;&gt;(&lt;/span&gt; &lt;span style=&#34;color:#a3be8c&#34;&gt;`Got it. Contents are: &amp;#39;&lt;/span&gt;&lt;span style=&#34;color:#a3be8c&#34;&gt;${&lt;/span&gt;file&lt;span style=&#34;color:#a3be8c&#34;&gt;}&lt;/span&gt;&lt;span style=&#34;color:#a3be8c&#34;&gt;&amp;#39;`&lt;/span&gt; &lt;span style=&#34;color:#eceff4&#34;&gt;);&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#eceff4&#34;&gt;}&lt;/span&gt; &lt;span style=&#34;color:#81a1c1;font-weight:bold&#34;&gt;catch&lt;/span&gt; &lt;span style=&#34;color:#eceff4&#34;&gt;(&lt;/span&gt;err&lt;span style=&#34;color:#eceff4&#34;&gt;)&lt;/span&gt; &lt;span style=&#34;color:#eceff4&#34;&gt;{&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  console&lt;span style=&#34;color:#eceff4&#34;&gt;.&lt;/span&gt;log&lt;span style=&#34;color:#eceff4&#34;&gt;(&lt;/span&gt; &lt;span style=&#34;color:#a3be8c&#34;&gt;`There was a/n &lt;/span&gt;&lt;span style=&#34;color:#a3be8c&#34;&gt;${&lt;/span&gt;err&lt;span style=&#34;color:#a3be8c&#34;&gt;}&lt;/span&gt;&lt;span style=&#34;color:#a3be8c&#34;&gt;: file is &lt;/span&gt;&lt;span style=&#34;color:#a3be8c&#34;&gt;${&lt;/span&gt;file&lt;span style=&#34;color:#a3be8c&#34;&gt;}&lt;/span&gt;&lt;span style=&#34;color:#a3be8c&#34;&gt;`&lt;/span&gt; &lt;span style=&#34;color:#eceff4&#34;&gt;);&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#eceff4&#34;&gt;}&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;console&lt;span style=&#34;color:#eceff4&#34;&gt;.&lt;/span&gt;log&lt;span style=&#34;color:#eceff4&#34;&gt;(&lt;/span&gt; &lt;span style=&#34;color:#a3be8c&#34;&gt;&amp;#39;Catching errors, like a bo$$.&amp;#39;&lt;/span&gt; &lt;span style=&#34;color:#eceff4&#34;&gt;);&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;而在异步式编程中，还想这么写的话，就走远了：&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#d8dee9;background-color:#2e3440;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-javascript&#34; data-lang=&#34;javascript&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#a3be8c&#34;&gt;&amp;#34;use strict&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#eceff4&#34;&gt;;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#616e87;font-style:italic&#34;&gt;// This example uses Node, and so won&amp;#39;t run in the browser. 
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#616e87;font-style:italic&#34;&gt;&lt;/span&gt;&lt;span style=&#34;color:#81a1c1;font-weight:bold&#34;&gt;const&lt;/span&gt; filename &lt;span style=&#34;color:#81a1c1&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#a3be8c&#34;&gt;&amp;#39;throwaway.txt&amp;#39;&lt;/span&gt;&lt;span style=&#34;color:#eceff4&#34;&gt;,&lt;/span&gt; 
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        fs       &lt;span style=&#34;color:#81a1c1&#34;&gt;=&lt;/span&gt; require&lt;span style=&#34;color:#eceff4&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#a3be8c&#34;&gt;&amp;#39;fs&amp;#39;&lt;/span&gt;&lt;span style=&#34;color:#eceff4&#34;&gt;);&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;console&lt;span style=&#34;color:#eceff4&#34;&gt;.&lt;/span&gt;log&lt;span style=&#34;color:#eceff4&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#a3be8c&#34;&gt;&amp;#39;Reading file . . . &amp;#39;&lt;/span&gt;&lt;span style=&#34;color:#eceff4&#34;&gt;);&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#81a1c1;font-weight:bold&#34;&gt;let&lt;/span&gt; file&lt;span style=&#34;color:#eceff4&#34;&gt;;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#81a1c1;font-weight:bold&#34;&gt;try&lt;/span&gt; &lt;span style=&#34;color:#eceff4&#34;&gt;{&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  &lt;span style=&#34;color:#616e87;font-style:italic&#34;&gt;// Wrong filename. D&amp;#39;oh!
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#616e87;font-style:italic&#34;&gt;&lt;/span&gt;  fs&lt;span style=&#34;color:#eceff4&#34;&gt;.&lt;/span&gt;readFile&lt;span style=&#34;color:#eceff4&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#a3be8c&#34;&gt;`&lt;/span&gt;&lt;span style=&#34;color:#a3be8c&#34;&gt;${&lt;/span&gt;__dirname&lt;span style=&#34;color:#a3be8c&#34;&gt;}&lt;/span&gt;&lt;span style=&#34;color:#a3be8c&#34;&gt;/&lt;/span&gt;&lt;span style=&#34;color:#a3be8c&#34;&gt;${&lt;/span&gt;filename &lt;span style=&#34;color:#81a1c1&#34;&gt;+&lt;/span&gt; &lt;span style=&#34;color:#a3be8c&#34;&gt;&amp;#39;a&amp;#39;&lt;/span&gt;&lt;span style=&#34;color:#a3be8c&#34;&gt;}&lt;/span&gt;&lt;span style=&#34;color:#a3be8c&#34;&gt;`&lt;/span&gt;&lt;span style=&#34;color:#eceff4&#34;&gt;,&lt;/span&gt; &lt;span style=&#34;color:#81a1c1;font-weight:bold&#34;&gt;function&lt;/span&gt; &lt;span style=&#34;color:#eceff4&#34;&gt;(&lt;/span&gt;err&lt;span style=&#34;color:#eceff4&#34;&gt;,&lt;/span&gt; contents&lt;span style=&#34;color:#eceff4&#34;&gt;)&lt;/span&gt; &lt;span style=&#34;color:#eceff4&#34;&gt;{&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    file &lt;span style=&#34;color:#81a1c1&#34;&gt;=&lt;/span&gt; contents&lt;span style=&#34;color:#eceff4&#34;&gt;;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  &lt;span style=&#34;color:#eceff4&#34;&gt;});&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  &lt;span style=&#34;color:#616e87;font-style:italic&#34;&gt;// This shouldn&amp;#39;t run if file is undefined
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#616e87;font-style:italic&#34;&gt;&lt;/span&gt;  console&lt;span style=&#34;color:#eceff4&#34;&gt;.&lt;/span&gt;log&lt;span style=&#34;color:#eceff4&#34;&gt;(&lt;/span&gt; &lt;span style=&#34;color:#a3be8c&#34;&gt;`Got it. Contents are: &amp;#39;&lt;/span&gt;&lt;span style=&#34;color:#a3be8c&#34;&gt;${&lt;/span&gt;file&lt;span style=&#34;color:#a3be8c&#34;&gt;}&lt;/span&gt;&lt;span style=&#34;color:#a3be8c&#34;&gt;&amp;#39;`&lt;/span&gt; &lt;span style=&#34;color:#eceff4&#34;&gt;);&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#eceff4&#34;&gt;}&lt;/span&gt; &lt;span style=&#34;color:#81a1c1;font-weight:bold&#34;&gt;catch&lt;/span&gt; &lt;span style=&#34;color:#eceff4&#34;&gt;(&lt;/span&gt;err&lt;span style=&#34;color:#eceff4&#34;&gt;)&lt;/span&gt; &lt;span style=&#34;color:#eceff4&#34;&gt;{&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  &lt;span style=&#34;color:#616e87;font-style:italic&#34;&gt;// In this case, catch should run, but it never will.
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#616e87;font-style:italic&#34;&gt;&lt;/span&gt;  &lt;span style=&#34;color:#616e87;font-style:italic&#34;&gt;//   This is because readFile passes errors to the callback -- it does /not/
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#616e87;font-style:italic&#34;&gt;&lt;/span&gt;  &lt;span style=&#34;color:#616e87;font-style:italic&#34;&gt;//   throw them.
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#616e87;font-style:italic&#34;&gt;&lt;/span&gt;  console&lt;span style=&#34;color:#eceff4&#34;&gt;.&lt;/span&gt;log&lt;span style=&#34;color:#eceff4&#34;&gt;(&lt;/span&gt; &lt;span style=&#34;color:#a3be8c&#34;&gt;`There was a/n &lt;/span&gt;&lt;span style=&#34;color:#a3be8c&#34;&gt;${&lt;/span&gt;err&lt;span style=&#34;color:#a3be8c&#34;&gt;}&lt;/span&gt;&lt;span style=&#34;color:#a3be8c&#34;&gt;: file is &lt;/span&gt;&lt;span style=&#34;color:#a3be8c&#34;&gt;${&lt;/span&gt;file&lt;span style=&#34;color:#a3be8c&#34;&gt;}&lt;/span&gt;&lt;span style=&#34;color:#a3be8c&#34;&gt;`&lt;/span&gt; &lt;span style=&#34;color:#eceff4&#34;&gt;);&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#eceff4&#34;&gt;}&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;这段代码根本不会以设想的方式执行。因为 &lt;code&gt;try&lt;/code&gt; 语句块包含 &lt;code&gt;readFile&lt;/code&gt; 方法，后者永远会成功地返回一个 &lt;code&gt;undefined&lt;/code&gt; 值。也就是说，&lt;code&gt;try&lt;/code&gt; 永远会成功完成，而不会发生任何意外。&lt;/p&gt;
+&lt;p&gt;要捕获 &lt;code&gt;readFile&lt;/code&gt; 产生的错误的方式只有一种，就是给它传递一个回调函数，并在这个回调中获得错误信息，然后再来处理错误。&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#d8dee9;background-color:#2e3440;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-javascript&#34; data-lang=&#34;javascript&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#a3be8c&#34;&gt;&amp;#34;use strict&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#eceff4&#34;&gt;;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#616e87;font-style:italic&#34;&gt;// This example uses Node, and so won&amp;#39;t run in the browser. 
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#616e87;font-style:italic&#34;&gt;&lt;/span&gt;&lt;span style=&#34;color:#81a1c1;font-weight:bold&#34;&gt;const&lt;/span&gt; filename &lt;span style=&#34;color:#81a1c1&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#a3be8c&#34;&gt;&amp;#39;throwaway.txt&amp;#39;&lt;/span&gt;&lt;span style=&#34;color:#eceff4&#34;&gt;,&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        fs       &lt;span style=&#34;color:#81a1c1&#34;&gt;=&lt;/span&gt; require&lt;span style=&#34;color:#eceff4&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#a3be8c&#34;&gt;&amp;#39;fs&amp;#39;&lt;/span&gt;&lt;span style=&#34;color:#eceff4&#34;&gt;);&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;console&lt;span style=&#34;color:#eceff4&#34;&gt;.&lt;/span&gt;log&lt;span style=&#34;color:#eceff4&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#a3be8c&#34;&gt;&amp;#39;Reading file . . . &amp;#39;&lt;/span&gt;&lt;span style=&#34;color:#eceff4&#34;&gt;);&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;fs&lt;span style=&#34;color:#eceff4&#34;&gt;.&lt;/span&gt;readFile&lt;span style=&#34;color:#eceff4&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#a3be8c&#34;&gt;`&lt;/span&gt;&lt;span style=&#34;color:#a3be8c&#34;&gt;${&lt;/span&gt;__dirname&lt;span style=&#34;color:#a3be8c&#34;&gt;}&lt;/span&gt;&lt;span style=&#34;color:#a3be8c&#34;&gt;/&lt;/span&gt;&lt;span style=&#34;color:#a3be8c&#34;&gt;${&lt;/span&gt;filename &lt;span style=&#34;color:#81a1c1&#34;&gt;+&lt;/span&gt; &lt;span style=&#34;color:#a3be8c&#34;&gt;&amp;#39;a&amp;#39;&lt;/span&gt;&lt;span style=&#34;color:#a3be8c&#34;&gt;}&lt;/span&gt;&lt;span style=&#34;color:#a3be8c&#34;&gt;`&lt;/span&gt;&lt;span style=&#34;color:#eceff4&#34;&gt;,&lt;/span&gt; &lt;span style=&#34;color:#81a1c1;font-weight:bold&#34;&gt;function&lt;/span&gt; &lt;span style=&#34;color:#eceff4&#34;&gt;(&lt;/span&gt;err&lt;span style=&#34;color:#eceff4&#34;&gt;,&lt;/span&gt; contents&lt;span style=&#34;color:#eceff4&#34;&gt;)&lt;/span&gt; &lt;span style=&#34;color:#eceff4&#34;&gt;{&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  &lt;span style=&#34;color:#81a1c1;font-weight:bold&#34;&gt;if&lt;/span&gt; &lt;span style=&#34;color:#eceff4&#34;&gt;(&lt;/span&gt;err&lt;span style=&#34;color:#eceff4&#34;&gt;)&lt;/span&gt; &lt;span style=&#34;color:#eceff4&#34;&gt;{&lt;/span&gt; &lt;span style=&#34;color:#616e87;font-style:italic&#34;&gt;// catch
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#616e87;font-style:italic&#34;&gt;&lt;/span&gt;    console&lt;span style=&#34;color:#eceff4&#34;&gt;.&lt;/span&gt;log&lt;span style=&#34;color:#eceff4&#34;&gt;(&lt;/span&gt; &lt;span style=&#34;color:#a3be8c&#34;&gt;`There was a/n &lt;/span&gt;&lt;span style=&#34;color:#a3be8c&#34;&gt;${&lt;/span&gt;err&lt;span style=&#34;color:#a3be8c&#34;&gt;}&lt;/span&gt;&lt;span style=&#34;color:#a3be8c&#34;&gt;.`&lt;/span&gt; &lt;span style=&#34;color:#eceff4&#34;&gt;);&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  &lt;span style=&#34;color:#eceff4&#34;&gt;}&lt;/span&gt; &lt;span style=&#34;color:#81a1c1;font-weight:bold&#34;&gt;else&lt;/span&gt;   &lt;span style=&#34;color:#eceff4&#34;&gt;{&lt;/span&gt; &lt;span style=&#34;color:#616e87;font-style:italic&#34;&gt;// try
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#616e87;font-style:italic&#34;&gt;&lt;/span&gt;    console&lt;span style=&#34;color:#eceff4&#34;&gt;.&lt;/span&gt;log&lt;span style=&#34;color:#eceff4&#34;&gt;(&lt;/span&gt; &lt;span style=&#34;color:#a3be8c&#34;&gt;`Got it. File contents are: &amp;#39;&lt;/span&gt;&lt;span style=&#34;color:#a3be8c&#34;&gt;${&lt;/span&gt;file&lt;span style=&#34;color:#a3be8c&#34;&gt;}&lt;/span&gt;&lt;span style=&#34;color:#a3be8c&#34;&gt;&amp;#39;`&lt;/span&gt;&lt;span style=&#34;color:#eceff4&#34;&gt;);&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  &lt;span style=&#34;color:#eceff4&#34;&gt;}&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#eceff4&#34;&gt;});&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;这个例子的代码还不算太糟糕，但是工程量足够大时，这些问题会后患无穷。&lt;/p&gt;
+&lt;p&gt;Promise 则一下解决了这两个问题等一系列不足之处，通过「反控制反转」，和「同步化」异步代码，来实现我们更熟悉的错误处理。&lt;/p&gt;
+&lt;h2 id=&#34;promise-机制&#34;&gt;
+  Promise 机制
+  &lt;a class=&#34;heading-link&#34; href=&#34;#promise-%e6%9c%ba%e5%88%b6&#34;&gt;
+    &lt;i class=&#34;fa fa-link&#34; aria-hidden=&#34;true&#34; title=&#34;Link to heading&#34;&gt;&lt;/i&gt;
+    &lt;span class=&#34;sr-only&#34;&gt;Link to heading&lt;/span&gt;
+  &lt;/a&gt;
+&lt;/h2&gt;
+&lt;p&gt;假设你从 O’Reilly 订购了全套「&lt;a href=&#34;https://github.com/getify/You-Dont-Know-JS/blob/master/README.md#you-dont-know-js-book-series&#34;&gt;You Don’t Know JS&lt;/a&gt;」丛书。你把辛苦搬砖挣来的钞票给了他们，他们发给你一张收据，声明你将在下周一收到一套崭新的图书。在那之前，你都并未拥有这套图书。但你可以相信，一定会收到，因为他们保证过（promised）一定会寄送。&lt;/p&gt;
+&lt;p&gt;基于这种 Promise，在图书送达之前，你就可以计划好每天要阅读多少本，计划借给朋友哪几本，甚至给老板请好一周的休假来奋力读书。在制定这些计划的时候，你其实都处于并未拥有这套图书的状态，你仅仅是知道你会拥有。&lt;/p&gt;
+&lt;p&gt;当然，O’Reilly 可能过几天之后告诉你，由于七七八八的原因，订单无法完成了。到那时，你可以取消每日阅读计划，告诉你朋友他们不用等了（因为你自己都拿不到书），然后告诉老板，下周你会照常上班。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Promise&lt;/strong&gt;，就像这张收据一样，是替一个还未就绪的值占位的对象，但稍后一定会就绪。换句话说，一个未来的值。你可以把 Promise 当成一个你正在等待的值，并在假设你已获得它的前提下编写代码。&lt;/p&gt;
+&lt;p&gt;如果在事件过程中出现岔子，Promise 会在自身内部流程去处理中断的地方，并且让你用一个特殊的 &lt;code&gt;catch&lt;/code&gt; 关键词来处理错误。这和同步式的代码有点不一样，但至少比异步处理一堆错误要舒服。&lt;/p&gt;
+&lt;p&gt;并且，由于 Promise 会在一个值准备就绪时将其传递给你，你就可以决定要如何使用这个值。这就解决了控制反转的问题：你自己来直接掌握应用的逻辑，无需把控制权转交给第三方。&lt;/p&gt;
+&lt;h4 id=&#34;promise-的生命周期状态states简介&#34;&gt;
+  Promise 的生命周期：状态（States）简介
+  &lt;a class=&#34;heading-link&#34; href=&#34;#promise-%e7%9a%84%e7%94%9f%e5%91%bd%e5%91%a8%e6%9c%9f%e7%8a%b6%e6%80%81states%e7%ae%80%e4%bb%8b&#34;&gt;
+    &lt;i class=&#34;fa fa-link&#34; aria-hidden=&#34;true&#34; title=&#34;Link to heading&#34;&gt;&lt;/i&gt;
+    &lt;span class=&#34;sr-only&#34;&gt;Link to heading&lt;/span&gt;
+  &lt;/a&gt;
+&lt;/h4&gt;
+&lt;p&gt;假设你用 Promise 进行了一次 API 调用。&lt;/p&gt;
+&lt;p&gt;由于服务器不可能立即发回响应，Promise 是不可能立即获得最终值的，也不可能立即报告错误。这个状态下的 Promise 被称为 &lt;strong&gt;Pending&lt;/strong&gt;（等候中），好比你在等待订购的那套新书。&lt;/p&gt;
+&lt;p&gt;一旦服务器发回了响应，就会产生两种可能：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;Promise 得到了它期待的值，这个状态被称为 &lt;strong&gt;Fulfilled&lt;/strong&gt;（已满足）。好比你收到了那套书。&lt;/li&gt;
+&lt;li&gt;请求事件中出现了错误，这时 Promise 的状态被称为 &lt;strong&gt;Rejected&lt;/strong&gt;（被拒绝）。这就好比你收到通知，购书订单无法完成了。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;这三个状态就是 Promise 的所有可能状态。一旦 Promise 变成了 Fulfilled 或 Rejected，则无法再转化为任何其他状态了。&lt;/p&gt;
+&lt;p&gt;关于概念的阐释就说这么远，下面我们来看看究竟怎样应用这些东西。&lt;/p&gt;
+&lt;h2 id=&#34;promise-的基础方法&#34;&gt;
+  Promise 的基础方法
+  &lt;a class=&#34;heading-link&#34; href=&#34;#promise-%e7%9a%84%e5%9f%ba%e7%a1%80%e6%96%b9%e6%b3%95&#34;&gt;
+    &lt;i class=&#34;fa fa-link&#34; aria-hidden=&#34;true&#34; title=&#34;Link to heading&#34;&gt;&lt;/i&gt;
+    &lt;span class=&#34;sr-only&#34;&gt;Link to heading&lt;/span&gt;
+  &lt;/a&gt;
+&lt;/h2&gt;
+&lt;p&gt;引用 &lt;a href=&#34;https://promisesaplus.com/&#34;&gt;Promises/A+ 标准&lt;/a&gt;的一段话：&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Promise 代表一个异步操作的最终结果。与 Promise 进行交互的主要方式，是使用它的 &lt;code&gt;then&lt;/code&gt; 方法。该方法会注册回调函数，接收 Promise 的最终值，或 Promise 无法被满足的原因。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;接下来的部分，我们将对 Promise 的基本用法进行详细介绍：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;用构造器创建 Promise&lt;/li&gt;
+&lt;li&gt;用 &lt;code&gt;resolve&lt;/code&gt; 处理成功事件&lt;/li&gt;
+&lt;li&gt;用 &lt;code&gt;rejected&lt;/code&gt; 处理错误事件&lt;/li&gt;
+&lt;li&gt;用 &lt;code&gt;then&lt;/code&gt; 和 &lt;code&gt;catch&lt;/code&gt; 来建立控制流程&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;在这个例子中，我们将使用 Promise 来搞定上边 &lt;code&gt;fs.readFile&lt;/code&gt; 的遗留代码。&lt;/p&gt;
+&lt;h2 id=&#34;创建-promise&#34;&gt;
+  创建 Promise
+  &lt;a class=&#34;heading-link&#34; href=&#34;#%e5%88%9b%e5%bb%ba-promise&#34;&gt;
+    &lt;i class=&#34;fa fa-link&#34; aria-hidden=&#34;true&#34; title=&#34;Link to heading&#34;&gt;&lt;/i&gt;
+    &lt;span class=&#34;sr-only&#34;&gt;Link to heading&lt;/span&gt;
+  &lt;/a&gt;
+&lt;/h2&gt;
+&lt;p&gt;最基本的 Promise 创建方法就是通过构造器直接创建。&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#d8dee9;background-color:#2e3440;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-javascript&#34; data-lang=&#34;javascript&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#a3be8c&#34;&gt;&amp;#39;use strict&amp;#39;&lt;/span&gt;&lt;span style=&#34;color:#eceff4&#34;&gt;;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#81a1c1;font-weight:bold&#34;&gt;const&lt;/span&gt; fs &lt;span style=&#34;color:#81a1c1&#34;&gt;=&lt;/span&gt; require&lt;span style=&#34;color:#eceff4&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#a3be8c&#34;&gt;&amp;#39;fs&amp;#39;&lt;/span&gt;&lt;span style=&#34;color:#eceff4&#34;&gt;);&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#81a1c1;font-weight:bold&#34;&gt;const&lt;/span&gt; text &lt;span style=&#34;color:#81a1c1&#34;&gt;=&lt;/span&gt; 
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  &lt;span style=&#34;color:#81a1c1;font-weight:bold&#34;&gt;new&lt;/span&gt; &lt;span style=&#34;color:#81a1c1&#34;&gt;Promise&lt;/span&gt;&lt;span style=&#34;color:#eceff4&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#81a1c1;font-weight:bold&#34;&gt;function&lt;/span&gt; &lt;span style=&#34;color:#eceff4&#34;&gt;(&lt;/span&gt;resolve&lt;span style=&#34;color:#eceff4&#34;&gt;,&lt;/span&gt; reject&lt;span style=&#34;color:#eceff4&#34;&gt;)&lt;/span&gt; &lt;span style=&#34;color:#eceff4&#34;&gt;{&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;      &lt;span style=&#34;color:#616e87;font-style:italic&#34;&gt;// Does nothing
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#616e87;font-style:italic&#34;&gt;&lt;/span&gt;  &lt;span style=&#34;color:#eceff4&#34;&gt;})&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;注意，我们向 Promise 构造器传递了一个函数作为参数。在这里我们将告诉 Promise 怎样执行异步操作、得到期待值后需要做什么，以及出错了怎么办。细说起来就是：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;code&gt;Resolve&lt;/code&gt; 参数也是一个函数，里面包含当获得&lt;strong&gt;期待值&lt;/strong&gt;的时候我们想要做的事。当我们得到了期待值 &lt;code&gt;val&lt;/code&gt; 的时候，我们这样调用：&lt;code&gt;resolve(val)&lt;/code&gt;。&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;Reject&lt;/code&gt;参数也是一个函数，代表得到&lt;strong&gt;错误&lt;/strong&gt;的时候我们要怎么做。如果有错误&lt;code&gt;err&lt;/code&gt;，则要这样调用：&lt;code&gt;reject(err)&lt;/code&gt;。&lt;/li&gt;
+&lt;li&gt;最后，我们传递给 Promise 构造器的函数将处理异步代码本身。如果它按期待返回了，我们就调用 &lt;code&gt;resolve&lt;/code&gt; 并传入获得的返回值。如果抛出错误，我们就调用&lt;code&gt;reject&lt;/code&gt; 并传入错误。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;我们的示例需要把 &lt;code&gt;fs.readFile&lt;/code&gt; 封装成一个 Promise。那么，应该怎样写 &lt;code&gt;resolve&lt;/code&gt; 和&lt;code&gt;reject&lt;/code&gt; 呢？&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;在成功的事件中，我们用 &lt;code&gt;console.log&lt;/code&gt; 打印文件内容&lt;/li&gt;
+&lt;li&gt;在错误的事件中，我们做一样的事：用 &lt;code&gt;console.log&lt;/code&gt; 打印错误信息&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;也就是这样：&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#d8dee9;background-color:#2e3440;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-javascript&#34; data-lang=&#34;javascript&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#616e87;font-style:italic&#34;&gt;// constructor.js
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#616e87;font-style:italic&#34;&gt;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#81a1c1;font-weight:bold&#34;&gt;const&lt;/span&gt; resolve &lt;span style=&#34;color:#81a1c1&#34;&gt;=&lt;/span&gt; console&lt;span style=&#34;color:#eceff4&#34;&gt;.&lt;/span&gt;log&lt;span style=&#34;color:#eceff4&#34;&gt;,&lt;/span&gt; 
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;      reject &lt;span style=&#34;color:#81a1c1&#34;&gt;=&lt;/span&gt; console&lt;span style=&#34;color:#eceff4&#34;&gt;.&lt;/span&gt;log&lt;span style=&#34;color:#eceff4&#34;&gt;;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;接下来，我们需要把传递给构造器的函数补充完整。记住，我们的任务是：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;读取一个文件&lt;/li&gt;
+&lt;li&gt;如果成功，&lt;code&gt;resolve&lt;/code&gt;（解决）内容&lt;/li&gt;
+&lt;li&gt;否则，&lt;code&gt;reject&lt;/code&gt;（拒绝）并给出错误&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;因此：&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#d8dee9;background-color:#2e3440;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-javascript&#34; data-lang=&#34;javascript&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#616e87;font-style:italic&#34;&gt;// constructor.js
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#616e87;font-style:italic&#34;&gt;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#81a1c1;font-weight:bold&#34;&gt;const&lt;/span&gt; text &lt;span style=&#34;color:#81a1c1&#34;&gt;=&lt;/span&gt; 
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  &lt;span style=&#34;color:#81a1c1;font-weight:bold&#34;&gt;new&lt;/span&gt; &lt;span style=&#34;color:#81a1c1&#34;&gt;Promise&lt;/span&gt;&lt;span style=&#34;color:#eceff4&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#81a1c1;font-weight:bold&#34;&gt;function&lt;/span&gt; &lt;span style=&#34;color:#eceff4&#34;&gt;(&lt;/span&gt;resolve&lt;span style=&#34;color:#eceff4&#34;&gt;,&lt;/span&gt; reject&lt;span style=&#34;color:#eceff4&#34;&gt;)&lt;/span&gt; &lt;span style=&#34;color:#eceff4&#34;&gt;{&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#616e87;font-style:italic&#34;&gt;// Normal fs.readFile call, but inside Promise constructor . . . 
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#616e87;font-style:italic&#34;&gt;&lt;/span&gt;    fs&lt;span style=&#34;color:#eceff4&#34;&gt;.&lt;/span&gt;readFile&lt;span style=&#34;color:#eceff4&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#a3be8c&#34;&gt;&amp;#39;text.txt&amp;#39;&lt;/span&gt;&lt;span style=&#34;color:#eceff4&#34;&gt;,&lt;/span&gt; &lt;span style=&#34;color:#81a1c1;font-weight:bold&#34;&gt;function&lt;/span&gt; &lt;span style=&#34;color:#eceff4&#34;&gt;(&lt;/span&gt;err&lt;span style=&#34;color:#eceff4&#34;&gt;,&lt;/span&gt; text&lt;span style=&#34;color:#eceff4&#34;&gt;)&lt;/span&gt; &lt;span style=&#34;color:#eceff4&#34;&gt;{&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;      &lt;span style=&#34;color:#616e87;font-style:italic&#34;&gt;// . . . Call reject if there&amp;#39;s an error . . . 
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#616e87;font-style:italic&#34;&gt;&lt;/span&gt;      &lt;span style=&#34;color:#81a1c1;font-weight:bold&#34;&gt;if&lt;/span&gt; &lt;span style=&#34;color:#eceff4&#34;&gt;(&lt;/span&gt;err&lt;span style=&#34;color:#eceff4&#34;&gt;)&lt;/span&gt; 
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        reject&lt;span style=&#34;color:#eceff4&#34;&gt;(&lt;/span&gt;err&lt;span style=&#34;color:#eceff4&#34;&gt;);&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;      &lt;span style=&#34;color:#616e87;font-style:italic&#34;&gt;// . . . And call resolve otherwise.
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#616e87;font-style:italic&#34;&gt;&lt;/span&gt;      &lt;span style=&#34;color:#81a1c1;font-weight:bold&#34;&gt;else&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#616e87;font-style:italic&#34;&gt;// We need toString() because fs.readFile returns a buffer.
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#616e87;font-style:italic&#34;&gt;&lt;/span&gt;        resolve&lt;span style=&#34;color:#eceff4&#34;&gt;(&lt;/span&gt;text&lt;span style=&#34;color:#eceff4&#34;&gt;.&lt;/span&gt;toString&lt;span style=&#34;color:#eceff4&#34;&gt;());&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#eceff4&#34;&gt;})&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  &lt;span style=&#34;color:#eceff4&#34;&gt;})&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;这样，我们就算完成工作了。这段代码会创建一个 Promise，它会严格执行我们想要的逻辑。但是，当你运行这段代码的时候，什么都不会打印出来。&lt;/p&gt;
+&lt;h2 id=&#34;她做出了承诺然后&#34;&gt;
+  她做出了承诺，然后…
+  &lt;a class=&#34;heading-link&#34; href=&#34;#%e5%a5%b9%e5%81%9a%e5%87%ba%e4%ba%86%e6%89%bf%e8%af%ba%e7%84%b6%e5%90%8e&#34;&gt;
+    &lt;i class=&#34;fa fa-link&#34; aria-hidden=&#34;true&#34; title=&#34;Link to heading&#34;&gt;&lt;/i&gt;
+    &lt;span class=&#34;sr-only&#34;&gt;Link to heading&lt;/span&gt;
+  &lt;/a&gt;
+&lt;/h2&gt;
+&lt;p&gt;原因是，我们写了 &lt;code&gt;resolve&lt;/code&gt; 和 &lt;code&gt;reject&lt;/code&gt; 方法，却并没有把它们传递给 Promise！怎么传？很简单，利用 Promise 的流程控制方法 &lt;code&gt;then&lt;/code&gt; 来完成。&lt;/p&gt;
+&lt;p&gt;每个 Promise 对象都有一个叫做 &lt;code&gt;then&lt;/code&gt; 的方法，它仅接受两个参数：&lt;code&gt;resolve&lt;/code&gt; 和&lt;code&gt;reject&lt;/code&gt;，且要保证顺序一致。调用 Promise 的 &lt;code&gt;then&lt;/code&gt; 方法并传递这些函数，才能使构造器里的回调函数访问这两个函数。&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#d8dee9;background-color:#2e3440;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-javascript&#34; data-lang=&#34;javascript&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#616e87;font-style:italic&#34;&gt;// constructor.js
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#616e87;font-style:italic&#34;&gt;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#81a1c1;font-weight:bold&#34;&gt;const&lt;/span&gt; text &lt;span style=&#34;color:#81a1c1&#34;&gt;=&lt;/span&gt; 
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  &lt;span style=&#34;color:#81a1c1;font-weight:bold&#34;&gt;new&lt;/span&gt; &lt;span style=&#34;color:#81a1c1&#34;&gt;Promise&lt;/span&gt;&lt;span style=&#34;color:#eceff4&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#81a1c1;font-weight:bold&#34;&gt;function&lt;/span&gt; &lt;span style=&#34;color:#eceff4&#34;&gt;(&lt;/span&gt;resolve&lt;span style=&#34;color:#eceff4&#34;&gt;,&lt;/span&gt; reject&lt;span style=&#34;color:#eceff4&#34;&gt;)&lt;/span&gt; &lt;span style=&#34;color:#eceff4&#34;&gt;{&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    fs&lt;span style=&#34;color:#eceff4&#34;&gt;.&lt;/span&gt;readFile&lt;span style=&#34;color:#eceff4&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#a3be8c&#34;&gt;&amp;#39;text.txt&amp;#39;&lt;/span&gt;&lt;span style=&#34;color:#eceff4&#34;&gt;,&lt;/span&gt; &lt;span style=&#34;color:#81a1c1;font-weight:bold&#34;&gt;function&lt;/span&gt; &lt;span style=&#34;color:#eceff4&#34;&gt;(&lt;/span&gt;err&lt;span style=&#34;color:#eceff4&#34;&gt;,&lt;/span&gt; text&lt;span style=&#34;color:#eceff4&#34;&gt;)&lt;/span&gt; &lt;span style=&#34;color:#eceff4&#34;&gt;{&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;      &lt;span style=&#34;color:#81a1c1;font-weight:bold&#34;&gt;if&lt;/span&gt; &lt;span style=&#34;color:#eceff4&#34;&gt;(&lt;/span&gt;err&lt;span style=&#34;color:#eceff4&#34;&gt;)&lt;/span&gt; 
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        reject&lt;span style=&#34;color:#eceff4&#34;&gt;(&lt;/span&gt;err&lt;span style=&#34;color:#eceff4&#34;&gt;);&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;      &lt;span style=&#34;color:#81a1c1;font-weight:bold&#34;&gt;else&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        resolve&lt;span style=&#34;color:#eceff4&#34;&gt;(&lt;/span&gt;text&lt;span style=&#34;color:#eceff4&#34;&gt;.&lt;/span&gt;toString&lt;span style=&#34;color:#eceff4&#34;&gt;());&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#eceff4&#34;&gt;})&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  &lt;span style=&#34;color:#eceff4&#34;&gt;})&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  &lt;span style=&#34;color:#eceff4&#34;&gt;.&lt;/span&gt;then&lt;span style=&#34;color:#eceff4&#34;&gt;(&lt;/span&gt;resolve&lt;span style=&#34;color:#eceff4&#34;&gt;,&lt;/span&gt; reject&lt;span style=&#34;color:#eceff4&#34;&gt;);&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;这样，我们的 Promise 会读取文件，在成功时调用 &lt;code&gt;resolve&lt;/code&gt; 方法。&lt;/p&gt;
+&lt;p&gt;有个很关键的点值得注意，&lt;strong&gt;then 方法永远会返回一个 Promise 对象&lt;/strong&gt;。这就是说，你可以用多个 &lt;code&gt;then&lt;/code&gt; 来构造复杂的、同步风格的流程控制，以此控制一串异步操作。在下一篇文章中我们会深入这个话题，接下来我们先用 &lt;code&gt;catch&lt;/code&gt; 范例来领略一下链式调用的风采。&lt;/p&gt;
+&lt;h2 id=&#34;捕获错误的语法糖&#34;&gt;
+  捕获错误的语法糖
+  &lt;a class=&#34;heading-link&#34; href=&#34;#%e6%8d%95%e8%8e%b7%e9%94%99%e8%af%af%e7%9a%84%e8%af%ad%e6%b3%95%e7%b3%96&#34;&gt;
+    &lt;i class=&#34;fa fa-link&#34; aria-hidden=&#34;true&#34; title=&#34;Link to heading&#34;&gt;&lt;/i&gt;
+    &lt;span class=&#34;sr-only&#34;&gt;Link to heading&lt;/span&gt;
+  &lt;/a&gt;
+&lt;/h2&gt;
+&lt;p&gt;我们向 &lt;code&gt;then&lt;/code&gt; 传递了两个方法：&lt;code&gt;resolve&lt;/code&gt;，用于成功事件；&lt;code&gt;reject&lt;/code&gt; 用于错误的事件。&lt;/p&gt;
+&lt;p&gt;Promise 还暴露了一个类似于 &lt;code&gt;then&lt;/code&gt; 的方法，&lt;code&gt;catch&lt;/code&gt;。它只接受一个参数，那就是&lt;strong&gt;reject&lt;/strong&gt;。&lt;/p&gt;
+&lt;p&gt;由于 &lt;code&gt;then&lt;/code&gt; 总是返回一个 Promise，在上面的例子中，我们可以只给 &lt;code&gt;then&lt;/code&gt; 传递一个&lt;code&gt;resolve&lt;/code&gt;，然后紧接着用 &lt;code&gt;catch&lt;/code&gt; 来处理 reject。&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#d8dee9;background-color:#2e3440;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-javascript&#34; data-lang=&#34;javascript&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#81a1c1;font-weight:bold&#34;&gt;const&lt;/span&gt; text &lt;span style=&#34;color:#81a1c1&#34;&gt;=&lt;/span&gt; 
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  &lt;span style=&#34;color:#81a1c1;font-weight:bold&#34;&gt;new&lt;/span&gt; &lt;span style=&#34;color:#81a1c1&#34;&gt;Promise&lt;/span&gt;&lt;span style=&#34;color:#eceff4&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#81a1c1;font-weight:bold&#34;&gt;function&lt;/span&gt; &lt;span style=&#34;color:#eceff4&#34;&gt;(&lt;/span&gt;resolve&lt;span style=&#34;color:#eceff4&#34;&gt;,&lt;/span&gt; reject&lt;span style=&#34;color:#eceff4&#34;&gt;)&lt;/span&gt; &lt;span style=&#34;color:#eceff4&#34;&gt;{&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    fs&lt;span style=&#34;color:#eceff4&#34;&gt;.&lt;/span&gt;readFile&lt;span style=&#34;color:#eceff4&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#a3be8c&#34;&gt;&amp;#39;tex.txt&amp;#39;&lt;/span&gt;&lt;span style=&#34;color:#eceff4&#34;&gt;,&lt;/span&gt; &lt;span style=&#34;color:#81a1c1;font-weight:bold&#34;&gt;function&lt;/span&gt; &lt;span style=&#34;color:#eceff4&#34;&gt;(&lt;/span&gt;err&lt;span style=&#34;color:#eceff4&#34;&gt;,&lt;/span&gt; text&lt;span style=&#34;color:#eceff4&#34;&gt;)&lt;/span&gt; &lt;span style=&#34;color:#eceff4&#34;&gt;{&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;      &lt;span style=&#34;color:#81a1c1;font-weight:bold&#34;&gt;if&lt;/span&gt; &lt;span style=&#34;color:#eceff4&#34;&gt;(&lt;/span&gt;err&lt;span style=&#34;color:#eceff4&#34;&gt;)&lt;/span&gt; 
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        reject&lt;span style=&#34;color:#eceff4&#34;&gt;(&lt;/span&gt;err&lt;span style=&#34;color:#eceff4&#34;&gt;);&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;      &lt;span style=&#34;color:#81a1c1;font-weight:bold&#34;&gt;else&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        resolve&lt;span style=&#34;color:#eceff4&#34;&gt;(&lt;/span&gt;text&lt;span style=&#34;color:#eceff4&#34;&gt;.&lt;/span&gt;toString&lt;span style=&#34;color:#eceff4&#34;&gt;());&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#eceff4&#34;&gt;})&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  &lt;span style=&#34;color:#eceff4&#34;&gt;})&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  &lt;span style=&#34;color:#eceff4&#34;&gt;.&lt;/span&gt;then&lt;span style=&#34;color:#eceff4&#34;&gt;(&lt;/span&gt;resolve&lt;span style=&#34;color:#eceff4&#34;&gt;)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  &lt;span style=&#34;color:#eceff4&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#81a1c1;font-weight:bold&#34;&gt;catch&lt;/span&gt;&lt;span style=&#34;color:#eceff4&#34;&gt;(&lt;/span&gt;reject&lt;span style=&#34;color:#eceff4&#34;&gt;);&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;最后，必须要记住，&lt;code&gt;catch(reject)&lt;/code&gt; 只是 &lt;code&gt;then(undefined, reject)&lt;/code&gt; 的语法糖。即，我们也可以这样写：&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#d8dee9;background-color:#2e3440;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-js&#34; data-lang=&#34;js&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#81a1c1;font-weight:bold&#34;&gt;const&lt;/span&gt; text &lt;span style=&#34;color:#81a1c1&#34;&gt;=&lt;/span&gt; 
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  &lt;span style=&#34;color:#81a1c1;font-weight:bold&#34;&gt;new&lt;/span&gt; &lt;span style=&#34;color:#81a1c1&#34;&gt;Promise&lt;/span&gt;&lt;span style=&#34;color:#eceff4&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#81a1c1;font-weight:bold&#34;&gt;function&lt;/span&gt; &lt;span style=&#34;color:#eceff4&#34;&gt;(&lt;/span&gt;resolve&lt;span style=&#34;color:#eceff4&#34;&gt;,&lt;/span&gt; reject&lt;span style=&#34;color:#eceff4&#34;&gt;)&lt;/span&gt; &lt;span style=&#34;color:#eceff4&#34;&gt;{&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    fs&lt;span style=&#34;color:#eceff4&#34;&gt;.&lt;/span&gt;readFile&lt;span style=&#34;color:#eceff4&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#a3be8c&#34;&gt;&amp;#39;tex.txt&amp;#39;&lt;/span&gt;&lt;span style=&#34;color:#eceff4&#34;&gt;,&lt;/span&gt; &lt;span style=&#34;color:#81a1c1;font-weight:bold&#34;&gt;function&lt;/span&gt; &lt;span style=&#34;color:#eceff4&#34;&gt;(&lt;/span&gt;err&lt;span style=&#34;color:#eceff4&#34;&gt;,&lt;/span&gt; text&lt;span style=&#34;color:#eceff4&#34;&gt;)&lt;/span&gt; &lt;span style=&#34;color:#eceff4&#34;&gt;{&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;      &lt;span style=&#34;color:#81a1c1;font-weight:bold&#34;&gt;if&lt;/span&gt; &lt;span style=&#34;color:#eceff4&#34;&gt;(&lt;/span&gt;err&lt;span style=&#34;color:#eceff4&#34;&gt;)&lt;/span&gt; 
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        reject&lt;span style=&#34;color:#eceff4&#34;&gt;(&lt;/span&gt;err&lt;span style=&#34;color:#eceff4&#34;&gt;);&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;      &lt;span style=&#34;color:#81a1c1;font-weight:bold&#34;&gt;else&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        resolve&lt;span style=&#34;color:#eceff4&#34;&gt;(&lt;/span&gt;text&lt;span style=&#34;color:#eceff4&#34;&gt;.&lt;/span&gt;toString&lt;span style=&#34;color:#eceff4&#34;&gt;());&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#eceff4&#34;&gt;})&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  &lt;span style=&#34;color:#eceff4&#34;&gt;})&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  &lt;span style=&#34;color:#eceff4&#34;&gt;.&lt;/span&gt;then&lt;span style=&#34;color:#eceff4&#34;&gt;(&lt;/span&gt;resolve&lt;span style=&#34;color:#eceff4&#34;&gt;)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  &lt;span style=&#34;color:#eceff4&#34;&gt;.&lt;/span&gt;then&lt;span style=&#34;color:#eceff4&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#81a1c1;font-weight:bold&#34;&gt;undefined&lt;/span&gt;&lt;span style=&#34;color:#eceff4&#34;&gt;,&lt;/span&gt; reject&lt;span style=&#34;color:#eceff4&#34;&gt;);&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;但显然还是使用了语法糖的代码更易读。&lt;/p&gt;
+&lt;h2 id=&#34;总结&#34;&gt;
+  总结
+  &lt;a class=&#34;heading-link&#34; href=&#34;#%e6%80%bb%e7%bb%93&#34;&gt;
+    &lt;i class=&#34;fa fa-link&#34; aria-hidden=&#34;true&#34; title=&#34;Link to heading&#34;&gt;&lt;/i&gt;
+    &lt;span class=&#34;sr-only&#34;&gt;Link to heading&lt;/span&gt;
+  &lt;/a&gt;
+&lt;/h2&gt;
+&lt;p&gt;Promise 是异步编程中不可或缺的一个工具。初学时，它们显得有些可怕，但这仅仅是由于你对它还不够熟悉：多用几次，你就能像使用 &lt;code&gt;if&lt;/code&gt;/&lt;code&gt;else&lt;/code&gt; 一样使用它了。&lt;/p&gt;
+&lt;p&gt;下篇文章，我们来实践一下，把基于回调的传统代码用 Promise 进行重构。然后调研一个 Promise 库：&lt;a href=&#34;https://github.com/kriskowal/q&#34;&gt;Q&lt;/a&gt;。&lt;/p&gt;
+&lt;p&gt;你还可以阅读一下 Domenic Denicola 的「&lt;a href=&#34;https://github.com/domenic/promises-unwrapping/blob/master/docs/states-and-fates.md&#34;&gt;States and Fates（状态与命运）&lt;/a&gt;」来全面掌握术语，以及先前我们订购的丛书中 Kyle Simpson 关于 &lt;a href=&#34;https://github.com/getify/You-Dont-Know-JS/blob/master/async%20%26%20performance/ch3.md&#34;&gt;Promises&lt;/a&gt; 的章节。&lt;/p&gt;
+&lt;p&gt;照例，如果你有问题，请在下边进行评论，或者在 Twitter 上直接找我（&lt;a href=&#34;http://www.twitter.com/PelekeS&#34;&gt;@PelekeS&lt;/a&gt;）。我保证（Promise）会回复！&lt;/p&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

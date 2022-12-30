@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+    <title>
+  Reading Digest (Aug 2018) · mogita
+</title>
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="color-scheme" content="light dark">
+
+
+
+
+<meta name="author" content="Yun Wang">
+<meta name="description" content="Go Link to heading Accessing the database with Go needs the database/sql package. Apart from reading the official docs, this web site makes it even clearer on &ldquo;how to&rdquo; and &ldquo;what not to do&rdquo; matters. Learn idiomatic operations on it as well.
+Go database/sql Tutorial While designing the inforcement for our data security, I came across an article which explained briefly and clearly on SQL injection and how to avoid it in Go.">
+<meta name="keywords" content="blog,developer,personal">
+
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Reading Digest (Aug 2018)"/>
+<meta name="twitter:description" content="Go Link to heading Accessing the database with Go needs the database/sql package. Apart from reading the official docs, this web site makes it even clearer on &ldquo;how to&rdquo; and &ldquo;what not to do&rdquo; matters. Learn idiomatic operations on it as well.
+Go database/sql Tutorial While designing the inforcement for our data security, I came across an article which explained briefly and clearly on SQL injection and how to avoid it in Go."/>
+
+<meta property="og:title" content="Reading Digest (Aug 2018)" />
+<meta property="og:description" content="Go Link to heading Accessing the database with Go needs the database/sql package. Apart from reading the official docs, this web site makes it even clearer on &ldquo;how to&rdquo; and &ldquo;what not to do&rdquo; matters. Learn idiomatic operations on it as well.
+Go database/sql Tutorial While designing the inforcement for our data security, I came across an article which explained briefly and clearly on SQL injection and how to avoid it in Go." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="http://localhost:1313/posts/reading-digest-aug-2018.html" /><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2018-08-16T17:21:30+00:00" />
+<meta property="article:modified_time" content="2022-08-26T20:15:19+08:00" />
+
+
+
+
+
+<link rel="canonical" href="http://localhost:1313/posts/reading-digest-aug-2018.html">
+
+
+<link rel="preload" href="/fonts/forkawesome-webfont.woff2?v=1.2.0" as="font" type="font/woff2" crossorigin>
+
+
+  
+  
+  <link rel="stylesheet" href="/css/coder.css" media="screen">
+
+
+
+
+
+
+  
+    
+    
+    <link rel="stylesheet" href="/css/coder-dark.css" media="screen">
+  
+
+
+
+ 
+
+
+
+
+<link rel="icon" type="image/png" href="/img/favicons/favicon32.png" sizes="32x32">
+<link rel="icon" type="image/png" href="/img/favicons/favicon16.png" sizes="16x16">
+
+<link rel="apple-touch-icon" href="/img/favicons/favicon.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/img/favicons/favicon.png">
+
+<link rel="manifest" href="/site.webmanifest">
+<link rel="mask-icon" href="/images/safari-pinned-tab.svg" color="#5bbad5">
+
+
+
+
+<meta name="generator" content="Hugo 0.101.0" />
+
+
+
+
+
+  </head>
+
+
+
+
+
+
+<body class="preload-transitions colorscheme-auto">
+  
+<div class="float-container">
+    <a id="dark-mode-toggle" class="colorscheme-toggle">
+        <i class="fa fa-adjust fa-fw" aria-hidden="true"></i>
+    </a>
+</div>
+
+
+  <main class="wrapper">
+    <nav class="navigation">
+  <section class="container">
+    <a class="navigation-title" href="/">
+      mogita
+    </a>
+    
+      <input type="checkbox" id="menu-toggle" />
+      <label class="menu-button float-right" for="menu-toggle">
+        <i class="fa fa-bars fa-fw" aria-hidden="true"></i>
+      </label>
+      <ul class="navigation-list">
+        
+          
+            <li class="navigation-item">
+              <a class="navigation-link" href="/posts/">Posts</a>
+            </li>
+          
+            <li class="navigation-item">
+              <a class="navigation-link" href="/index.xml">RSS</a>
+            </li>
+          
+            <li class="navigation-item">
+              <a class="navigation-link" href="/tags.html">Tags</a>
+            </li>
+          
+            <li class="navigation-item">
+              <a class="navigation-link" href="/about.html">About</a>
+            </li>
+          
+        
+        
+      </ul>
+    
+  </section>
+</nav>
+
+
+    <div class="content">
+      
+  <section class="container post">
+    <article>
+      <header>
+        <div class="post-title">
+          <h1 class="title">
+            <a class="title-link" href="http://localhost:1313/posts/reading-digest-aug-2018.html">
+              Reading Digest (Aug 2018)
+            </a>
+          </h1>
+        </div>
+        <div class="post-meta">
+          <div class="date">
+            <span class="posted-on">
+              <i class="fa fa-calendar" aria-hidden="true"></i>
+              <time datetime="2018-08-16T17:21:30Z">
+                August 16, 2018
+              </time>
+            </span>
+            <span class="reading-time">
+              <i class="fa fa-clock-o" aria-hidden="true"></i>
+              2-minute read
+            </span>
+          </div>
+          
+          
+          
+        </div>
+      </header>
+
+      <div class="post-content">
+        
+        <h1 id="go">
+  Go
+  <a class="heading-link" href="#go">
+    <i class="fa fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h1>
+<p>Accessing the database with Go needs the <code>database/sql</code> package. Apart from reading the official docs, this web site makes it even clearer on &ldquo;how to&rdquo; and &ldquo;what not to do&rdquo; matters. Learn idiomatic operations on it as well.</p>
+<ul>
+<li><a href="http://go-database-sql.org/index.html">Go database/sql Tutorial</a></li>
+</ul>
+<p>While designing the inforcement for our data security, I came across an article which explained briefly and clearly on SQL injection and how to avoid it in Go.</p>
+<ul>
+<li><a href="https://www.calhoun.io/what-is-sql-injection-and-how-do-i-avoid-it-in-go/">What is SQL injection and how do I avoid it in Go?</a></li>
+</ul>
+<p>It&rsquo;s also worth a while reading this article, also on the topic of SQL injection in Go. In fact it belongs to a big collection of articles on Go application building.</p>
+<ul>
+<li><a href="https://astaxie.gitbooks.io/build-web-application-with-golang/en/09.4.html">9.4 SQL injection</a> (from the collection of <a href="https://astaxie.gitbooks.io/build-web-application-with-golang/en/">Build web application with Golang</a> )</li>
+</ul>
+<h1 id="webassembly">
+  WebAssembly
+  <a class="heading-link" href="#webassembly">
+    <i class="fa fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h1>
+<p>As <a href="https://webassembly.github.io/spec/core/index.html">WebAssembly Specification</a> draft goes 1.0 yesterday, it&rsquo;s time to take a closer look at the essential ideas of WebAssembly. Currently it supports C, C++ and Rust. Which one to take? Hmm&hellip;</p>
+<ul>
+<li><a href="https://blog.logrocket.com/webassembly-how-and-why-559b7f96cd71">WebAssembly: How and why</a></li>
+</ul>
+<h1 id="metabase">
+  Metabase
+  <a class="heading-link" href="#metabase">
+    <i class="fa fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h1>
+<p>This isn&rsquo;t a reading item actually lol. The <a href="https://github.com/metabase/metabase">Metabase</a> is a tool that is <code>The simplest, fastest way to get business intelligence and analytics to everyone in your company</code>. In short, it&rsquo;s an open-source BI software.</p>
+<p>One of our QA team member showed me this the other day. It supports running as a Java jar package, a docker image, on AWS and some other options. The setup process was even easier than setting up a new WordPress instance.</p>
+<p>The Metabase astonished me with its simplicity of design, both on the workflow and the UI. I &ldquo;ask&rdquo; it questions, it shows me the answers. That&rsquo;s it.</p>
+<p>Digging deeper, I can gather the answers and make a dashboard to visualize the data. Or I can see the SQL it generates if I want to.</p>
+<p>Here&rsquo;s a screenshot from its repo:</p>
+<p><img src="/img/metabase-product-screenshot.png" alt="metabase screenshot"></p>
+
+      </div>
+
+
+      <footer>
+        
+
+
+        <div id="disqus_thread"></div>
+<script>
+  window.disqus_config = function () {
+    
+    
+    
+    };
+    (function() {
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+            return;
+        }
+        var d = document, s = d.createElement('script'); s.async = true;
+        s.src = '//' + "otaku-mogita" + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+    
+    document.addEventListener('themeChanged', function (e) { 
+        if (document.readyState == 'complete') {
+          DISQUS.reset({ reload: true, config: disqus_config });
+        }
+    });
+</script>
+        
+        
+      </footer>
+    </article>
+
+    
+  </section>
+
+    </div>
+
+    <footer class="footer">
+  <section class="container">
+    ©
+    
+      2010 -
+    
+    2022
+     Yun Wang 
+    ·
+    
+    Powered by <a href="https://gohugo.io/">Hugo</a> & <a href="https://github.com/luizdepra/hugo-coder/">Coder</a>.
+    
+  </section>
+</footer>
+
+  </main>
+
+  
+
+  
+  
+  <script src="/js/coder.js"></script>
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+</body>
+
+</html>

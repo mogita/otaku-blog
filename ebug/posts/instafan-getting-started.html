@@ -1,0 +1,1370 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+    <title>
+  instaFan：将 Instagram 照片同步到饭否 · mogita
+</title>
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="color-scheme" content="light dark">
+
+
+
+
+<meta name="author" content="Yun Wang">
+<meta name="description" content="2020 年 6 月更新：Fanstafou 服务已下线，感谢 1000 多位小伙伴多年的关照！与 instaFan 有关的重要饭否消息贴在了本文结尾处，留作纪念。 2016 年 5 月更新：in">
+<meta name="keywords" content="blog,developer,personal">
+
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="instaFan：将 Instagram 照片同步到饭否"/>
+<meta name="twitter:description" content="2020 年 6 月更新：Fanstafou 服务已下线，感谢 1000 多位小伙伴多年的关照！与 instaFan 有关的重要饭否消息贴在了本文结尾处，留作纪念。 2016 年 5 月更新：in"/>
+
+<meta property="og:title" content="instaFan：将 Instagram 照片同步到饭否" />
+<meta property="og:description" content="2020 年 6 月更新：Fanstafou 服务已下线，感谢 1000 多位小伙伴多年的关照！与 instaFan 有关的重要饭否消息贴在了本文结尾处，留作纪念。 2016 年 5 月更新：in" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="http://localhost:1313/posts/instafan-getting-started.html" /><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2012-04-29T08:27:31+00:00" />
+<meta property="article:modified_time" content="2022-08-26T20:15:19+08:00" />
+
+
+
+
+
+<link rel="canonical" href="http://localhost:1313/posts/instafan-getting-started.html">
+
+
+<link rel="preload" href="/fonts/forkawesome-webfont.woff2?v=1.2.0" as="font" type="font/woff2" crossorigin>
+
+
+  
+  
+  <link rel="stylesheet" href="/css/coder.css" media="screen">
+
+
+
+
+
+
+  
+    
+    
+    <link rel="stylesheet" href="/css/coder-dark.css" media="screen">
+  
+
+
+
+ 
+
+
+
+
+<link rel="icon" type="image/png" href="/img/favicons/favicon32.png" sizes="32x32">
+<link rel="icon" type="image/png" href="/img/favicons/favicon16.png" sizes="16x16">
+
+<link rel="apple-touch-icon" href="/img/favicons/favicon.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/img/favicons/favicon.png">
+
+<link rel="manifest" href="/site.webmanifest">
+<link rel="mask-icon" href="/images/safari-pinned-tab.svg" color="#5bbad5">
+
+
+
+
+<meta name="generator" content="Hugo 0.101.0" />
+
+
+
+
+
+  </head>
+
+
+
+
+
+
+<body class="preload-transitions colorscheme-auto">
+  
+<div class="float-container">
+    <a id="dark-mode-toggle" class="colorscheme-toggle">
+        <i class="fa fa-adjust fa-fw" aria-hidden="true"></i>
+    </a>
+</div>
+
+
+  <main class="wrapper">
+    <nav class="navigation">
+  <section class="container">
+    <a class="navigation-title" href="/">
+      mogita
+    </a>
+    
+      <input type="checkbox" id="menu-toggle" />
+      <label class="menu-button float-right" for="menu-toggle">
+        <i class="fa fa-bars fa-fw" aria-hidden="true"></i>
+      </label>
+      <ul class="navigation-list">
+        
+          
+            <li class="navigation-item">
+              <a class="navigation-link" href="/posts/">Posts</a>
+            </li>
+          
+            <li class="navigation-item">
+              <a class="navigation-link" href="/index.xml">RSS</a>
+            </li>
+          
+            <li class="navigation-item">
+              <a class="navigation-link" href="/tags.html">Tags</a>
+            </li>
+          
+            <li class="navigation-item">
+              <a class="navigation-link" href="/about.html">About</a>
+            </li>
+          
+        
+        
+      </ul>
+    
+  </section>
+</nav>
+
+
+    <div class="content">
+      
+  <section class="container post">
+    <article>
+      <header>
+        <div class="post-title">
+          <h1 class="title">
+            <a class="title-link" href="http://localhost:1313/posts/instafan-getting-started.html">
+              instaFan：将 Instagram 照片同步到饭否
+            </a>
+          </h1>
+        </div>
+        <div class="post-meta">
+          <div class="date">
+            <span class="posted-on">
+              <i class="fa fa-calendar" aria-hidden="true"></i>
+              <time datetime="2012-04-29T08:27:31Z">
+                April 29, 2012
+              </time>
+            </span>
+            <span class="reading-time">
+              <i class="fa fa-clock-o" aria-hidden="true"></i>
+              3-minute read
+            </span>
+          </div>
+          
+          
+          <div class="tags">
+  <i class="fa fa-tag" aria-hidden="true"></i>
+    <span class="tag">
+      <a href="/tags/instagram/">Instagram</a>
+    </span>
+      <span class="separator">•</span>
+    <span class="tag">
+      <a href="/tags/%E9%A5%AD%E5%90%A6/">饭否</a>
+    </span></div>
+
+        </div>
+      </header>
+
+      <div class="post-content">
+        
+        <p>2020 年 6 月更新：Fanstafou 服务已下线，感谢 1000 多位小伙伴多年的关照！与 instaFan 有关的重要饭否消息贴在了本文结尾处，留作纪念。</p>
+<p>2016 年 5 月更新：instaFan 服务已更名为 Fanstafou。</p>
+<hr>
+<p><a href="https://instafan.mogita.com/" target="_blank">instaFan</a> 是一枚同步服务，可以将你的 Instagram 新照片自动同步到饭否。同步内容包括：照片以及该照片的描述文字、标签、照片展示页面地址、地理位置信息。</p>
+<p><strong>特色</strong>：</p>
+<ul>
+<li>OAuth 认证，确保信息安全</li>
+<li>包含若干种同步模式随时可更改，如全部同步、只同步指定照片、暂停同步等</li>
+<li>自动将 Instagram 照片的标签转换成饭否格式（双“#”号）</li>
+<li>与 Instagram 内置的分享样式保持一致（如照片地址、默认标题等）</li>
+<li>支持新增的饭否地理位置显示功能</li>
+</ul>
+<p><strong>注意</strong>：同步服务仅对新发布的照片有效，旧照片不会被同步。所以，如果你选择了“只同步有 #fanfou 标签的照片”时，在照片评论里添加 #fanfou 标签是不会同步的，只有在发布时添加此标签才有效。</p>
+<p>欢迎在评论中留下你的使用感受和建议。我的 Instagram 用户名是 mogita，一起玩吧！！</p>
+<hr>
+<style>
+  .quote-fanfou {
+    font-family: HelveticaNeue, Helvetica Neue, Helvetica, Arial, sans-serif;
+    font-style: normal;
+    display: flex;
+  }
+  .quote-fanfou .avatar {
+    margin-right: 8px;
+  }
+  .quote-fanfou .avatar img {
+    height: 48px;
+    width: 48px;
+  }
+  .quote-fanfou .content {
+    max-width: 360px;
+    flex-grow: 1;
+    font-size: 14px;
+    line-height: 20px;
+  }
+  .quote-fanfou .message {
+    word-break: break-all;
+  }
+  .quote-fanfou .meta {
+    margin-top: 4px;
+  }
+  .quote-fanfou .meta, .quote-fanfou .meta a {
+    color: #999999;
+    font-size: 12px;
+  }
+  .quote-fanfou .attachment {
+    margin-left: 8px;
+  }
+  .quote-fanfou .attachment img {
+    height: 106px;
+    width: 106px;
+    padding: 2px;
+    border: 1px solid #cccccc;
+  }
+</style>
+
+
+
+
+
+
+
+
+
+
+
+
+<blockquote class="quote-fanfou">
+  <div class="avatar"><img src="http://localhost:1313/img/fanfou/mogita/avatar.jpg" alt="mogita" /></div>
+  <div class="content">
+    <span class="username"><a href="https://fanfou.com/mogita" target="_blank">mogita</a></span>
+    <span class="message">It is working&hellip;#<a href="https://fanfou.com/q/instaFan">instaFan</a># <a href="http://instagr.am/p/Jk6tyauYkv/">http://instagr.am/p/Jk6tyauYkv/</a></span>
+    <div class="meta">
+      <a href="https://fanfou.com/statuses/Kt5hSYFrifM">2012-04-19 05:55</a> 通过 <a href="http://fanstafou.mogita.com/">FanstaFou</a>
+    </div>
+  </div>
+  <div class="attachment">
+    
+    <a href="http://localhost:1313/img/fanfou/mogita/zs_151459.jpg" title="It is working...#[instaFan](https://fanfou.com/q/instaFan)# http://instagr.am/p/Jk6tyauYkv/" target="_blank">
+      <img src="http://localhost:1313/img/fanfou/mogita/zs_151459_hua4540c8f294600c88afac205123d1c06_49929_106x106_fill_q90_box_smart1.jpg" alt="It is working...#[instaFan](https://fanfou.com/q/instaFan)# http://instagr.am/p/Jk6tyauYkv/" title="It is working...#[instaFan](https://fanfou.com/q/instaFan)# http://instagr.am/p/Jk6tyauYkv/" />
+    </a>
+    
+  </div>
+</blockquote>
+
+<style>
+  .quote-fanfou {
+    font-family: HelveticaNeue, Helvetica Neue, Helvetica, Arial, sans-serif;
+    font-style: normal;
+    display: flex;
+  }
+  .quote-fanfou .avatar {
+    margin-right: 8px;
+  }
+  .quote-fanfou .avatar img {
+    height: 48px;
+    width: 48px;
+  }
+  .quote-fanfou .content {
+    max-width: 360px;
+    flex-grow: 1;
+    font-size: 14px;
+    line-height: 20px;
+  }
+  .quote-fanfou .message {
+    word-break: break-all;
+  }
+  .quote-fanfou .meta {
+    margin-top: 4px;
+  }
+  .quote-fanfou .meta, .quote-fanfou .meta a {
+    color: #999999;
+    font-size: 12px;
+  }
+  .quote-fanfou .attachment {
+    margin-left: 8px;
+  }
+  .quote-fanfou .attachment img {
+    height: 106px;
+    width: 106px;
+    padding: 2px;
+    border: 1px solid #cccccc;
+  }
+</style>
+
+
+
+
+
+
+
+
+
+
+
+
+<blockquote class="quote-fanfou">
+  <div class="avatar"><img src="http://localhost:1313/img/fanfou/mogita/avatar.jpg" alt="mogita" /></div>
+  <div class="content">
+    <span class="username"><a href="https://fanfou.com/mogita" target="_blank">mogita</a></span>
+    <span class="message">试用接受中！#<a href="https://fanfou.com/q/instaFan">instaFan</a># <a href="http://instagr.am/p/J_Xl_HuYgI/">http://instagr.am/p/J_Xl_HuYgI/</a></span>
+    <div class="meta">
+      <a href="https://fanfou.com/statuses/MLjXa_Q6bus">2012-04-29 14:08</a> 通过 <a href="http://fanstafou.mogita.com/">FanstaFou</a>
+    </div>
+  </div>
+  <div class="attachment">
+    
+    <a href="http://localhost:1313/img/fanfou/mogita/0s_298563.jpg" title="试用接受中！#[instaFan](https://fanfou.com/q/instaFan)# http://instagr.am/p/J_Xl_HuYgI/" target="_blank">
+      <img src="http://localhost:1313/img/fanfou/mogita/0s_298563_hu3c232442ad6a3f51338f2e2e41233549_53459_106x106_fill_q90_box_smart1.jpg" alt="试用接受中！#[instaFan](https://fanfou.com/q/instaFan)# http://instagr.am/p/J_Xl_HuYgI/" title="试用接受中！#[instaFan](https://fanfou.com/q/instaFan)# http://instagr.am/p/J_Xl_HuYgI/" />
+    </a>
+    
+  </div>
+</blockquote>
+
+<style>
+  .quote-fanfou {
+    font-family: HelveticaNeue, Helvetica Neue, Helvetica, Arial, sans-serif;
+    font-style: normal;
+    display: flex;
+  }
+  .quote-fanfou .avatar {
+    margin-right: 8px;
+  }
+  .quote-fanfou .avatar img {
+    height: 48px;
+    width: 48px;
+  }
+  .quote-fanfou .content {
+    max-width: 360px;
+    flex-grow: 1;
+    font-size: 14px;
+    line-height: 20px;
+  }
+  .quote-fanfou .message {
+    word-break: break-all;
+  }
+  .quote-fanfou .meta {
+    margin-top: 4px;
+  }
+  .quote-fanfou .meta, .quote-fanfou .meta a {
+    color: #999999;
+    font-size: 12px;
+  }
+  .quote-fanfou .attachment {
+    margin-left: 8px;
+  }
+  .quote-fanfou .attachment img {
+    height: 106px;
+    width: 106px;
+    padding: 2px;
+    border: 1px solid #cccccc;
+  }
+</style>
+
+
+
+
+
+
+
+
+
+
+
+
+<blockquote class="quote-fanfou">
+  <div class="avatar"><img src="http://localhost:1313/img/fanfou/mogita/avatar.jpg" alt="mogita" /></div>
+  <div class="content">
+    <span class="username"><a href="https://fanfou.com/mogita" target="_blank">mogita</a></span>
+    <span class="message">给 instaFan 画了个横图，简笔画水平。。哈哈。。</span>
+    <div class="meta">
+      <a href="https://fanfou.com/statuses/wji-e1zKNHU">2012-05-28 03:50</a> 通过 网页
+    </div>
+  </div>
+  <div class="attachment">
+    
+    <a href="http://localhost:1313/img/fanfou/mogita/km_260120.jpg" title="给 instaFan 画了个横图，简笔画水平。。哈哈。。" target="_blank">
+      <img src="http://localhost:1313/img/fanfou/mogita/km_260120_hub9c889d6aa13cf5e963f0bc8ab7060c9_29652_106x106_fill_q90_box_smart1.jpg" alt="给 instaFan 画了个横图，简笔画水平。。哈哈。。" title="给 instaFan 画了个横图，简笔画水平。。哈哈。。" />
+    </a>
+    
+  </div>
+</blockquote>
+
+<style>
+  .quote-fanfou {
+    font-family: HelveticaNeue, Helvetica Neue, Helvetica, Arial, sans-serif;
+    font-style: normal;
+    display: flex;
+  }
+  .quote-fanfou .avatar {
+    margin-right: 8px;
+  }
+  .quote-fanfou .avatar img {
+    height: 48px;
+    width: 48px;
+  }
+  .quote-fanfou .content {
+    max-width: 360px;
+    flex-grow: 1;
+    font-size: 14px;
+    line-height: 20px;
+  }
+  .quote-fanfou .message {
+    word-break: break-all;
+  }
+  .quote-fanfou .meta {
+    margin-top: 4px;
+  }
+  .quote-fanfou .meta, .quote-fanfou .meta a {
+    color: #999999;
+    font-size: 12px;
+  }
+  .quote-fanfou .attachment {
+    margin-left: 8px;
+  }
+  .quote-fanfou .attachment img {
+    height: 106px;
+    width: 106px;
+    padding: 2px;
+    border: 1px solid #cccccc;
+  }
+</style>
+
+
+
+
+
+
+
+
+
+
+<blockquote class="quote-fanfou">
+  <div class="avatar"><img src="http://localhost:1313/img/fanfou/mogita/avatar.jpg" alt="mogita" /></div>
+  <div class="content">
+    <span class="username"><a href="https://fanfou.com/mogita" target="_blank">mogita</a></span>
+    <span class="message">instafan 刚刚获得了开放后的第一百位用户。</span>
+    <div class="meta">
+      <a href="https://fanfou.com/statuses/L9YWqq7pBdE">2012-08-06 17:12</a> 通过 网页
+    </div>
+  </div>
+  <div class="attachment">
+    
+  </div>
+</blockquote>
+
+<style>
+  .quote-fanfou {
+    font-family: HelveticaNeue, Helvetica Neue, Helvetica, Arial, sans-serif;
+    font-style: normal;
+    display: flex;
+  }
+  .quote-fanfou .avatar {
+    margin-right: 8px;
+  }
+  .quote-fanfou .avatar img {
+    height: 48px;
+    width: 48px;
+  }
+  .quote-fanfou .content {
+    max-width: 360px;
+    flex-grow: 1;
+    font-size: 14px;
+    line-height: 20px;
+  }
+  .quote-fanfou .message {
+    word-break: break-all;
+  }
+  .quote-fanfou .meta {
+    margin-top: 4px;
+  }
+  .quote-fanfou .meta, .quote-fanfou .meta a {
+    color: #999999;
+    font-size: 12px;
+  }
+  .quote-fanfou .attachment {
+    margin-left: 8px;
+  }
+  .quote-fanfou .attachment img {
+    height: 106px;
+    width: 106px;
+    padding: 2px;
+    border: 1px solid #cccccc;
+  }
+</style>
+
+
+
+
+
+
+
+
+
+
+<blockquote class="quote-fanfou">
+  <div class="avatar"><img src="http://localhost:1313/img/fanfou/mogita/avatar.jpg" alt="mogita" /></div>
+  <div class="content">
+    <span class="username"><a href="https://fanfou.com/mogita" target="_blank">mogita</a></span>
+    <span class="message">逐步添加详细的 log，发现 instagram 确实偶尔不会将用户发布新照片的消息推送到 instaFan。╮(￣▽￣&quot;)╭</span>
+    <div class="meta">
+      <a href="https://fanfou.com/statuses/cvnuU2bC-ak">2012-12-31 14:32</a> 通过 API
+    </div>
+  </div>
+  <div class="attachment">
+    
+  </div>
+</blockquote>
+
+<style>
+  .quote-fanfou {
+    font-family: HelveticaNeue, Helvetica Neue, Helvetica, Arial, sans-serif;
+    font-style: normal;
+    display: flex;
+  }
+  .quote-fanfou .avatar {
+    margin-right: 8px;
+  }
+  .quote-fanfou .avatar img {
+    height: 48px;
+    width: 48px;
+  }
+  .quote-fanfou .content {
+    max-width: 360px;
+    flex-grow: 1;
+    font-size: 14px;
+    line-height: 20px;
+  }
+  .quote-fanfou .message {
+    word-break: break-all;
+  }
+  .quote-fanfou .meta {
+    margin-top: 4px;
+  }
+  .quote-fanfou .meta, .quote-fanfou .meta a {
+    color: #999999;
+    font-size: 12px;
+  }
+  .quote-fanfou .attachment {
+    margin-left: 8px;
+  }
+  .quote-fanfou .attachment img {
+    height: 106px;
+    width: 106px;
+    padding: 2px;
+    border: 1px solid #cccccc;
+  }
+</style>
+
+
+
+
+
+
+
+
+
+
+<blockquote class="quote-fanfou">
+  <div class="avatar"><img src="http://localhost:1313/img/fanfou/mogita/avatar.jpg" alt="mogita" /></div>
+  <div class="content">
+    <span class="username"><a href="https://fanfou.com/mogita" target="_blank">mogita</a></span>
+    <span class="message">更新了一下#<a href="https://fanfou.com/q/instaFan">instaFan</a>#，唯一针对提升同步成功率。不知道能提升多少。。欢迎来操。</span>
+    <div class="meta">
+      <a href="https://fanfou.com/statuses/lML9vEFhtiQ">2013-02-22 22:57</a> 通过 网页
+    </div>
+  </div>
+  <div class="attachment">
+    
+  </div>
+</blockquote>
+
+<style>
+  .quote-fanfou {
+    font-family: HelveticaNeue, Helvetica Neue, Helvetica, Arial, sans-serif;
+    font-style: normal;
+    display: flex;
+  }
+  .quote-fanfou .avatar {
+    margin-right: 8px;
+  }
+  .quote-fanfou .avatar img {
+    height: 48px;
+    width: 48px;
+  }
+  .quote-fanfou .content {
+    max-width: 360px;
+    flex-grow: 1;
+    font-size: 14px;
+    line-height: 20px;
+  }
+  .quote-fanfou .message {
+    word-break: break-all;
+  }
+  .quote-fanfou .meta {
+    margin-top: 4px;
+  }
+  .quote-fanfou .meta, .quote-fanfou .meta a {
+    color: #999999;
+    font-size: 12px;
+  }
+  .quote-fanfou .attachment {
+    margin-left: 8px;
+  }
+  .quote-fanfou .attachment img {
+    height: 106px;
+    width: 106px;
+    padding: 2px;
+    border: 1px solid #cccccc;
+  }
+</style>
+
+
+
+
+
+
+
+
+
+
+<blockquote class="quote-fanfou">
+  <div class="avatar"><img src="http://localhost:1313/img/fanfou/mogita/avatar.jpg" alt="mogita" /></div>
+  <div class="content">
+    <span class="username"><a href="https://fanfou.com/mogita" target="_blank">mogita</a></span>
+    <span class="message">instaFan 同步数过万了。。回家好好爱抚一番。</span>
+    <div class="meta">
+      <a href="https://fanfou.com/statuses/6hhck1_wH64">2013-03-20 10:15</a> 通过 <a href="http://imach.me/gohanapp">「御飯 iPad」</a>
+    </div>
+  </div>
+  <div class="attachment">
+    
+  </div>
+</blockquote>
+
+<style>
+  .quote-fanfou {
+    font-family: HelveticaNeue, Helvetica Neue, Helvetica, Arial, sans-serif;
+    font-style: normal;
+    display: flex;
+  }
+  .quote-fanfou .avatar {
+    margin-right: 8px;
+  }
+  .quote-fanfou .avatar img {
+    height: 48px;
+    width: 48px;
+  }
+  .quote-fanfou .content {
+    max-width: 360px;
+    flex-grow: 1;
+    font-size: 14px;
+    line-height: 20px;
+  }
+  .quote-fanfou .message {
+    word-break: break-all;
+  }
+  .quote-fanfou .meta {
+    margin-top: 4px;
+  }
+  .quote-fanfou .meta, .quote-fanfou .meta a {
+    color: #999999;
+    font-size: 12px;
+  }
+  .quote-fanfou .attachment {
+    margin-left: 8px;
+  }
+  .quote-fanfou .attachment img {
+    height: 106px;
+    width: 106px;
+    padding: 2px;
+    border: 1px solid #cccccc;
+  }
+</style>
+
+
+
+
+
+
+
+
+
+
+<blockquote class="quote-fanfou">
+  <div class="avatar"><img src="http://localhost:1313/img/fanfou/mogita/avatar.jpg" alt="mogita" /></div>
+  <div class="content">
+    <span class="username"><a href="https://fanfou.com/mogita" target="_blank">mogita</a></span>
+    <span class="message">SAE 上跑 instaFan 看来希望渺茫了。要是没被 fb 收购就好了。</span>
+    <div class="meta">
+      <a href="https://fanfou.com/statuses/PhnUd7IFu6Q">2014-05-02 11:01</a> 通过 <a href="http://imach.me/gohanapp">「御飯 iPhone」</a>
+    </div>
+  </div>
+  <div class="attachment">
+    
+  </div>
+</blockquote>
+
+<style>
+  .quote-fanfou {
+    font-family: HelveticaNeue, Helvetica Neue, Helvetica, Arial, sans-serif;
+    font-style: normal;
+    display: flex;
+  }
+  .quote-fanfou .avatar {
+    margin-right: 8px;
+  }
+  .quote-fanfou .avatar img {
+    height: 48px;
+    width: 48px;
+  }
+  .quote-fanfou .content {
+    max-width: 360px;
+    flex-grow: 1;
+    font-size: 14px;
+    line-height: 20px;
+  }
+  .quote-fanfou .message {
+    word-break: break-all;
+  }
+  .quote-fanfou .meta {
+    margin-top: 4px;
+  }
+  .quote-fanfou .meta, .quote-fanfou .meta a {
+    color: #999999;
+    font-size: 12px;
+  }
+  .quote-fanfou .attachment {
+    margin-left: 8px;
+  }
+  .quote-fanfou .attachment img {
+    height: 106px;
+    width: 106px;
+    padding: 2px;
+    border: 1px solid #cccccc;
+  }
+</style>
+
+
+
+
+
+
+
+
+
+
+<blockquote class="quote-fanfou">
+  <div class="avatar"><img src="http://localhost:1313/img/fanfou/mogita/avatar.jpg" alt="mogita" /></div>
+  <div class="content">
+    <span class="username"><a href="https://fanfou.com/mogita" target="_blank">mogita</a></span>
+    <span class="message">instaFan 暂定下周二（5 月 12 日）17 点到 20 点暂停服务 3 小时。（主机商说要修电源。。</span>
+    <div class="meta">
+      <a href="https://fanfou.com/statuses/hD5EILXHXPY">2015-05-05 17:16</a> 通过 网页
+    </div>
+  </div>
+  <div class="attachment">
+    
+  </div>
+</blockquote>
+
+<style>
+  .quote-fanfou {
+    font-family: HelveticaNeue, Helvetica Neue, Helvetica, Arial, sans-serif;
+    font-style: normal;
+    display: flex;
+  }
+  .quote-fanfou .avatar {
+    margin-right: 8px;
+  }
+  .quote-fanfou .avatar img {
+    height: 48px;
+    width: 48px;
+  }
+  .quote-fanfou .content {
+    max-width: 360px;
+    flex-grow: 1;
+    font-size: 14px;
+    line-height: 20px;
+  }
+  .quote-fanfou .message {
+    word-break: break-all;
+  }
+  .quote-fanfou .meta {
+    margin-top: 4px;
+  }
+  .quote-fanfou .meta, .quote-fanfou .meta a {
+    color: #999999;
+    font-size: 12px;
+  }
+  .quote-fanfou .attachment {
+    margin-left: 8px;
+  }
+  .quote-fanfou .attachment img {
+    height: 106px;
+    width: 106px;
+    padding: 2px;
+    border: 1px solid #cccccc;
+  }
+</style>
+
+
+
+
+
+
+
+
+
+
+<blockquote class="quote-fanfou">
+  <div class="avatar"><img src="http://localhost:1313/img/fanfou/mogita/avatar.jpg" alt="mogita" /></div>
+  <div class="content">
+    <span class="username"><a href="https://fanfou.com/mogita" target="_blank">mogita</a></span>
+    <span class="message">今天算是把 instafan 新版服务跑起来了。长期测试，鸭的实时推送接口根本就是个坏的，有些用户发照片它永远不会给我发消息。还是特么轮询靠谱。当然，这是新版的设计，目前版本的代码不打算更新了。</span>
+    <div class="meta">
+      <a href="https://fanfou.com/statuses/bZhIoLt7jk4">2016-05-10 18:20</a> 通过 <a href="http://imach.me/gohanapp">御飯 iOS</a>
+    </div>
+  </div>
+  <div class="attachment">
+    
+  </div>
+</blockquote>
+
+<style>
+  .quote-fanfou {
+    font-family: HelveticaNeue, Helvetica Neue, Helvetica, Arial, sans-serif;
+    font-style: normal;
+    display: flex;
+  }
+  .quote-fanfou .avatar {
+    margin-right: 8px;
+  }
+  .quote-fanfou .avatar img {
+    height: 48px;
+    width: 48px;
+  }
+  .quote-fanfou .content {
+    max-width: 360px;
+    flex-grow: 1;
+    font-size: 14px;
+    line-height: 20px;
+  }
+  .quote-fanfou .message {
+    word-break: break-all;
+  }
+  .quote-fanfou .meta {
+    margin-top: 4px;
+  }
+  .quote-fanfou .meta, .quote-fanfou .meta a {
+    color: #999999;
+    font-size: 12px;
+  }
+  .quote-fanfou .attachment {
+    margin-left: 8px;
+  }
+  .quote-fanfou .attachment img {
+    height: 106px;
+    width: 106px;
+    padding: 2px;
+    border: 1px solid #cccccc;
+  }
+</style>
+
+
+
+
+
+
+
+
+
+
+<blockquote class="quote-fanfou">
+  <div class="avatar"><img src="http://localhost:1313/img/fanfou/mogita/avatar.jpg" alt="mogita" /></div>
+  <div class="content">
+    <span class="username"><a href="https://fanfou.com/mogita" target="_blank">mogita</a></span>
+    <span class="message">今天下午开始迁移 instaFan 数据，为新版服务做准备。现有同步服务会暂停运行，迁移完成后服务会自动恢复。由于数据库结构升级，预计迁移过程需要 1-2 天，请各位用户见谅。#<a href="https://fanfou.com/q/instafan">instafan</a># #<a href="https://fanfou.com/q/instagram">instagram</a>#</span>
+    <div class="meta">
+      <a href="https://fanfou.com/statuses/BAW1DV82Zto">2016-05-26 14:05</a> 通过 网页
+    </div>
+  </div>
+  <div class="attachment">
+    
+  </div>
+</blockquote>
+
+<style>
+  .quote-fanfou {
+    font-family: HelveticaNeue, Helvetica Neue, Helvetica, Arial, sans-serif;
+    font-style: normal;
+    display: flex;
+  }
+  .quote-fanfou .avatar {
+    margin-right: 8px;
+  }
+  .quote-fanfou .avatar img {
+    height: 48px;
+    width: 48px;
+  }
+  .quote-fanfou .content {
+    max-width: 360px;
+    flex-grow: 1;
+    font-size: 14px;
+    line-height: 20px;
+  }
+  .quote-fanfou .message {
+    word-break: break-all;
+  }
+  .quote-fanfou .meta {
+    margin-top: 4px;
+  }
+  .quote-fanfou .meta, .quote-fanfou .meta a {
+    color: #999999;
+    font-size: 12px;
+  }
+  .quote-fanfou .attachment {
+    margin-left: 8px;
+  }
+  .quote-fanfou .attachment img {
+    height: 106px;
+    width: 106px;
+    padding: 2px;
+    border: 1px solid #cccccc;
+  }
+</style>
+
+
+
+
+
+
+
+
+
+
+<blockquote class="quote-fanfou">
+  <div class="avatar"><img src="http://localhost:1313/img/fanfou/mogita/avatar.jpg" alt="mogita" /></div>
+  <div class="content">
+    <span class="username"><a href="https://fanfou.com/mogita" target="_blank">mogita</a></span>
+    <span class="message">如果因为 instagram 的政策，#<a href="https://fanfou.com/q/instafan">instafan</a># 不得不改名的话，是完全换个名字还是小改避开政策就好呢？（官方不允许 ig、insta、gram、instagram 字样出现在名字里）</span>
+    <div class="meta">
+      <a href="https://fanfou.com/statuses/_n8B4Ex1tAw">2016-05-27 14:02</a> 通过 网页
+    </div>
+  </div>
+  <div class="attachment">
+    
+  </div>
+</blockquote>
+
+<style>
+  .quote-fanfou {
+    font-family: HelveticaNeue, Helvetica Neue, Helvetica, Arial, sans-serif;
+    font-style: normal;
+    display: flex;
+  }
+  .quote-fanfou .avatar {
+    margin-right: 8px;
+  }
+  .quote-fanfou .avatar img {
+    height: 48px;
+    width: 48px;
+  }
+  .quote-fanfou .content {
+    max-width: 360px;
+    flex-grow: 1;
+    font-size: 14px;
+    line-height: 20px;
+  }
+  .quote-fanfou .message {
+    word-break: break-all;
+  }
+  .quote-fanfou .meta {
+    margin-top: 4px;
+  }
+  .quote-fanfou .meta, .quote-fanfou .meta a {
+    color: #999999;
+    font-size: 12px;
+  }
+  .quote-fanfou .attachment {
+    margin-left: 8px;
+  }
+  .quote-fanfou .attachment img {
+    height: 106px;
+    width: 106px;
+    padding: 2px;
+    border: 1px solid #cccccc;
+  }
+</style>
+
+
+
+
+
+
+
+
+
+
+<blockquote class="quote-fanfou">
+  <div class="avatar"><img src="http://localhost:1313/img/fanfou/mogita/avatar.jpg" alt="mogita" /></div>
+  <div class="content">
+    <span class="username"><a href="https://fanfou.com/mogita" target="_blank">mogita</a></span>
+    <span class="message">我自己也+1 转@<a href="https://fanfou.com/tenax">西瓦</a> 哈哈哈被fanstafou逗笑。觉得只要朗朗上口的都行 转@<a href="https://fanfou.com/mogita">mogita</a> fansync？fantasync？fanstafou？syncfou？fanfoutongbu？tongbuyinsiteguranmuzhaopiandaofanfou？</span>
+    <div class="meta">
+      <a href="https://fanfou.com/statuses/-HLgkSYt-ks">2016-05-27 14:18</a> 通过 网页 <a href="https://fanfou.com/statuses/v2cCfW5fEBw">转自mogita(查看)</a>
+    </div>
+  </div>
+  <div class="attachment">
+    
+  </div>
+</blockquote>
+
+<style>
+  .quote-fanfou {
+    font-family: HelveticaNeue, Helvetica Neue, Helvetica, Arial, sans-serif;
+    font-style: normal;
+    display: flex;
+  }
+  .quote-fanfou .avatar {
+    margin-right: 8px;
+  }
+  .quote-fanfou .avatar img {
+    height: 48px;
+    width: 48px;
+  }
+  .quote-fanfou .content {
+    max-width: 360px;
+    flex-grow: 1;
+    font-size: 14px;
+    line-height: 20px;
+  }
+  .quote-fanfou .message {
+    word-break: break-all;
+  }
+  .quote-fanfou .meta {
+    margin-top: 4px;
+  }
+  .quote-fanfou .meta, .quote-fanfou .meta a {
+    color: #999999;
+    font-size: 12px;
+  }
+  .quote-fanfou .attachment {
+    margin-left: 8px;
+  }
+  .quote-fanfou .attachment img {
+    height: 106px;
+    width: 106px;
+    padding: 2px;
+    border: 1px solid #cccccc;
+  }
+</style>
+
+
+
+
+
+
+
+
+
+
+<blockquote class="quote-fanfou">
+  <div class="avatar"><img src="http://localhost:1313/img/fanfou/mogita/avatar.jpg" alt="mogita" /></div>
+  <div class="content">
+    <span class="username"><a href="https://fanfou.com/mogita" target="_blank">mogita</a></span>
+    <span class="message">Instagram 到饭否同步服务 instaFan 已改名为 FanstaFou，且刚刚完成了一次重要的机能升级，提升服务的稳定性。访问地址变更为 <a href="http://fanstafou.mogita.com">http://fanstafou.mogita.com</a>。老用户已自动升级为新版，无需进行任何操作。Enjoy！</span>
+    <div class="meta">
+      <a href="https://fanfou.com/statuses/Z3pCa0t4NFw">2016-05-28 11:47</a> 通过 网页
+    </div>
+  </div>
+  <div class="attachment">
+    
+  </div>
+</blockquote>
+
+<style>
+  .quote-fanfou {
+    font-family: HelveticaNeue, Helvetica Neue, Helvetica, Arial, sans-serif;
+    font-style: normal;
+    display: flex;
+  }
+  .quote-fanfou .avatar {
+    margin-right: 8px;
+  }
+  .quote-fanfou .avatar img {
+    height: 48px;
+    width: 48px;
+  }
+  .quote-fanfou .content {
+    max-width: 360px;
+    flex-grow: 1;
+    font-size: 14px;
+    line-height: 20px;
+  }
+  .quote-fanfou .message {
+    word-break: break-all;
+  }
+  .quote-fanfou .meta {
+    margin-top: 4px;
+  }
+  .quote-fanfou .meta, .quote-fanfou .meta a {
+    color: #999999;
+    font-size: 12px;
+  }
+  .quote-fanfou .attachment {
+    margin-left: 8px;
+  }
+  .quote-fanfou .attachment img {
+    height: 106px;
+    width: 106px;
+    padding: 2px;
+    border: 1px solid #cccccc;
+  }
+</style>
+
+
+
+
+
+
+
+
+
+
+<blockquote class="quote-fanfou">
+  <div class="avatar"><img src="http://localhost:1313/img/fanfou/mogita/avatar.jpg" alt="mogita" /></div>
+  <div class="content">
+    <span class="username"><a href="https://fanfou.com/mogita" target="_blank">mogita</a></span>
+    <span class="message">五月底更新后的 Fanstafou 截至现在已同步了 10104 张照片。即每个月已知用户要发送 2500 张左右的照片。平均每天发送大约 83 张照片。</span>
+    <div class="meta">
+      <a href="https://fanfou.com/statuses/uu-KsvDgAoE">2016-10-10 10:48</a> 通过 网页
+    </div>
+  </div>
+  <div class="attachment">
+    
+  </div>
+</blockquote>
+
+<style>
+  .quote-fanfou {
+    font-family: HelveticaNeue, Helvetica Neue, Helvetica, Arial, sans-serif;
+    font-style: normal;
+    display: flex;
+  }
+  .quote-fanfou .avatar {
+    margin-right: 8px;
+  }
+  .quote-fanfou .avatar img {
+    height: 48px;
+    width: 48px;
+  }
+  .quote-fanfou .content {
+    max-width: 360px;
+    flex-grow: 1;
+    font-size: 14px;
+    line-height: 20px;
+  }
+  .quote-fanfou .message {
+    word-break: break-all;
+  }
+  .quote-fanfou .meta {
+    margin-top: 4px;
+  }
+  .quote-fanfou .meta, .quote-fanfou .meta a {
+    color: #999999;
+    font-size: 12px;
+  }
+  .quote-fanfou .attachment {
+    margin-left: 8px;
+  }
+  .quote-fanfou .attachment img {
+    height: 106px;
+    width: 106px;
+    padding: 2px;
+    border: 1px solid #cccccc;
+  }
+</style>
+
+
+
+
+
+
+
+
+
+
+
+
+<blockquote class="quote-fanfou">
+  <div class="avatar"><img src="http://localhost:1313/img/fanfou/mogita/avatar.jpg" alt="mogita" /></div>
+  <div class="content">
+    <span class="username"><a href="https://fanfou.com/mogita" target="_blank">mogita</a></span>
+    <span class="message">在线上运行了 7 年 6 个月零 4 天，经历了一次重写，一次服务迁移之后，Fanstafou 代码库喜提首次 git commit。</span>
+    <div class="meta">
+      <a href="https://fanfou.com/statuses/Uj838x4odro">2019-10-23 12:27</a> 通过 网页
+    </div>
+  </div>
+  <div class="attachment">
+    
+    <a href="http://localhost:1313/img/fanfou/mogita/zn_293783.png" title="在线上运行了 7 年 6 个月零 4 天，经历了一次重写，一次服务迁移之后，Fanstafou 代码库喜提首次 git commit。" target="_blank">
+      <img src="http://localhost:1313/img/fanfou/mogita/zn_293783_hua79a25c766ee3fbc2a256c0f21a3d02a_121322_106x106_fill_q90_box_smart1_3.png" alt="在线上运行了 7 年 6 个月零 4 天，经历了一次重写，一次服务迁移之后，Fanstafou 代码库喜提首次 git commit。" title="在线上运行了 7 年 6 个月零 4 天，经历了一次重写，一次服务迁移之后，Fanstafou 代码库喜提首次 git commit。" />
+    </a>
+    
+  </div>
+</blockquote>
+
+<style>
+  .quote-fanfou {
+    font-family: HelveticaNeue, Helvetica Neue, Helvetica, Arial, sans-serif;
+    font-style: normal;
+    display: flex;
+  }
+  .quote-fanfou .avatar {
+    margin-right: 8px;
+  }
+  .quote-fanfou .avatar img {
+    height: 48px;
+    width: 48px;
+  }
+  .quote-fanfou .content {
+    max-width: 360px;
+    flex-grow: 1;
+    font-size: 14px;
+    line-height: 20px;
+  }
+  .quote-fanfou .message {
+    word-break: break-all;
+  }
+  .quote-fanfou .meta {
+    margin-top: 4px;
+  }
+  .quote-fanfou .meta, .quote-fanfou .meta a {
+    color: #999999;
+    font-size: 12px;
+  }
+  .quote-fanfou .attachment {
+    margin-left: 8px;
+  }
+  .quote-fanfou .attachment img {
+    height: 106px;
+    width: 106px;
+    padding: 2px;
+    border: 1px solid #cccccc;
+  }
+</style>
+
+
+
+
+
+
+
+
+
+
+<blockquote class="quote-fanfou">
+  <div class="avatar"><img src="http://localhost:1313/img/fanfou/mogita/avatar.jpg" alt="mogita" /></div>
+  <div class="content">
+    <span class="username"><a href="https://fanfou.com/mogita" target="_blank">mogita</a></span>
+    <span class="message">Instagram API 六月底彻底淘汰，又不想接触 Facebook 平台，冗长赘余的配置和审核，取代了激情迸发的美丽时代。再见 Web 2.0，再见 FanstaFou。</span>
+    <div class="meta">
+      <a href="https://fanfou.com/statuses/XNnHFP89BsQ">2020-06-07 03:11</a> 通过 <a href="http://imach.me/gohanapp">御飯 iOS</a>
+    </div>
+  </div>
+  <div class="attachment">
+    
+  </div>
+</blockquote>
+
+
+      </div>
+
+
+      <footer>
+        
+
+
+        <div id="disqus_thread"></div>
+<script>
+  window.disqus_config = function () {
+    
+    
+    
+    };
+    (function() {
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+            return;
+        }
+        var d = document, s = d.createElement('script'); s.async = true;
+        s.src = '//' + "otaku-mogita" + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+    
+    document.addEventListener('themeChanged', function (e) { 
+        if (document.readyState == 'complete') {
+          DISQUS.reset({ reload: true, config: disqus_config });
+        }
+    });
+</script>
+        
+        
+      </footer>
+    </article>
+
+    
+  </section>
+
+    </div>
+
+    <footer class="footer">
+  <section class="container">
+    ©
+    
+      2010 -
+    
+    2022
+     Yun Wang 
+    ·
+    
+    Powered by <a href="https://gohugo.io/">Hugo</a> & <a href="https://github.com/luizdepra/hugo-coder/">Coder</a>.
+    
+  </section>
+</footer>
+
+  </main>
+
+  
+
+  
+  
+  <script src="/js/coder.js"></script>
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+</body>
+
+</html>

@@ -4,7 +4,7 @@ slug: compress-css-and-js-with-gulp
 category: tech
 date: 2016-05-03 19:44:10
 updated:
-tags: 前端
+tags: [前端]
 cover: /img/gulp.jpg
 isCJKLanguage: true
 ---

@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>mastodon on mogita</title>
+    <link>http://localhost:1313/tags/mastodon.html</link>
+    <description>Recent content in mastodon on mogita</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-US</language>
+    <lastBuildDate>Thu, 22 Dec 2022 12:57:46 +0800</lastBuildDate><atom:link href="http://localhost:1313/tags/mastodon/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>A Personal Mastodon Instance Setup</title>
+      <link>http://localhost:1313/posts/a-personal-mastodon-instance-setup.html</link>
+      <pubDate>Thu, 22 Dec 2022 12:57:46 +0800</pubDate>
+      
+      <guid>http://localhost:1313/posts/a-personal-mastodon-instance-setup.html</guid>
+      <description>&lt;p&gt;I’ve not always wanted to bring up a Mastodon instance for it was not that intriguing to me, until recently Musk has worked on Twitter in an amateur way.&lt;/p&gt;
+&lt;p&gt;On the other hand, to host an instance of my own is a way of paying tribute to the past ‘90s self-host Email compaign which I was too young and poor to have the chance to experience. At least for now, we are seeing a blooming new way of social networking, whether or not a long-term fight against spam and junk information in the future awaits.&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&lt;a href=&#34;https://twitter.com/mogita/status/1605188553423536134&#34;&gt;https://twitter.com/mogita/status/1605188553423536134&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;I’ll open source my setup. You can skip to the Code section to see the project.&lt;/p&gt;
+&lt;p&gt;You can also check out my instance &lt;a href=&#34;https://mog.blue/@mogita&#34;&gt;@mogita@mog.blue&lt;/a&gt;. I&amp;rsquo;m always ready for a little chat.&lt;/p&gt;
+&lt;h1 id=&#34;how-to-run&#34;&gt;
+  How To Run
+  &lt;a class=&#34;heading-link&#34; href=&#34;#how-to-run&#34;&gt;
+    &lt;i class=&#34;fa fa-link&#34; aria-hidden=&#34;true&#34; title=&#34;Link to heading&#34;&gt;&lt;/i&gt;
+    &lt;span class=&#34;sr-only&#34;&gt;Link to heading&lt;/span&gt;
+  &lt;/a&gt;
+&lt;/h1&gt;
+&lt;p&gt;I’m going to serve my Mastodon instance through Docker with &lt;code&gt;docker-compose&lt;/code&gt; for an easier and consistent management workflow.&lt;/p&gt;
+&lt;h1 id=&#34;what-to-include&#34;&gt;
+  What To Include
+  &lt;a class=&#34;heading-link&#34; href=&#34;#what-to-include&#34;&gt;
+    &lt;i class=&#34;fa fa-link&#34; aria-hidden=&#34;true&#34; title=&#34;Link to heading&#34;&gt;&lt;/i&gt;
+    &lt;span class=&#34;sr-only&#34;&gt;Link to heading&lt;/span&gt;
+  &lt;/a&gt;
+&lt;/h1&gt;
+&lt;p&gt;Inside the &lt;code&gt;docker-compose.yml&lt;/code&gt; file I’ll put these components:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Mastodon web: &lt;code&gt;tootsuite/mastodon:latest&lt;/code&gt; + ES analyzer tweak (for indexing non-English languages)&lt;/li&gt;
+&lt;li&gt;Database: &lt;code&gt;postgres:14-alpine&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;Redis: &lt;code&gt;redis:7-alpine&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;ElasticSearch: &lt;code&gt;elasticsearch:7.17.8&lt;/code&gt; + &lt;a href=&#34;https://github.com/medcl/elasticsearch-analysis-ik&#34;&gt;ik&lt;/a&gt; + &lt;a href=&#34;https://github.com/medcl/elasticsearch-analysis-stconvert&#34;&gt;stconvert&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Streaming: &lt;code&gt;tootsuite/mastodon:latest&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;Sidekiq: &lt;code&gt;tootsuite/mastodon:latest&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;Nginx: &lt;code&gt;nginx:latest&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h1 id=&#34;es-analyzer-tweak&#34;&gt;
+  ES Analyzer Tweak
+  &lt;a class=&#34;heading-link&#34; href=&#34;#es-analyzer-tweak&#34;&gt;
+    &lt;i class=&#34;fa fa-link&#34; aria-hidden=&#34;true&#34; title=&#34;Link to heading&#34;&gt;&lt;/i&gt;
+    &lt;span class=&#34;sr-only&#34;&gt;Link to heading&lt;/span&gt;
+  &lt;/a&gt;
+&lt;/h1&gt;
+&lt;p&gt;A vanilla Mastodon instance is fairly easy to setup from the basic versions of the said docker images. However, adding optimization for other languages in its search functionality requires code modification which would impair the simplicity of just following the minimum workflow. Hope this necessity can be replaced with a more proper way, like configurable through &lt;code&gt;.env&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;At the time of writing, there are 3 steps according to the &lt;a href=&#34;https://docs.joinmastodon.org/admin/optional/elasticsearch/#search-optimization-for-other-languages&#34;&gt;official documentation&lt;/a&gt;:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;Install ES plugin &lt;a href=&#34;https://github.com/medcl/elasticsearch-analysis-ik&#34;&gt;https://github.com/medcl/elasticsearch-analysis-ik&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Install ES plugin &lt;a href=&#34;https://github.com/medcl/elasticsearch-analysis-stconvert&#34;&gt;https://github.com/medcl/elasticsearch-analysis-stconvert&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Modify Mastodon’s source code on index definition&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;Previous 2 steps can be achieved relatively easier. Just create a &lt;code&gt;Dockerfile&lt;/code&gt; for a custom ES build and make the installation on the official ES image. Pay attention to the version consistency though.&lt;/p&gt;
+&lt;p&gt;As of step 3, I’ll &lt;code&gt;patch&lt;/code&gt; the diff code provided by the documentation. Nonetheless a custom image is necessary too.&lt;/p&gt;
+&lt;p&gt;To sum up, I’ll need to build 2 images:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;A custom Mastodon image for: Mastodon web, Streaming and Sidekiq&lt;/li&gt;
+&lt;li&gt;A custom ElasticSearch image for: ElasticSearch with non-English languages support&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h1 id=&#34;miscellaneous&#34;&gt;
+  Miscellaneous
+  &lt;a class=&#34;heading-link&#34; href=&#34;#miscellaneous&#34;&gt;
+    &lt;i class=&#34;fa fa-link&#34; aria-hidden=&#34;true&#34; title=&#34;Link to heading&#34;&gt;&lt;/i&gt;
+    &lt;span class=&#34;sr-only&#34;&gt;Link to heading&lt;/span&gt;
+  &lt;/a&gt;
+&lt;/h1&gt;
+&lt;h2 id=&#34;https-support&#34;&gt;
+  HTTPS Support
+  &lt;a class=&#34;heading-link&#34; href=&#34;#https-support&#34;&gt;
+    &lt;i class=&#34;fa fa-link&#34; aria-hidden=&#34;true&#34; title=&#34;Link to heading&#34;&gt;&lt;/i&gt;
+    &lt;span class=&#34;sr-only&#34;&gt;Link to heading&lt;/span&gt;
+  &lt;/a&gt;
+&lt;/h2&gt;
+&lt;p&gt;My Mastodon setup will enjoy the benefits from &lt;code&gt;nginx-proxy&lt;/code&gt; and &lt;code&gt;acme-companion&lt;/code&gt; for automatic SSL certificates challenging and renewal. This is why I have an Nginx component on the list. It’s the reverse proxy to handle SSL traffic.&lt;/p&gt;
+&lt;h2 id=&#34;object-storage-support&#34;&gt;
+  Object Storage Support
+  &lt;a class=&#34;heading-link&#34; href=&#34;#object-storage-support&#34;&gt;
+    &lt;i class=&#34;fa fa-link&#34; aria-hidden=&#34;true&#34; title=&#34;Link to heading&#34;&gt;&lt;/i&gt;
+    &lt;span class=&#34;sr-only&#34;&gt;Link to heading&lt;/span&gt;
+  &lt;/a&gt;
+&lt;/h2&gt;
+&lt;p&gt;Using a cheap S3 compatible object storage service is my go-to plan on a minimum user base. Having it gone through a Cloudflare CDN might help with lowering the bandwidth cost too.&lt;/p&gt;
+&lt;h2 id=&#34;email-relay&#34;&gt;
+  Email Relay
+  &lt;a class=&#34;heading-link&#34; href=&#34;#email-relay&#34;&gt;
+    &lt;i class=&#34;fa fa-link&#34; aria-hidden=&#34;true&#34; title=&#34;Link to heading&#34;&gt;&lt;/i&gt;
+    &lt;span class=&#34;sr-only&#34;&gt;Link to heading&lt;/span&gt;
+  &lt;/a&gt;
+&lt;/h2&gt;
+&lt;p&gt;Google Workplace SMTP relay service is my first choice since I’m on a business plan. For free alternatives, any relay service shall do and many offer a free amount for around 100 or more Emails per day.&lt;/p&gt;
+&lt;h2 id=&#34;backups&#34;&gt;
+  Backups
+  &lt;a class=&#34;heading-link&#34; href=&#34;#backups&#34;&gt;
+    &lt;i class=&#34;fa fa-link&#34; aria-hidden=&#34;true&#34; title=&#34;Link to heading&#34;&gt;&lt;/i&gt;
+    &lt;span class=&#34;sr-only&#34;&gt;Link to heading&lt;/span&gt;
+  &lt;/a&gt;
+&lt;/h2&gt;
+&lt;p&gt;Since the object storage will be used, the only critical thing to backup is the database. A script that sends a daily &lt;code&gt;pg_dump&lt;/code&gt; archive to one of my storage service provider shall do. If things go crazy in the future, like I’ll need to host the instance for hundreds of users, then master-slave replica might be useful as an additional measurement.&lt;/p&gt;
+&lt;h2 id=&#34;scaling&#34;&gt;
+  Scaling
+  &lt;a class=&#34;heading-link&#34; href=&#34;#scaling&#34;&gt;
+    &lt;i class=&#34;fa fa-link&#34; aria-hidden=&#34;true&#34; title=&#34;Link to heading&#34;&gt;&lt;/i&gt;
+    &lt;span class=&#34;sr-only&#34;&gt;Link to heading&lt;/span&gt;
+  &lt;/a&gt;
+&lt;/h2&gt;
+&lt;p&gt;No need to consider right now. Cost effectivity, on the contrary, shall be my first priority given the instance being invitation only.&lt;/p&gt;
+&lt;h1 id=&#34;code&#34;&gt;
+  Code
+  &lt;a class=&#34;heading-link&#34; href=&#34;#code&#34;&gt;
+    &lt;i class=&#34;fa fa-link&#34; aria-hidden=&#34;true&#34; title=&#34;Link to heading&#34;&gt;&lt;/i&gt;
+    &lt;span class=&#34;sr-only&#34;&gt;Link to heading&lt;/span&gt;
+  &lt;/a&gt;
+&lt;/h1&gt;
+&lt;p&gt;I named my Mastodon setup project the &lt;code&gt;monsts&lt;/code&gt;, it stands for “Mastodon Of Not So Typical Setup”.&lt;/p&gt;
+&lt;p&gt;You can browse the source code here: &lt;a href=&#34;https://gitlab.com/mogita/monsts&#34;&gt;https://gitlab.com/mogita/monsts&lt;/a&gt;&lt;/p&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>ActionScript3 on mogita</title>
+    <link>http://localhost:1313/tags/actionscript3.html</link>
+    <description>Recent content in ActionScript3 on mogita</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-US</language>
+    <lastBuildDate>Mon, 18 Jul 2016 13:55:08 +0000</lastBuildDate><atom:link href="http://localhost:1313/tags/actionscript3/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>解决 AS3 推流无法发送 MetaData 的问题</title>
+      <link>http://localhost:1313/posts/flash-as3-rtmp-metadata-sending-issue.html</link>
+      <pubDate>Mon, 18 Jul 2016 13:55:08 +0000</pubDate>
+      
+      <guid>http://localhost:1313/posts/flash-as3-rtmp-metadata-sending-issue.html</guid>
+      <description>&lt;p&gt;在学习 ActionScript 3 推流的过程中遇到了一个棘手的问题，用 &lt;code&gt;ns.publish()&lt;/code&gt; 方法可以正常推流，但无法发送任何 MetaData。&lt;/p&gt;
+&lt;p&gt;在 RTMP/FMS 服务器配置正确的情况下，可以检查一下是否有如下代码：&lt;/p&gt;
+&lt;p&gt;在初始化 NetConnection 实例后，添加一行 &lt;code&gt;nc.objectEncoding = 0&lt;/code&gt;。&lt;/p&gt;
+&lt;p&gt;这样，就可以正常收发 onMetaData 事件了。&lt;/p&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

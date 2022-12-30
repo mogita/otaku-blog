@@ -1,0 +1,469 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+    <title>
+  8 个 ES6 实用特性 · mogita
+</title>
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="color-scheme" content="light dark">
+
+
+
+
+<meta name="author" content="Yun Wang">
+<meta name="description" content="模板字符串（Template String） Link to heading var block = `&lt;div&gt; &lt;p&gt;hello&lt;/p&gt; &lt;/div&gt;`; console.log(block); 输出 &lt;div&gt; &lt;p&gt;hello&lt;/p&gt; &lt;/div&gt; 箭头函数 Link to heading 解决父级作用域无法被回调函数访问的问题。例如下列 ES5 代码">
+<meta name="keywords" content="blog,developer,personal">
+
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="8 个 ES6 实用特性"/>
+<meta name="twitter:description" content="模板字符串（Template String） Link to heading var block = `&lt;div&gt; &lt;p&gt;hello&lt;/p&gt; &lt;/div&gt;`; console.log(block); 输出 &lt;div&gt; &lt;p&gt;hello&lt;/p&gt; &lt;/div&gt; 箭头函数 Link to heading 解决父级作用域无法被回调函数访问的问题。例如下列 ES5 代码"/>
+
+<meta property="og:title" content="8 个 ES6 实用特性" />
+<meta property="og:description" content="模板字符串（Template String） Link to heading var block = `&lt;div&gt; &lt;p&gt;hello&lt;/p&gt; &lt;/div&gt;`; console.log(block); 输出 &lt;div&gt; &lt;p&gt;hello&lt;/p&gt; &lt;/div&gt; 箭头函数 Link to heading 解决父级作用域无法被回调函数访问的问题。例如下列 ES5 代码" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="http://localhost:1313/posts/es6-handy-features.html" /><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2017-01-19T10:45:49+00:00" />
+<meta property="article:modified_time" content="2022-08-28T11:08:04+08:00" />
+
+
+
+
+
+<link rel="canonical" href="http://localhost:1313/posts/es6-handy-features.html">
+
+
+<link rel="preload" href="/fonts/forkawesome-webfont.woff2?v=1.2.0" as="font" type="font/woff2" crossorigin>
+
+
+  
+  
+  <link rel="stylesheet" href="/css/coder.css" media="screen">
+
+
+
+
+
+
+  
+    
+    
+    <link rel="stylesheet" href="/css/coder-dark.css" media="screen">
+  
+
+
+
+ 
+
+
+
+
+<link rel="icon" type="image/png" href="/img/favicons/favicon32.png" sizes="32x32">
+<link rel="icon" type="image/png" href="/img/favicons/favicon16.png" sizes="16x16">
+
+<link rel="apple-touch-icon" href="/img/favicons/favicon.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/img/favicons/favicon.png">
+
+<link rel="manifest" href="/site.webmanifest">
+<link rel="mask-icon" href="/images/safari-pinned-tab.svg" color="#5bbad5">
+
+
+
+
+<meta name="generator" content="Hugo 0.101.0" />
+
+
+
+
+
+  </head>
+
+
+
+
+
+
+<body class="preload-transitions colorscheme-auto">
+  
+<div class="float-container">
+    <a id="dark-mode-toggle" class="colorscheme-toggle">
+        <i class="fa fa-adjust fa-fw" aria-hidden="true"></i>
+    </a>
+</div>
+
+
+  <main class="wrapper">
+    <nav class="navigation">
+  <section class="container">
+    <a class="navigation-title" href="/">
+      mogita
+    </a>
+    
+      <input type="checkbox" id="menu-toggle" />
+      <label class="menu-button float-right" for="menu-toggle">
+        <i class="fa fa-bars fa-fw" aria-hidden="true"></i>
+      </label>
+      <ul class="navigation-list">
+        
+          
+            <li class="navigation-item">
+              <a class="navigation-link" href="/posts/">Posts</a>
+            </li>
+          
+            <li class="navigation-item">
+              <a class="navigation-link" href="/index.xml">RSS</a>
+            </li>
+          
+            <li class="navigation-item">
+              <a class="navigation-link" href="/tags.html">Tags</a>
+            </li>
+          
+            <li class="navigation-item">
+              <a class="navigation-link" href="/about.html">About</a>
+            </li>
+          
+        
+        
+      </ul>
+    
+  </section>
+</nav>
+
+
+    <div class="content">
+      
+  <section class="container post">
+    <article>
+      <header>
+        <div class="post-title">
+          <h1 class="title">
+            <a class="title-link" href="http://localhost:1313/posts/es6-handy-features.html">
+              8 个 ES6 实用特性
+            </a>
+          </h1>
+        </div>
+        <div class="post-meta">
+          <div class="date">
+            <span class="posted-on">
+              <i class="fa fa-calendar" aria-hidden="true"></i>
+              <time datetime="2017-01-19T10:45:49Z">
+                January 19, 2017
+              </time>
+            </span>
+            <span class="reading-time">
+              <i class="fa fa-clock-o" aria-hidden="true"></i>
+              2-minute read
+            </span>
+          </div>
+          
+          
+          <div class="tags">
+  <i class="fa fa-tag" aria-hidden="true"></i>
+    <span class="tag">
+      <a href="/tags/es6/">ES6</a>
+    </span>
+      <span class="separator">•</span>
+    <span class="tag">
+      <a href="/tags/javascript/">JavaScript</a>
+    </span></div>
+
+        </div>
+      </header>
+
+      <div class="post-content">
+        
+        <h2 id="模板字符串template-string">
+  模板字符串（Template String）
+  <a class="heading-link" href="#%e6%a8%a1%e6%9d%bf%e5%ad%97%e7%ac%a6%e4%b8%b2template-string">
+    <i class="fa fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h2>
+<div class="highlight"><pre tabindex="0" style="color:#d8dee9;background-color:#2e3440;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-js" data-lang="js"><span style="display:flex;"><span><span style="color:#81a1c1;font-weight:bold">var</span> block <span style="color:#81a1c1">=</span> <span style="color:#a3be8c">`&lt;div&gt;
+</span></span></span><span style="display:flex;"><span><span style="color:#a3be8c">    &lt;p&gt;hello&lt;/p&gt;
+</span></span></span><span style="display:flex;"><span><span style="color:#a3be8c">&lt;/div&gt;`</span><span style="color:#eceff4">;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>console<span style="color:#eceff4">.</span>log<span style="color:#eceff4">(</span>block<span style="color:#eceff4">);</span>
+</span></span></code></pre></div><p>输出</p>
+<div class="highlight"><pre tabindex="0" style="color:#d8dee9;background-color:#2e3440;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-html" data-lang="html"><span style="display:flex;"><span><span style="color:#eceff4">&lt;</span><span style="color:#81a1c1">div</span><span style="color:#eceff4">&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#eceff4">&lt;</span><span style="color:#81a1c1">p</span><span style="color:#eceff4">&gt;</span>hello<span style="color:#eceff4">&lt;/</span><span style="color:#81a1c1">p</span><span style="color:#eceff4">&gt;</span>
+</span></span><span style="display:flex;"><span><span style="color:#eceff4">&lt;/</span><span style="color:#81a1c1">div</span><span style="color:#eceff4">&gt;</span>
+</span></span></code></pre></div><hr>
+<h2 id="箭头函数">
+  箭头函数
+  <a class="heading-link" href="#%e7%ae%ad%e5%a4%b4%e5%87%bd%e6%95%b0">
+    <i class="fa fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h2>
+<p>解决父级作用域无法被回调函数访问的问题。例如下列 ES5 代码，必须在回调函数后添加 <code>.bind(this)</code> 才可以正确运行：</p>
+<div class="highlight"><pre tabindex="0" style="color:#d8dee9;background-color:#2e3440;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-js" data-lang="js"><span style="display:flex;"><span><span style="color:#81a1c1;font-weight:bold">var</span> obj <span style="color:#81a1c1">=</span> <span style="color:#eceff4">{</span>
+</span></span><span style="display:flex;"><span>    names<span style="color:#81a1c1">:</span> <span style="color:#eceff4">[</span><span style="color:#a3be8c">&#39;mogita&#39;</span><span style="color:#eceff4">,</span> <span style="color:#a3be8c">&#39;me&#39;</span><span style="color:#eceff4">,</span> <span style="color:#a3be8c">&#39;zhiyi&#39;</span><span style="color:#eceff4">],</span>
+</span></span><span style="display:flex;"><span>    domain<span style="color:#81a1c1">:</span> <span style="color:#a3be8c">&#39;mogita.com&#39;</span><span style="color:#eceff4">,</span>
+</span></span><span style="display:flex;"><span>    method<span style="color:#81a1c1">:</span> <span style="color:#81a1c1;font-weight:bold">function</span><span style="color:#eceff4">()</span> <span style="color:#eceff4">{</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#81a1c1;font-weight:bold">var</span> mapEmail <span style="color:#81a1c1">=</span> <span style="color:#81a1c1;font-weight:bold">function</span><span style="color:#eceff4">(</span>item<span style="color:#eceff4">)</span> <span style="color:#eceff4">{</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#81a1c1;font-weight:bold">return</span> item <span style="color:#81a1c1">+</span> <span style="color:#a3be8c">&#39;@&#39;</span> <span style="color:#81a1c1">+</span> <span style="color:#81a1c1;font-weight:bold">this</span><span style="color:#eceff4">.</span>domain<span style="color:#eceff4">;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#eceff4">}.</span>bind<span style="color:#eceff4">(</span><span style="color:#81a1c1;font-weight:bold">this</span><span style="color:#eceff4">)</span>
+</span></span><span style="display:flex;"><span>        
+</span></span><span style="display:flex;"><span>        <span style="color:#81a1c1;font-weight:bold">return</span> <span style="color:#81a1c1;font-weight:bold">this</span><span style="color:#eceff4">.</span>names<span style="color:#eceff4">.</span>map<span style="color:#eceff4">(</span>mapEmail<span style="color:#eceff4">);</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#eceff4">}</span>
+</span></span><span style="display:flex;"><span><span style="color:#eceff4">};</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>console<span style="color:#eceff4">.</span>log<span style="color:#eceff4">(</span>obj<span style="color:#eceff4">.</span>method<span style="color:#eceff4">());</span>
+</span></span></code></pre></div><p>输出</p>
+<div class="highlight"><pre tabindex="0" style="color:#d8dee9;background-color:#2e3440;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-js" data-lang="js"><span style="display:flex;"><span><span style="color:#eceff4">[</span> <span style="color:#a3be8c">&#39;mogita@mogita.com&#39;</span><span style="color:#eceff4">,</span> <span style="color:#a3be8c">&#39;me@mogita.com&#39;</span><span style="color:#eceff4">,</span> <span style="color:#a3be8c">&#39;zhiyi@mogita.com&#39;</span> <span style="color:#eceff4">]</span>
+</span></span></code></pre></div><h4 id="es6-用箭头函数替代">
+  ES6 用箭头函数替代
+  <a class="heading-link" href="#es6-%e7%94%a8%e7%ae%ad%e5%a4%b4%e5%87%bd%e6%95%b0%e6%9b%bf%e4%bb%a3">
+    <i class="fa fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h4>
+<div class="highlight"><pre tabindex="0" style="color:#d8dee9;background-color:#2e3440;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-js" data-lang="js"><span style="display:flex;"><span><span style="color:#81a1c1;font-weight:bold">var</span> obj <span style="color:#81a1c1">=</span> <span style="color:#eceff4">{</span>
+</span></span><span style="display:flex;"><span>    names<span style="color:#81a1c1">:</span> <span style="color:#eceff4">[</span><span style="color:#a3be8c">&#39;mogita&#39;</span><span style="color:#eceff4">,</span> <span style="color:#a3be8c">&#39;me&#39;</span><span style="color:#eceff4">,</span> <span style="color:#a3be8c">&#39;zhiyi&#39;</span><span style="color:#eceff4">],</span>
+</span></span><span style="display:flex;"><span>    domain<span style="color:#81a1c1">:</span> <span style="color:#a3be8c">&#39;mogita.com&#39;</span><span style="color:#eceff4">,</span>
+</span></span><span style="display:flex;"><span>    method<span style="color:#81a1c1">:</span> <span style="color:#81a1c1;font-weight:bold">function</span><span style="color:#eceff4">()</span> <span style="color:#eceff4">{</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#81a1c1;font-weight:bold">return</span> <span style="color:#81a1c1;font-weight:bold">this</span><span style="color:#eceff4">.</span>names<span style="color:#eceff4">.</span>map<span style="color:#eceff4">(</span>item <span style="color:#eceff4">=&gt;</span> <span style="color:#eceff4">{</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#81a1c1;font-weight:bold">return</span> <span style="color:#a3be8c">`</span><span style="color:#a3be8c">${</span>item<span style="color:#a3be8c">}</span><span style="color:#a3be8c">@</span><span style="color:#a3be8c">${</span><span style="color:#81a1c1;font-weight:bold">this</span><span style="color:#eceff4">.</span>domain<span style="color:#a3be8c">}</span><span style="color:#a3be8c">`</span><span style="color:#eceff4">;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#eceff4">});</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#eceff4">}</span>
+</span></span><span style="display:flex;"><span><span style="color:#eceff4">};</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>console<span style="color:#eceff4">.</span>log<span style="color:#eceff4">(</span>obj<span style="color:#eceff4">.</span>method<span style="color:#eceff4">());</span>
+</span></span></code></pre></div><p>输出</p>
+<div class="highlight"><pre tabindex="0" style="color:#d8dee9;background-color:#2e3440;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-js" data-lang="js"><span style="display:flex;"><span><span style="color:#eceff4">[</span> <span style="color:#a3be8c">&#39;mogita@mogita.com&#39;</span><span style="color:#eceff4">,</span> <span style="color:#a3be8c">&#39;me@mogita.com&#39;</span><span style="color:#eceff4">,</span> <span style="color:#a3be8c">&#39;zhiyi@mogita.com&#39;</span> <span style="color:#eceff4">]</span>
+</span></span></code></pre></div><h2 id="class-语法糖">
+  Class 语法糖
+  <a class="heading-link" href="#class-%e8%af%ad%e6%b3%95%e7%b3%96">
+    <i class="fa fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h2>
+<p>Javascript 中并没有真正的「类」，一直以来多用原型扩展的方式来构建一个类，如下列 ES5 代码：</p>
+<div class="highlight"><pre tabindex="0" style="color:#d8dee9;background-color:#2e3440;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-js" data-lang="js"><span style="display:flex;"><span><span style="color:#81a1c1;font-weight:bold">function</span> Obj<span style="color:#eceff4">()</span> <span style="color:#eceff4">{</span>
+</span></span><span style="display:flex;"><span>    console<span style="color:#eceff4">.</span>log<span style="color:#eceff4">(</span><span style="color:#a3be8c">&#39;Obj constructed&#39;</span><span style="color:#eceff4">);</span>
+</span></span><span style="display:flex;"><span><span style="color:#eceff4">}</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>Obj<span style="color:#eceff4">.</span>prototype<span style="color:#eceff4">.</span>method <span style="color:#81a1c1">=</span> <span style="color:#81a1c1;font-weight:bold">function</span><span style="color:#eceff4">()</span> <span style="color:#eceff4">{</span>
+</span></span><span style="display:flex;"><span>    console<span style="color:#eceff4">.</span>log<span style="color:#eceff4">(</span><span style="color:#a3be8c">&#39;This is Obj\&#39;s method&#39;</span><span style="color:#eceff4">);</span>
+</span></span><span style="display:flex;"><span><span style="color:#eceff4">};</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>console<span style="color:#eceff4">.</span>log<span style="color:#eceff4">(</span><span style="color:#a3be8c">&#39;About to construct&#39;</span><span style="color:#eceff4">);</span>
+</span></span><span style="display:flex;"><span><span style="color:#81a1c1;font-weight:bold">var</span> obj <span style="color:#81a1c1">=</span> <span style="color:#81a1c1;font-weight:bold">new</span> Obj<span style="color:#eceff4">();</span>
+</span></span><span style="display:flex;"><span>obj<span style="color:#eceff4">.</span>method<span style="color:#eceff4">();</span>
+</span></span></code></pre></div><p>输出</p>
+<div class="highlight"><pre tabindex="0" style="color:#d8dee9;background-color:#2e3440;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>About to construct
+</span></span><span style="display:flex;"><span>Obj constructed
+</span></span><span style="display:flex;"><span>This is Obj&#39;s method
+</span></span></code></pre></div><h4 id="es6-的-class-语法糖">
+  ES6 的 Class 语法糖
+  <a class="heading-link" href="#es6-%e7%9a%84-class-%e8%af%ad%e6%b3%95%e7%b3%96">
+    <i class="fa fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h4>
+<div class="highlight"><pre tabindex="0" style="color:#d8dee9;background-color:#2e3440;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-js" data-lang="js"><span style="display:flex;"><span><span style="color:#81a1c1;font-weight:bold">class</span> Obj <span style="color:#eceff4">{</span>
+</span></span><span style="display:flex;"><span>    constructor<span style="color:#eceff4">()</span> <span style="color:#eceff4">{</span>
+</span></span><span style="display:flex;"><span>        console<span style="color:#eceff4">.</span>log<span style="color:#eceff4">(</span><span style="color:#a3be8c">&#39;Obj constructed&#39;</span><span style="color:#eceff4">);</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#eceff4">}</span>
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    method<span style="color:#eceff4">()</span> <span style="color:#eceff4">{</span>
+</span></span><span style="display:flex;"><span>        console<span style="color:#eceff4">.</span>log<span style="color:#eceff4">(</span><span style="color:#a3be8c">&#39;This is Obj\&#39;s method&#39;</span><span style="color:#eceff4">);</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#eceff4">}</span>
+</span></span><span style="display:flex;"><span><span style="color:#eceff4">}</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>console<span style="color:#eceff4">.</span>log<span style="color:#eceff4">(</span><span style="color:#a3be8c">&#39;About to construct&#39;</span><span style="color:#eceff4">);</span>
+</span></span><span style="display:flex;"><span><span style="color:#81a1c1;font-weight:bold">var</span> obj <span style="color:#81a1c1">=</span> <span style="color:#81a1c1;font-weight:bold">new</span> Obj<span style="color:#eceff4">();</span>
+</span></span><span style="display:flex;"><span>obj<span style="color:#eceff4">.</span>method<span style="color:#eceff4">();</span>
+</span></span></code></pre></div><p>输出</p>
+<div class="highlight"><pre tabindex="0" style="color:#d8dee9;background-color:#2e3440;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>About to construct
+</span></span><span style="display:flex;"><span>Obj constructed
+</span></span><span style="display:flex;"><span>This is Obj&#39;s method
+</span></span></code></pre></div><h2 id="模块">
+  模块
+  <a class="heading-link" href="#%e6%a8%a1%e5%9d%97">
+    <i class="fa fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h2>
+<p>方便在不同 <code>js</code> 文件之间共用代码，使项目模块化。</p>
+<h4 id="导入模块">
+  导入模块
+  <a class="heading-link" href="#%e5%af%bc%e5%85%a5%e6%a8%a1%e5%9d%97">
+    <i class="fa fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h4>
+<div class="highlight"><pre tabindex="0" style="color:#d8dee9;background-color:#2e3440;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-js" data-lang="js"><span style="display:flex;"><span><span style="color:#81a1c1;font-weight:bold">import</span> something from <span style="color:#a3be8c">&#39;framework&#39;</span><span style="color:#eceff4">;</span>
+</span></span><span style="display:flex;"><span><span style="color:#81a1c1;font-weight:bold">import</span> <span style="color:#81a1c1">*</span> as something from <span style="color:#a3be8c">&#39;framework&#39;</span><span style="color:#eceff4">;</span>
+</span></span><span style="display:flex;"><span><span style="color:#81a1c1;font-weight:bold">import</span> <span style="color:#eceff4">{</span>matchedProp<span style="color:#eceff4">}</span> from <span style="color:#a3be8c">&#39;framework&#39;</span><span style="color:#eceff4">;</span>
+</span></span></code></pre></div><h4 id="导出接口">
+  导出接口
+  <a class="heading-link" href="#%e5%af%bc%e5%87%ba%e6%8e%a5%e5%8f%a3">
+    <i class="fa fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h4>
+<div class="highlight"><pre tabindex="0" style="color:#d8dee9;background-color:#2e3440;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-js" data-lang="js"><span style="display:flex;"><span><span style="color:#81a1c1;font-weight:bold">export</span> <span style="color:#81a1c1;font-weight:bold">default</span> <span style="color:#81a1c1;font-weight:bold">function</span> something <span style="color:#eceff4">{}</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#81a1c1;font-weight:bold">export</span> <span style="color:#81a1c1;font-weight:bold">var</span> value <span style="color:#81a1c1">=</span> <span style="color:#a3be8c">&#39;value&#39;</span><span style="color:#eceff4">;</span>
+</span></span><span style="display:flex;"><span><span style="color:#81a1c1;font-weight:bold">export</span> <span style="color:#81a1c1;font-weight:bold">var</span> another <span style="color:#81a1c1">=</span> <span style="color:#a3be8c">&#39;another&#39;</span><span style="color:#eceff4">;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#81a1c1;font-weight:bold">export</span> <span style="color:#81a1c1;font-weight:bold">var</span> matchedProp <span style="color:#81a1c1">=</span> <span style="color:#a3be8c">&#39;matched&#39;</span><span style="color:#eceff4">;</span>
+</span></span></code></pre></div><h2 id="反构造destructure">
+  反构造（Destructure）
+  <a class="heading-link" href="#%e5%8f%8d%e6%9e%84%e9%80%a0destructure">
+    <i class="fa fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h2>
+<p>Angular 等现代前端框架是用 TypeScript（ES6 的一个超集）编写的，反构造在导入语句中很常见，它可以用来选择所需的具体模块。</p>
+<p>例如 ES6 代码，只引用对象的若干选定属性：</p>
+<div class="highlight"><pre tabindex="0" style="color:#d8dee9;background-color:#2e3440;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-js" data-lang="js"><span style="display:flex;"><span><span style="color:#81a1c1;font-weight:bold">var</span> obj <span style="color:#81a1c1">=</span> <span style="color:#eceff4">{</span>
+</span></span><span style="display:flex;"><span>    a<span style="color:#81a1c1">:</span> <span style="color:#b48ead">1</span><span style="color:#eceff4">,</span>
+</span></span><span style="display:flex;"><span>    b<span style="color:#81a1c1">:</span> <span style="color:#b48ead">2</span><span style="color:#eceff4">,</span>
+</span></span><span style="display:flex;"><span>    c<span style="color:#81a1c1">:</span> <span style="color:#b48ead">3</span>
+</span></span><span style="display:flex;"><span><span style="color:#eceff4">};</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#81a1c1;font-weight:bold">var</span> <span style="color:#eceff4">{</span>a<span style="color:#eceff4">,</span> c<span style="color:#eceff4">}</span> <span style="color:#81a1c1">=</span> obj<span style="color:#eceff4">;</span>
+</span></span><span style="display:flex;"><span>console<span style="color:#eceff4">.</span>log<span style="color:#eceff4">(</span>a<span style="color:#eceff4">,</span> c<span style="color:#eceff4">);</span>
+</span></span></code></pre></div><p>输出</p>
+<div class="highlight"><pre tabindex="0" style="color:#d8dee9;background-color:#2e3440;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>1 3
+</span></span></code></pre></div><h2 id="剩余参数">
+  剩余参数
+  <a class="heading-link" href="#%e5%89%a9%e4%bd%99%e5%8f%82%e6%95%b0">
+    <i class="fa fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h2>
+<p>如果最后一个命名了的参数前面加了三个点，该参数将含有该位置以及向后的所有传入参数。例如：</p>
+<div class="highlight"><pre tabindex="0" style="color:#d8dee9;background-color:#2e3440;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-js" data-lang="js"><span style="display:flex;"><span><span style="color:#81a1c1;font-weight:bold">function</span> hello<span style="color:#eceff4">(...</span>numbers<span style="color:#eceff4">)</span> <span style="color:#eceff4">{</span>
+</span></span><span style="display:flex;"><span>    numbers<span style="color:#eceff4">.</span>forEach<span style="color:#eceff4">(</span><span style="color:#81a1c1;font-weight:bold">function</span> <span style="color:#eceff4">(</span>item<span style="color:#eceff4">)</span> <span style="color:#eceff4">{</span>
+</span></span><span style="display:flex;"><span>        console<span style="color:#eceff4">.</span>log<span style="color:#eceff4">(</span>item<span style="color:#eceff4">);</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#eceff4">});</span>
+</span></span><span style="display:flex;"><span><span style="color:#eceff4">}</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>hello<span style="color:#eceff4">(</span><span style="color:#b48ead">1</span><span style="color:#eceff4">,</span> <span style="color:#b48ead">2</span><span style="color:#eceff4">,</span> <span style="color:#b48ead">3</span><span style="color:#eceff4">,</span> <span style="color:#b48ead">4</span><span style="color:#eceff4">);</span>
+</span></span></code></pre></div><p>输出</p>
+<div class="highlight"><pre tabindex="0" style="color:#d8dee9;background-color:#2e3440;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>1
+</span></span><span style="display:flex;"><span>2
+</span></span><span style="display:flex;"><span>3
+</span></span><span style="display:flex;"><span>4
+</span></span></code></pre></div><h2 id="铺展操作符">
+  铺展操作符
+  <a class="heading-link" href="#%e9%93%ba%e5%b1%95%e6%93%8d%e4%bd%9c%e7%ac%a6">
+    <i class="fa fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h2>
+<p>铺展操作符可以视为「剩余参数」的反向概念，用来动态扩展参数。例如：</p>
+<div class="highlight"><pre tabindex="0" style="color:#d8dee9;background-color:#2e3440;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-js" data-lang="js"><span style="display:flex;"><span><span style="color:#81a1c1;font-weight:bold">function</span> print<span style="color:#eceff4">(</span>x<span style="color:#eceff4">,</span> y<span style="color:#eceff4">,</span> z<span style="color:#eceff4">)</span> <span style="color:#eceff4">{</span>
+</span></span><span style="display:flex;"><span>    console<span style="color:#eceff4">.</span>log<span style="color:#eceff4">(</span>x <span style="color:#81a1c1">+</span> y <span style="color:#81a1c1">+</span> z<span style="color:#eceff4">);</span>
+</span></span><span style="display:flex;"><span><span style="color:#eceff4">}</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#81a1c1;font-weight:bold">var</span> params <span style="color:#81a1c1">=</span> <span style="color:#eceff4">[</span><span style="color:#b48ead">1</span><span style="color:#eceff4">,</span> <span style="color:#b48ead">2</span><span style="color:#eceff4">,</span> <span style="color:#b48ead">3</span><span style="color:#eceff4">];</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>print<span style="color:#eceff4">(...</span>params<span style="color:#eceff4">);</span>
+</span></span></code></pre></div><p>输出</p>
+<div class="highlight"><pre tabindex="0" style="color:#d8dee9;background-color:#2e3440;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>6
+</span></span></code></pre></div><h2 id="对象字面量语法糖">
+  对象字面量语法糖
+  <a class="heading-link" href="#%e5%af%b9%e8%b1%a1%e5%ad%97%e9%9d%a2%e9%87%8f%e8%af%ad%e6%b3%95%e7%b3%96">
+    <i class="fa fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h2>
+<p>可以让对象属性名由变量组成。例如：</p>
+<div class="highlight"><pre tabindex="0" style="color:#d8dee9;background-color:#2e3440;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-js" data-lang="js"><span style="display:flex;"><span><span style="color:#81a1c1;font-weight:bold">var</span> obj <span style="color:#81a1c1">=</span> <span style="color:#eceff4">{</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#eceff4">[</span><span style="color:#a3be8c">&#39;var_&#39;</span> <span style="color:#81a1c1">+</span> <span style="color:#b48ead">42</span><span style="color:#eceff4">]</span><span style="color:#81a1c1">:</span> <span style="color:#a3be8c">&#39;life&#39;</span>
+</span></span><span style="display:flex;"><span><span style="color:#eceff4">}</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>console<span style="color:#eceff4">.</span>log<span style="color:#eceff4">(</span>obj<span style="color:#eceff4">.</span>var_42<span style="color:#eceff4">);</span>
+</span></span></code></pre></div><p>输出</p>
+<div class="highlight"><pre tabindex="0" style="color:#d8dee9;background-color:#2e3440;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>life
+</span></span></code></pre></div>
+      </div>
+
+
+      <footer>
+        
+
+
+        <div id="disqus_thread"></div>
+<script>
+  window.disqus_config = function () {
+    
+    
+    
+    };
+    (function() {
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+            return;
+        }
+        var d = document, s = d.createElement('script'); s.async = true;
+        s.src = '//' + "otaku-mogita" + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+    
+    document.addEventListener('themeChanged', function (e) { 
+        if (document.readyState == 'complete') {
+          DISQUS.reset({ reload: true, config: disqus_config });
+        }
+    });
+</script>
+        
+        
+      </footer>
+    </article>
+
+    
+  </section>
+
+    </div>
+
+    <footer class="footer">
+  <section class="container">
+    ©
+    
+      2010 -
+    
+    2022
+     Yun Wang 
+    ·
+    
+    Powered by <a href="https://gohugo.io/">Hugo</a> & <a href="https://github.com/luizdepra/hugo-coder/">Coder</a>.
+    
+  </section>
+</footer>
+
+  </main>
+
+  
+
+  
+  
+  <script src="/js/coder.js"></script>
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+</body>
+
+</html>

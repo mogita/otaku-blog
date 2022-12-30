@@ -4,7 +4,7 @@ slug: managing-react-state
 category: tech
 date: 2018-03-27 00:02:38
 updated:
-tags: React
+tags: [React]
 isCJKLanguage: true
 from: http://maksimivanov.com/posts/react-state
 ---

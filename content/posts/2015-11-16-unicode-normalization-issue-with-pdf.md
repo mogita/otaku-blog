@@ -3,7 +3,7 @@ title: 解决 PDF 复制文字重复的问题
 slug: unicode-normalization-issue-with-pdf
 category: tech
 date: 2015-11-16 17:16:19
-tags: Python
+tags: [Python]
 isCJKLanguage: true
 ---
 

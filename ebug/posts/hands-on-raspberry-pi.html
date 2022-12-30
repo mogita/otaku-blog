@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+    <title>
+  上手 Raspberry Pi · mogita
+</title>
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="color-scheme" content="light dark">
+
+
+
+
+<meta name="author" content="Yun Wang">
+<meta name="description" content="快递找到我时还正在忙着录音，拆开塑料包裹才想起这是朝思暮想的 Raspberry Pi 到了！加上一并购买的杂七杂八的元器件，一起拎了一纸袋的东西回家。 不知不觉已经">
+<meta name="keywords" content="blog,developer,personal">
+
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="上手 Raspberry Pi"/>
+<meta name="twitter:description" content="快递找到我时还正在忙着录音，拆开塑料包裹才想起这是朝思暮想的 Raspberry Pi 到了！加上一并购买的杂七杂八的元器件，一起拎了一纸袋的东西回家。 不知不觉已经"/>
+
+<meta property="og:title" content="上手 Raspberry Pi" />
+<meta property="og:description" content="快递找到我时还正在忙着录音，拆开塑料包裹才想起这是朝思暮想的 Raspberry Pi 到了！加上一并购买的杂七杂八的元器件，一起拎了一纸袋的东西回家。 不知不觉已经" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="http://localhost:1313/posts/hands-on-raspberry-pi.html" /><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2014-03-25T18:20:06+00:00" />
+<meta property="article:modified_time" content="2022-08-27T00:27:57+08:00" />
+
+
+
+
+
+<link rel="canonical" href="http://localhost:1313/posts/hands-on-raspberry-pi.html">
+
+
+<link rel="preload" href="/fonts/forkawesome-webfont.woff2?v=1.2.0" as="font" type="font/woff2" crossorigin>
+
+
+  
+  
+  <link rel="stylesheet" href="/css/coder.css" media="screen">
+
+
+
+
+
+
+  
+    
+    
+    <link rel="stylesheet" href="/css/coder-dark.css" media="screen">
+  
+
+
+
+ 
+
+
+
+
+<link rel="icon" type="image/png" href="/img/favicons/favicon32.png" sizes="32x32">
+<link rel="icon" type="image/png" href="/img/favicons/favicon16.png" sizes="16x16">
+
+<link rel="apple-touch-icon" href="/img/favicons/favicon.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/img/favicons/favicon.png">
+
+<link rel="manifest" href="/site.webmanifest">
+<link rel="mask-icon" href="/images/safari-pinned-tab.svg" color="#5bbad5">
+
+
+
+
+<meta name="generator" content="Hugo 0.101.0" />
+
+
+
+
+
+  </head>
+
+
+
+
+
+
+<body class="preload-transitions colorscheme-auto">
+  
+<div class="float-container">
+    <a id="dark-mode-toggle" class="colorscheme-toggle">
+        <i class="fa fa-adjust fa-fw" aria-hidden="true"></i>
+    </a>
+</div>
+
+
+  <main class="wrapper">
+    <nav class="navigation">
+  <section class="container">
+    <a class="navigation-title" href="/">
+      mogita
+    </a>
+    
+      <input type="checkbox" id="menu-toggle" />
+      <label class="menu-button float-right" for="menu-toggle">
+        <i class="fa fa-bars fa-fw" aria-hidden="true"></i>
+      </label>
+      <ul class="navigation-list">
+        
+          
+            <li class="navigation-item">
+              <a class="navigation-link" href="/posts/">Posts</a>
+            </li>
+          
+            <li class="navigation-item">
+              <a class="navigation-link" href="/index.xml">RSS</a>
+            </li>
+          
+            <li class="navigation-item">
+              <a class="navigation-link" href="/tags.html">Tags</a>
+            </li>
+          
+            <li class="navigation-item">
+              <a class="navigation-link" href="/about.html">About</a>
+            </li>
+          
+        
+        
+      </ul>
+    
+  </section>
+</nav>
+
+
+    <div class="content">
+      
+  <section class="container post">
+    <article>
+      <header>
+        <div class="post-title">
+          <h1 class="title">
+            <a class="title-link" href="http://localhost:1313/posts/hands-on-raspberry-pi.html">
+              上手 Raspberry Pi
+            </a>
+          </h1>
+        </div>
+        <div class="post-meta">
+          <div class="date">
+            <span class="posted-on">
+              <i class="fa fa-calendar" aria-hidden="true"></i>
+              <time datetime="2014-03-25T18:20:06Z">
+                March 25, 2014
+              </time>
+            </span>
+            <span class="reading-time">
+              <i class="fa fa-clock-o" aria-hidden="true"></i>
+              2-minute read
+            </span>
+          </div>
+          
+          
+          
+        </div>
+      </header>
+
+      <div class="post-content">
+        
+        <p>快递找到我时还正在忙着录音，拆开塑料包裹才想起这是朝思暮想的 Raspberry Pi 到了！加上一并购买的杂七杂八的元器件，一起拎了一纸袋的东西回家。</p>
+<p>不知不觉已经玩了一个多星期了。RPi 的设计初衷是提起学生对电脑的兴趣，而我的 linux 技术倒是真的得到了一点长进。抽象一些的讲，一种表面上的「便利程度」很容易就成为了引起兴趣的缘由。回想起来，对 BASIC 的热情是被 PC1000 点燃的。对 linux 的兴趣，很大一部分也是基于 RPi 可以直接用电源插头控制开关机的工作方式吧。总之，开关机不是一件需要斟酌的事之后，就觉得是少了一个巨大的负担。</p>
+<p>具体用 RPi 做的事情，倒也不多。熟悉了那些常用的 linux 命令，学会<a href="https://elinux.org/RPi_Adding_USB_Drives" target="_blank">挂载移动硬盘</a>，配置了 <a href="https://users.skynet.be/hupla/raspBrian/RaspiBlog/Artikelen/2013/3/25_make_your_RPI_show_up_in_Macs_Finder_as_a_shared_drive_using_Netatalk.html" target="_blank">AFP 共享</a>给 Mac 使用，架了个 web 服务器，绑定了一个<a href="https://xixitalk.github.io/blog/2013/05/29/update-ddns-with-api/" target="_blank">动态解析的域名</a>，配合之前购买的代理扩展出了一个 Wi-Fi 环境与 3G 环境都能使用的 APNP，装上了 aria2 和 yaax 实现<a href="https://blog.kuroy.me/aria2-download-in-centos.html" target="_blank">远程迅雷离线下载</a>。似乎说得上来的目前就是这些。</p>
+<p>中间还重新刷过一次操作系统。RPi 刚到手时，在官网下载了最新版本的 Raspbian，内核为 3.10.xx。使用中发现这个版本的内核在蓝牙方面有些毛病（导致那几天心情很躁），降级内核后又出现了重启时总是内核崩溃。所以还是只能重新下载一个旧版本的 Raspbian（只会用，不懂编译内核啊）。但一直没有时间测试蓝牙。（**更新：**测试后发现蓝牙问题依然存在，并且从之前的 reboot 命令后崩溃，变成了一连接任何蓝牙设备就崩溃。<a href="https://elinux.org/RPi_USB_Bluetooth_adapters" target="_blank">elinux</a> 的解释是蓝牙棒本身的问题，芯片 bug 或伪劣芯片的原因。）</p>
+<p>大概过两周就会搬家了。然后再去折腾那堆小器件吧。其实方案也挺傻瓜的，全都是兼容面包板的配件，玩起来大概和搭积木一样。总之这会是第一次感受用代码控制硬件嗷。</p>
+<p>最近一股脑来了不少事，忙得连 instaFan 都没有时间修。很对不起依然在等待、向我抱怨的用户们。。这个周末也许会好一点，希望起码能让它像样工作先。</p>
+<p>啊，说了这么多，不是应该摆上 RPi 的靓照一张嘛！</p>
+<p><img src="/img/rpi/raspberry-pi-1.jpg" alt="Raspberry Pi"></p>
+<p>以及初次启动时忙碌地进行着 locale 设定（好像选太多了…</p>
+<p><img src="/img/rpi/raspberry-pi-2.jpg" alt="Raspberry Pi"></p>
+
+      </div>
+
+
+      <footer>
+        
+
+
+        <div id="disqus_thread"></div>
+<script>
+  window.disqus_config = function () {
+    
+    
+    
+    };
+    (function() {
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+            return;
+        }
+        var d = document, s = d.createElement('script'); s.async = true;
+        s.src = '//' + "otaku-mogita" + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+    
+    document.addEventListener('themeChanged', function (e) { 
+        if (document.readyState == 'complete') {
+          DISQUS.reset({ reload: true, config: disqus_config });
+        }
+    });
+</script>
+        
+        
+      </footer>
+    </article>
+
+    
+  </section>
+
+    </div>
+
+    <footer class="footer">
+  <section class="container">
+    ©
+    
+      2010 -
+    
+    2022
+     Yun Wang 
+    ·
+    
+    Powered by <a href="https://gohugo.io/">Hugo</a> & <a href="https://github.com/luizdepra/hugo-coder/">Coder</a>.
+    
+  </section>
+</footer>
+
+  </main>
+
+  
+
+  
+  
+  <script src="/js/coder.js"></script>
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+</body>
+
+</html>

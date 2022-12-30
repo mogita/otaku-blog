@@ -4,7 +4,7 @@ slug: understanding-javascript-promise-part-1
 category: tech
 date: 2016-07-18 15:34:24
 updated:
-tags: 译文
+tags: [译文]
 cover: /img/js_promises.png
 from: https://scotch.io/tutorials/understanding-javascript-promises-pt-i-background-basics
 isCJKLanguage: true

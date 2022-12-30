@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>minikube on mogita</title>
+    <link>http://localhost:1313/tags/minikube.html</link>
+    <description>Recent content in minikube on mogita</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-US</language>
+    <lastBuildDate>Mon, 29 Aug 2022 11:38:55 +0800</lastBuildDate><atom:link href="http://localhost:1313/tags/minikube/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Minikube With Podman on Apple Silicon</title>
+      <link>http://localhost:1313/posts/minikube-podman-on-m1-apple-silicon.html</link>
+      <pubDate>Mon, 29 Aug 2022 11:38:55 +0800</pubDate>
+      
+      <guid>http://localhost:1313/posts/minikube-podman-on-m1-apple-silicon.html</guid>
+      <description>&lt;p&gt;&lt;a href=&#34;https://minikube.sigs.k8s.io/docs/&#34;&gt;Minikube&lt;/a&gt; has been a go-to environment for running a single-node cluster to test out the Kubernetes features on a local platform. For macOS computers with an Apple Silicon, a.k.a. M1 or M2, minikube provides an ARM64 version and can be installed with &lt;a href=&#34;https://formulae.brew.sh/formula/minikube&#34;&gt;Homebrew&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;However when it comes to start minikube after successfully installed it, it would require Docker as the default driver. Here comes my problem. As a matter of fact, Docker on macOS has long been released under the name of &amp;ldquo;Docker Desktop&amp;rdquo;, which contains a huge pile of Electron based applications and UI. It starts slow too. I don&amp;rsquo;t ever want to install such a &lt;strong&gt;monstrous&lt;/strong&gt; thing in my system. So I have to give up the default driver and look for alternatives.&lt;/p&gt;
+&lt;p&gt;At the time of writing, minikube supports various kinds of drivers, such as Docker, Hyperkit, Hyper-V, KVM, Parallels, Podman, VirtualBox, and VMware Fusion/Workstation. After an hour of struggling and testing, Podman stood out. It&amp;rsquo;s backed by a QEMU virtual machine, supports Docker API and Docker-based tools, and can be intsalled in a very smooth fasion.&lt;/p&gt;
+&lt;p&gt;So I&amp;rsquo;m going to record the steps to initialize and maintain a minikube cluster with Podman.&lt;/p&gt;
+&lt;h1 id=&#34;installation&#34;&gt;
+  Installation
+  &lt;a class=&#34;heading-link&#34; href=&#34;#installation&#34;&gt;
+    &lt;i class=&#34;fa fa-link&#34; aria-hidden=&#34;true&#34; title=&#34;Link to heading&#34;&gt;&lt;/i&gt;
+    &lt;span class=&#34;sr-only&#34;&gt;Link to heading&lt;/span&gt;
+  &lt;/a&gt;
+&lt;/h1&gt;
+&lt;p&gt;With the help of the &lt;a href=&#34;https://minikube.sigs.k8s.io/docs/start/&#34;&gt;Get Started&lt;/a&gt; documentation for minikube, just pick an installation option that works. Mine was &lt;code&gt;brew install minikube&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;Then the Podman installation done with &lt;code&gt;brew install podman&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;Simple enough.&lt;/p&gt;
+&lt;h1 id=&#34;start-up&#34;&gt;
+  Start Up
+  &lt;a class=&#34;heading-link&#34; href=&#34;#start-up&#34;&gt;
+    &lt;i class=&#34;fa fa-link&#34; aria-hidden=&#34;true&#34; title=&#34;Link to heading&#34;&gt;&lt;/i&gt;
+    &lt;span class=&#34;sr-only&#34;&gt;Link to heading&lt;/span&gt;
+  &lt;/a&gt;
+&lt;/h1&gt;
+&lt;p&gt;Create a Podman machine with the following command, giving it 2 CPU cores and 8Gi memory.&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#d8dee9;background-color:#2e3440;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;podman machine init --cpus 2 --memory 8192 --disk-size 80
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;podman machine start
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;podman system connection default podman-machine-default-root
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Now Podman should be running in the background. One can check out the information with &lt;code&gt;podman info&lt;/code&gt; command, or find out its running stats with &lt;code&gt;podman stats&lt;/code&gt; command.&lt;/p&gt;
+&lt;p&gt;To start minikube, follow the step below. By default, minikube uses Docker as the driver. One should pass a &lt;code&gt;--driver&lt;/code&gt; argument to change that.&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#d8dee9;background-color:#2e3440;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;minikube start --driver=podman --container-runtime=cri-o
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;One should see the output similar to the following logs:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#d8dee9;background-color:#2e3440;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;❯ minikube start --driver=podman --container-runtime=cri-o
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;😄  minikube v1.26.1 on Darwin 12.5.1 (arm64)
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;✨  Using the podman (experimental) driver based on existing profile
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;👍  Starting control plane node minikube in cluster minikube
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;🚜  Pulling base image ...
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;E0829 11:34:04.822031   11181 cache.go:203] Error downloading kic artifacts:  not yet implemented, see issue #8426
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;🔄  Restarting existing podman container for &amp;#34;minikube&amp;#34; ...
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;🎁  Preparing Kubernetes v1.24.3 on CRI-O 1.24.1 ...
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;E0829 11:34:09.704438   11181 start.go:129] Unable to get host IP: RoutableHostIPFromInside is currently only implemented for linux
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;🔗  Configuring CNI (Container Networking Interface) ...
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;🔎  Verifying Kubernetes components...
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    ▪ Using image gcr.io/k8s-minikube/storage-provisioner:v5
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    ▪ Using image kubernetesui/dashboard:v2.6.0
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    ▪ Using image kubernetesui/metrics-scraper:v1.0.8
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;🌟  Enabled addons: storage-provisioner, default-storageclass, dashboard
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;🏄  Done! kubectl is now configured to use &amp;#34;minikube&amp;#34; cluster and &amp;#34;default&amp;#34; namespace by default
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Alternative to explicitly passing the &lt;code&gt;--driver&lt;/code&gt; argument, one can change the defautl driver with this command:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#d8dee9;background-color:#2e3440;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;minikube config set driver podman
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h1 id=&#34;stop--restart&#34;&gt;
+  Stop / Restart
+  &lt;a class=&#34;heading-link&#34; href=&#34;#stop--restart&#34;&gt;
+    &lt;i class=&#34;fa fa-link&#34; aria-hidden=&#34;true&#34; title=&#34;Link to heading&#34;&gt;&lt;/i&gt;
+    &lt;span class=&#34;sr-only&#34;&gt;Link to heading&lt;/span&gt;
+  &lt;/a&gt;
+&lt;/h1&gt;
+&lt;p&gt;To stop the minikube + Podman system, follow these commands:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#d8dee9;background-color:#2e3440;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;minikube stop
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;podman machine stop
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;To restart the system, simply run &lt;code&gt;start&lt;/code&gt; respectively (note the sequence, &lt;code&gt;podman&lt;/code&gt; should go first as &lt;code&gt;minikube&lt;/code&gt; depends on it):&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#d8dee9;background-color:#2e3440;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;podman machine start
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;minikube start --driver&lt;span style=&#34;color:#81a1c1&#34;&gt;=&lt;/span&gt;podman --container-runtime&lt;span style=&#34;color:#81a1c1&#34;&gt;=&lt;/span&gt;cri-o
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#616e87;font-style:italic&#34;&gt;# or with the default driver changed to podman:&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;minikube start
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h1 id=&#34;anything-else&#34;&gt;
+  Anything Else?
+  &lt;a class=&#34;heading-link&#34; href=&#34;#anything-else&#34;&gt;
+    &lt;i class=&#34;fa fa-link&#34; aria-hidden=&#34;true&#34; title=&#34;Link to heading&#34;&gt;&lt;/i&gt;
+    &lt;span class=&#34;sr-only&#34;&gt;Link to heading&lt;/span&gt;
+  &lt;/a&gt;
+&lt;/h1&gt;
+&lt;p&gt;&lt;strong&gt;Q&lt;/strong&gt;: If there are multiple clusters to manage, including but not limited to GKE (by Google Cloud) and EKS (by AWS) etc., how to manage and switch from these clusters?&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;A&lt;/strong&gt;: This can be configured through &lt;code&gt;~/.kube/config&lt;/code&gt; easily as Kubernetes has the concept of &amp;ldquo;Context&amp;rdquo;, which basically means different clusters. Upon minikube successfully starting, a new context called &lt;code&gt;minikube&lt;/code&gt; shall be inserted automatically to this config file. One can list and switch to a certain context using the following commands (switching to minikube for example):&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#d8dee9;background-color:#2e3440;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;kubectl config get-contexts
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;kubectl config set current-context minikube
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;hr&gt;
+&lt;p&gt;&lt;strong&gt;Q&lt;/strong&gt;: How to test out a named &lt;code&gt;StorageClass&lt;/code&gt; in a PVC object with minikube?&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;A&lt;/strong&gt;: By default, minikube comes with a built-in SC named &lt;code&gt;standard&lt;/code&gt;. It provides dynamic storage provisioning when one creates a PVC with non-named storage class. One should create a storage class with the customized name before creating the PVC with a named storage class to enable auto-creation of PV and PVC. First, create the named SC like this:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#d8dee9;background-color:#2e3440;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-yaml&#34; data-lang=&#34;yaml&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#81a1c1&#34;&gt;apiVersion&lt;/span&gt;&lt;span style=&#34;color:#eceff4&#34;&gt;:&lt;/span&gt; storage.k8s.io/v1
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#81a1c1&#34;&gt;kind&lt;/span&gt;&lt;span style=&#34;color:#eceff4&#34;&gt;:&lt;/span&gt; StorageClass
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#81a1c1&#34;&gt;metadata&lt;/span&gt;&lt;span style=&#34;color:#eceff4&#34;&gt;:&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  &lt;span style=&#34;color:#81a1c1&#34;&gt;name&lt;/span&gt;&lt;span style=&#34;color:#eceff4&#34;&gt;:&lt;/span&gt; your-custom-name
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  &lt;span style=&#34;color:#81a1c1&#34;&gt;annotations&lt;/span&gt;&lt;span style=&#34;color:#eceff4&#34;&gt;:&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#81a1c1&#34;&gt;storageclass.kubernetes.io/is-default-class&lt;/span&gt;&lt;span style=&#34;color:#eceff4&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color:#a3be8c&#34;&gt;&amp;#34;false&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#81a1c1&#34;&gt;provisioner&lt;/span&gt;&lt;span style=&#34;color:#eceff4&#34;&gt;:&lt;/span&gt; k8s.io/minikube-hostpath
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;It&amp;rsquo;s important to set the provisioner field to &lt;code&gt;k8s.io/minikube-hostpath&lt;/code&gt;, otherwise no auto-creation would happen. After the SC has been successfully created, when applying the following PVC object, one should observe that a PV being automatically created and the PVC gets instantly fulfilled:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#d8dee9;background-color:#2e3440;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-yaml&#34; data-lang=&#34;yaml&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#81a1c1&#34;&gt;kind&lt;/span&gt;&lt;span style=&#34;color:#eceff4&#34;&gt;:&lt;/span&gt; PersistentVolumeClaim
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#81a1c1&#34;&gt;apiVersion&lt;/span&gt;&lt;span style=&#34;color:#eceff4&#34;&gt;:&lt;/span&gt; v1
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#81a1c1&#34;&gt;metadata&lt;/span&gt;&lt;span style=&#34;color:#eceff4&#34;&gt;:&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  &lt;span style=&#34;color:#81a1c1&#34;&gt;name&lt;/span&gt;&lt;span style=&#34;color:#eceff4&#34;&gt;:&lt;/span&gt; {{ .Name }}
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  &lt;span style=&#34;color:#81a1c1&#34;&gt;namespace&lt;/span&gt;&lt;span style=&#34;color:#eceff4&#34;&gt;:&lt;/span&gt; {{ .Namespace }}
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#81a1c1&#34;&gt;spec&lt;/span&gt;&lt;span style=&#34;color:#eceff4&#34;&gt;:&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  &lt;span style=&#34;color:#81a1c1&#34;&gt;accessModes&lt;/span&gt;&lt;span style=&#34;color:#eceff4&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color:#eceff4&#34;&gt;[&lt;/span&gt; &lt;span style=&#34;color:#a3be8c&#34;&gt;&amp;#34;ReadWriteOnce&amp;#34;&lt;/span&gt; &lt;span style=&#34;color:#eceff4&#34;&gt;]&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  &lt;span style=&#34;color:#81a1c1&#34;&gt;storageClassName&lt;/span&gt;&lt;span style=&#34;color:#eceff4&#34;&gt;:&lt;/span&gt; your-custom-name
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  &lt;span style=&#34;color:#81a1c1&#34;&gt;volumeMode&lt;/span&gt;&lt;span style=&#34;color:#eceff4&#34;&gt;:&lt;/span&gt; Filesystem
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  &lt;span style=&#34;color:#81a1c1&#34;&gt;resources&lt;/span&gt;&lt;span style=&#34;color:#eceff4&#34;&gt;:&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#81a1c1&#34;&gt;requests&lt;/span&gt;&lt;span style=&#34;color:#eceff4&#34;&gt;:&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;      &lt;span style=&#34;color:#81a1c1&#34;&gt;storage&lt;/span&gt;&lt;span style=&#34;color:#eceff4&#34;&gt;:&lt;/span&gt; {{ .DiskSize }}
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;You&amp;rsquo;ll find this article helpful with understanding &lt;a href=&#34;https://platform9.com/blog/tutorial-dynamic-provisioning-of-persistent-storage-in-kubernetes-with-minikube/&#34;&gt;dynamic provisioning of persistent storage with minikube&lt;/a&gt;.&lt;/p&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

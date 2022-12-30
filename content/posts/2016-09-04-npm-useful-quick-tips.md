@@ -4,7 +4,7 @@ slug: npm-useful-quick-tips
 category: tech
 date: 2016-09-04 09:55:11
 updated:
-tags: Npm
+tags: [Npm]
 cover:
 from: https://nodesource.com/blog/eleven-npm-tricks-that-will-knock-your-wombat-socks-off/
 isCJKLanguage: true

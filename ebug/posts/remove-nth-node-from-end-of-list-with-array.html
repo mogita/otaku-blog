@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+    <title>
+  Remove Nth Node From End of List 数组实现 · mogita
+</title>
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="color-scheme" content="light dark">
+
+
+
+
+<meta name="author" content="Yun Wang">
+<meta name="description" content="原题 Link to heading Given a linked list, remove the nth node from the end of list and return its head. For example, Given linked list: 1-&gt;2-&gt;3-&gt;4-&gt;5, and n = 2. After removing the second node from the end, the linked list becomes 1-&gt;2-&gt;3-&gt;5. Note: Given n will always be valid. Try to do this in one pass. 数组方式解答 Link to heading 思路">
+<meta name="keywords" content="blog,developer,personal">
+
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Remove Nth Node From End of List 数组实现"/>
+<meta name="twitter:description" content="原题 Link to heading Given a linked list, remove the nth node from the end of list and return its head. For example, Given linked list: 1-&gt;2-&gt;3-&gt;4-&gt;5, and n = 2. After removing the second node from the end, the linked list becomes 1-&gt;2-&gt;3-&gt;5. Note: Given n will always be valid. Try to do this in one pass. 数组方式解答 Link to heading 思路"/>
+
+<meta property="og:title" content="Remove Nth Node From End of List 数组实现" />
+<meta property="og:description" content="原题 Link to heading Given a linked list, remove the nth node from the end of list and return its head. For example, Given linked list: 1-&gt;2-&gt;3-&gt;4-&gt;5, and n = 2. After removing the second node from the end, the linked list becomes 1-&gt;2-&gt;3-&gt;5. Note: Given n will always be valid. Try to do this in one pass. 数组方式解答 Link to heading 思路" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="http://localhost:1313/posts/remove-nth-node-from-end-of-list-with-array.html" /><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2017-02-07T01:54:30+00:00" />
+<meta property="article:modified_time" content="2022-08-28T11:08:04+08:00" />
+
+
+
+
+
+<link rel="canonical" href="http://localhost:1313/posts/remove-nth-node-from-end-of-list-with-array.html">
+
+
+<link rel="preload" href="/fonts/forkawesome-webfont.woff2?v=1.2.0" as="font" type="font/woff2" crossorigin>
+
+
+  
+  
+  <link rel="stylesheet" href="/css/coder.css" media="screen">
+
+
+
+
+
+
+  
+    
+    
+    <link rel="stylesheet" href="/css/coder-dark.css" media="screen">
+  
+
+
+
+ 
+
+
+
+
+<link rel="icon" type="image/png" href="/img/favicons/favicon32.png" sizes="32x32">
+<link rel="icon" type="image/png" href="/img/favicons/favicon16.png" sizes="16x16">
+
+<link rel="apple-touch-icon" href="/img/favicons/favicon.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/img/favicons/favicon.png">
+
+<link rel="manifest" href="/site.webmanifest">
+<link rel="mask-icon" href="/images/safari-pinned-tab.svg" color="#5bbad5">
+
+
+
+
+<meta name="generator" content="Hugo 0.101.0" />
+
+
+
+
+
+  </head>
+
+
+
+
+
+
+<body class="preload-transitions colorscheme-auto">
+  
+<div class="float-container">
+    <a id="dark-mode-toggle" class="colorscheme-toggle">
+        <i class="fa fa-adjust fa-fw" aria-hidden="true"></i>
+    </a>
+</div>
+
+
+  <main class="wrapper">
+    <nav class="navigation">
+  <section class="container">
+    <a class="navigation-title" href="/">
+      mogita
+    </a>
+    
+      <input type="checkbox" id="menu-toggle" />
+      <label class="menu-button float-right" for="menu-toggle">
+        <i class="fa fa-bars fa-fw" aria-hidden="true"></i>
+      </label>
+      <ul class="navigation-list">
+        
+          
+            <li class="navigation-item">
+              <a class="navigation-link" href="/posts/">Posts</a>
+            </li>
+          
+            <li class="navigation-item">
+              <a class="navigation-link" href="/index.xml">RSS</a>
+            </li>
+          
+            <li class="navigation-item">
+              <a class="navigation-link" href="/tags.html">Tags</a>
+            </li>
+          
+            <li class="navigation-item">
+              <a class="navigation-link" href="/about.html">About</a>
+            </li>
+          
+        
+        
+      </ul>
+    
+  </section>
+</nav>
+
+
+    <div class="content">
+      
+  <section class="container post">
+    <article>
+      <header>
+        <div class="post-title">
+          <h1 class="title">
+            <a class="title-link" href="http://localhost:1313/posts/remove-nth-node-from-end-of-list-with-array.html">
+              Remove Nth Node From End of List 数组实现
+            </a>
+          </h1>
+        </div>
+        <div class="post-meta">
+          <div class="date">
+            <span class="posted-on">
+              <i class="fa fa-calendar" aria-hidden="true"></i>
+              <time datetime="2017-02-07T01:54:30Z">
+                February 7, 2017
+              </time>
+            </span>
+            <span class="reading-time">
+              <i class="fa fa-clock-o" aria-hidden="true"></i>
+              One-minute read
+            </span>
+          </div>
+          
+          
+          <div class="tags">
+  <i class="fa fa-tag" aria-hidden="true"></i>
+    <span class="tag">
+      <a href="/tags/leetcode/">LeetCode</a>
+    </span>
+      <span class="separator">•</span>
+    <span class="tag">
+      <a href="/tags/algorithm/">Algorithm</a>
+    </span>
+      <span class="separator">•</span>
+    <span class="tag">
+      <a href="/tags/javascript/">JavaScript</a>
+    </span></div>
+
+        </div>
+      </header>
+
+      <div class="post-content">
+        
+        <h2 id="原题">
+  原题
+  <a class="heading-link" href="#%e5%8e%9f%e9%a2%98">
+    <i class="fa fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h2>
+<p>Given a linked list, remove the nth node from the end of list and return its head.</p>
+<p>For example,</p>
+<div class="highlight"><pre tabindex="0" style="color:#d8dee9;background-color:#2e3440;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>Given linked list: 1-&gt;2-&gt;3-&gt;4-&gt;5, and n = 2.
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>After removing the second node from the end, the linked list becomes 1-&gt;2-&gt;3-&gt;5.
+</span></span></code></pre></div><p><strong>Note:</strong></p>
+<p>Given n will always be valid.</p>
+<p>Try to do this in one pass.</p>
+<h2 id="数组方式解答">
+  数组方式解答
+  <a class="heading-link" href="#%e6%95%b0%e7%bb%84%e6%96%b9%e5%bc%8f%e8%a7%a3%e7%ad%94">
+    <i class="fa fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h2>
+<p>思路：先遍历整个链表，存成一个数组。然后删除从末尾起第 n 个元素（或从头起的第 <code>length - n + 1</code> 个元素）。然后遍历数组建立新的链表，然后返回此链表，结束程序。</p>
+<p>我选择了从头算个数的方式，由于 Array 下标从 0 开始，因此传入的位置需要减 1，即最终传入 <code>length - n</code>。</p>
+<div class="highlight"><pre tabindex="0" style="color:#d8dee9;background-color:#2e3440;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#81a1c1;font-weight:bold">var</span> removeNthFromEnd <span style="color:#81a1c1">=</span> <span style="color:#81a1c1;font-weight:bold">function</span><span style="color:#eceff4">(</span>head<span style="color:#eceff4">,</span> n<span style="color:#eceff4">)</span> <span style="color:#eceff4">{</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#81a1c1;font-weight:bold">let</span> arrayBridge <span style="color:#81a1c1">=</span> <span style="color:#eceff4">[];</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#81a1c1;font-weight:bold">let</span> currentNode <span style="color:#81a1c1">=</span> head<span style="color:#eceff4">;</span>
+</span></span><span style="display:flex;"><span>  
+</span></span><span style="display:flex;"><span>  	<span style="color:#616e87;font-style:italic">// first pass: get the length
+</span></span></span><span style="display:flex;"><span><span style="color:#616e87;font-style:italic"></span>    <span style="color:#81a1c1;font-weight:bold">while</span> <span style="color:#eceff4">(</span>currentNode<span style="color:#eceff4">)</span> <span style="color:#eceff4">{</span>
+</span></span><span style="display:flex;"><span>        arrayBridge<span style="color:#eceff4">.</span>push<span style="color:#eceff4">(</span>currentNode<span style="color:#eceff4">.</span>val<span style="color:#eceff4">);</span>
+</span></span><span style="display:flex;"><span>        currentNode <span style="color:#81a1c1">=</span> currentNode<span style="color:#eceff4">.</span>next<span style="color:#eceff4">;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#eceff4">}</span>
+</span></span><span style="display:flex;"><span>  	
+</span></span><span style="display:flex;"><span>  	<span style="color:#616e87;font-style:italic">// for an edge situation where head has only 1 node
+</span></span></span><span style="display:flex;"><span><span style="color:#616e87;font-style:italic"></span>  	<span style="color:#616e87;font-style:italic">// leetcode expects an [] as an empty ListNode object
+</span></span></span><span style="display:flex;"><span><span style="color:#616e87;font-style:italic"></span>    <span style="color:#81a1c1;font-weight:bold">if</span> <span style="color:#eceff4">(</span>n <span style="color:#81a1c1">===</span> <span style="color:#b48ead">1</span> <span style="color:#81a1c1">&amp;&amp;</span> n <span style="color:#81a1c1">===</span> arrayBridge<span style="color:#eceff4">.</span>length<span style="color:#eceff4">)</span> <span style="color:#81a1c1;font-weight:bold">return</span> <span style="color:#eceff4">[];</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    arrayBridge<span style="color:#eceff4">.</span>splice<span style="color:#eceff4">(</span>arrayBridge<span style="color:#eceff4">.</span>length <span style="color:#81a1c1">-</span> n<span style="color:#eceff4">,</span> <span style="color:#b48ead">1</span><span style="color:#eceff4">);</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#81a1c1;font-weight:bold">let</span> list <span style="color:#81a1c1">=</span> curr <span style="color:#81a1c1">=</span> <span style="color:#81a1c1;font-weight:bold">new</span> ListNode<span style="color:#eceff4">(</span>arrayBridge<span style="color:#eceff4">[</span><span style="color:#b48ead">0</span><span style="color:#eceff4">]);</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#81a1c1;font-weight:bold">let</span> count <span style="color:#81a1c1">=</span> <span style="color:#b48ead">1</span><span style="color:#eceff4">;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#81a1c1;font-weight:bold">while</span> <span style="color:#eceff4">(</span>count <span style="color:#81a1c1">&lt;</span> arrayBridge<span style="color:#eceff4">.</span>length<span style="color:#eceff4">)</span> <span style="color:#eceff4">{</span>
+</span></span><span style="display:flex;"><span>        curr<span style="color:#eceff4">.</span>next <span style="color:#81a1c1">=</span> <span style="color:#81a1c1;font-weight:bold">new</span> ListNode<span style="color:#eceff4">(</span>arrayBridge<span style="color:#eceff4">[</span>count<span style="color:#eceff4">]);</span>
+</span></span><span style="display:flex;"><span>        curr <span style="color:#81a1c1">=</span> curr<span style="color:#eceff4">.</span>next<span style="color:#eceff4">;</span>
+</span></span><span style="display:flex;"><span>        count<span style="color:#81a1c1">++</span><span style="color:#eceff4">;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#eceff4">}</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#81a1c1;font-weight:bold">return</span> list<span style="color:#eceff4">;</span>
+</span></span><span style="display:flex;"><span><span style="color:#eceff4">};</span>
+</span></span></code></pre></div><p>此解已是一个可获得 Accepted 的答案，但离题目要求的「只用一通」颇有差距，最坏的情况需要几乎两通的时间。</p>
+
+      </div>
+
+
+      <footer>
+        
+
+
+        <div id="disqus_thread"></div>
+<script>
+  window.disqus_config = function () {
+    
+    
+    
+    };
+    (function() {
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+            return;
+        }
+        var d = document, s = d.createElement('script'); s.async = true;
+        s.src = '//' + "otaku-mogita" + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+    
+    document.addEventListener('themeChanged', function (e) { 
+        if (document.readyState == 'complete') {
+          DISQUS.reset({ reload: true, config: disqus_config });
+        }
+    });
+</script>
+        
+        
+      </footer>
+    </article>
+
+    
+  </section>
+
+    </div>
+
+    <footer class="footer">
+  <section class="container">
+    ©
+    
+      2010 -
+    
+    2022
+     Yun Wang 
+    ·
+    
+    Powered by <a href="https://gohugo.io/">Hugo</a> & <a href="https://github.com/luizdepra/hugo-coder/">Coder</a>.
+    
+  </section>
+</footer>
+
+  </main>
+
+  
+
+  
+  
+  <script src="/js/coder.js"></script>
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+</body>
+
+</html>

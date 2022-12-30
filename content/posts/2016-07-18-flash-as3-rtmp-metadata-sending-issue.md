@@ -4,7 +4,7 @@ slug: flash-as3-rtmp-metadata-sending-issue
 category: tech
 date: 2016-07-18 13:55:08
 updated:
-tags: ActionScript3
+tags: [ActionScript3]
 cover:
 isCJKLanguage: true
 ---

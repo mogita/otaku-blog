@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+    <title>
+  Minikube With Podman on Apple Silicon · mogita
+</title>
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="color-scheme" content="light dark">
+
+
+
+
+<meta name="author" content="Yun Wang">
+<meta name="description" content="Minikube has been a go-to environment for running a single-node cluster to test out the Kubernetes features on a local platform. For macOS computers with an Apple Silicon, a.k.a. M1 or M2, minikube provides an ARM64 version and can be installed with Homebrew.
+However when it comes to start minikube after successfully installed it, it would require Docker as the default driver. Here comes my problem. As a matter of fact, Docker on macOS has long been released under the name of &ldquo;Docker Desktop&rdquo;, which contains a huge pile of Electron based applications and UI.">
+<meta name="keywords" content="blog,developer,personal">
+
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Minikube With Podman on Apple Silicon"/>
+<meta name="twitter:description" content="Minikube has been a go-to environment for running a single-node cluster to test out the Kubernetes features on a local platform. For macOS computers with an Apple Silicon, a.k.a. M1 or M2, minikube provides an ARM64 version and can be installed with Homebrew.
+However when it comes to start minikube after successfully installed it, it would require Docker as the default driver. Here comes my problem. As a matter of fact, Docker on macOS has long been released under the name of &ldquo;Docker Desktop&rdquo;, which contains a huge pile of Electron based applications and UI."/>
+
+<meta property="og:title" content="Minikube With Podman on Apple Silicon" />
+<meta property="og:description" content="Minikube has been a go-to environment for running a single-node cluster to test out the Kubernetes features on a local platform. For macOS computers with an Apple Silicon, a.k.a. M1 or M2, minikube provides an ARM64 version and can be installed with Homebrew.
+However when it comes to start minikube after successfully installed it, it would require Docker as the default driver. Here comes my problem. As a matter of fact, Docker on macOS has long been released under the name of &ldquo;Docker Desktop&rdquo;, which contains a huge pile of Electron based applications and UI." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="http://localhost:1313/posts/minikube-podman-on-m1-apple-silicon.html" /><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2022-08-29T11:38:55+08:00" />
+<meta property="article:modified_time" content="2022-08-29T23:47:24+08:00" />
+
+
+
+
+
+<link rel="canonical" href="http://localhost:1313/posts/minikube-podman-on-m1-apple-silicon.html">
+
+
+<link rel="preload" href="/fonts/forkawesome-webfont.woff2?v=1.2.0" as="font" type="font/woff2" crossorigin>
+
+
+  
+  
+  <link rel="stylesheet" href="/css/coder.css" media="screen">
+
+
+
+
+
+
+  
+    
+    
+    <link rel="stylesheet" href="/css/coder-dark.css" media="screen">
+  
+
+
+
+ 
+
+
+
+
+<link rel="icon" type="image/png" href="/img/favicons/favicon32.png" sizes="32x32">
+<link rel="icon" type="image/png" href="/img/favicons/favicon16.png" sizes="16x16">
+
+<link rel="apple-touch-icon" href="/img/favicons/favicon.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/img/favicons/favicon.png">
+
+<link rel="manifest" href="/site.webmanifest">
+<link rel="mask-icon" href="/images/safari-pinned-tab.svg" color="#5bbad5">
+
+
+
+
+<meta name="generator" content="Hugo 0.101.0" />
+
+
+
+
+
+  </head>
+
+
+
+
+
+
+<body class="preload-transitions colorscheme-auto">
+  
+<div class="float-container">
+    <a id="dark-mode-toggle" class="colorscheme-toggle">
+        <i class="fa fa-adjust fa-fw" aria-hidden="true"></i>
+    </a>
+</div>
+
+
+  <main class="wrapper">
+    <nav class="navigation">
+  <section class="container">
+    <a class="navigation-title" href="/">
+      mogita
+    </a>
+    
+      <input type="checkbox" id="menu-toggle" />
+      <label class="menu-button float-right" for="menu-toggle">
+        <i class="fa fa-bars fa-fw" aria-hidden="true"></i>
+      </label>
+      <ul class="navigation-list">
+        
+          
+            <li class="navigation-item">
+              <a class="navigation-link" href="/posts/">Posts</a>
+            </li>
+          
+            <li class="navigation-item">
+              <a class="navigation-link" href="/index.xml">RSS</a>
+            </li>
+          
+            <li class="navigation-item">
+              <a class="navigation-link" href="/tags.html">Tags</a>
+            </li>
+          
+            <li class="navigation-item">
+              <a class="navigation-link" href="/about.html">About</a>
+            </li>
+          
+        
+        
+      </ul>
+    
+  </section>
+</nav>
+
+
+    <div class="content">
+      
+  <section class="container post">
+    <article>
+      <header>
+        <div class="post-title">
+          <h1 class="title">
+            <a class="title-link" href="http://localhost:1313/posts/minikube-podman-on-m1-apple-silicon.html">
+              Minikube With Podman on Apple Silicon
+            </a>
+          </h1>
+        </div>
+        <div class="post-meta">
+          <div class="date">
+            <span class="posted-on">
+              <i class="fa fa-calendar" aria-hidden="true"></i>
+              <time datetime="2022-08-29T11:38:55&#43;08:00">
+                August 29, 2022
+              </time>
+            </span>
+            <span class="reading-time">
+              <i class="fa fa-clock-o" aria-hidden="true"></i>
+              4-minute read
+            </span>
+          </div>
+          
+          
+          <div class="tags">
+  <i class="fa fa-tag" aria-hidden="true"></i>
+    <span class="tag">
+      <a href="/tags/minikube/">minikube</a>
+    </span>
+      <span class="separator">•</span>
+    <span class="tag">
+      <a href="/tags/k8s/">k8s</a>
+    </span></div>
+
+        </div>
+      </header>
+
+      <div class="post-content">
+        
+        <p><a href="https://minikube.sigs.k8s.io/docs/">Minikube</a> has been a go-to environment for running a single-node cluster to test out the Kubernetes features on a local platform. For macOS computers with an Apple Silicon, a.k.a. M1 or M2, minikube provides an ARM64 version and can be installed with <a href="https://formulae.brew.sh/formula/minikube">Homebrew</a>.</p>
+<p>However when it comes to start minikube after successfully installed it, it would require Docker as the default driver. Here comes my problem. As a matter of fact, Docker on macOS has long been released under the name of &ldquo;Docker Desktop&rdquo;, which contains a huge pile of Electron based applications and UI. It starts slow too. I don&rsquo;t ever want to install such a <strong>monstrous</strong> thing in my system. So I have to give up the default driver and look for alternatives.</p>
+<p>At the time of writing, minikube supports various kinds of drivers, such as Docker, Hyperkit, Hyper-V, KVM, Parallels, Podman, VirtualBox, and VMware Fusion/Workstation. After an hour of struggling and testing, Podman stood out. It&rsquo;s backed by a QEMU virtual machine, supports Docker API and Docker-based tools, and can be intsalled in a very smooth fasion.</p>
+<p>So I&rsquo;m going to record the steps to initialize and maintain a minikube cluster with Podman.</p>
+<h1 id="installation">
+  Installation
+  <a class="heading-link" href="#installation">
+    <i class="fa fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h1>
+<p>With the help of the <a href="https://minikube.sigs.k8s.io/docs/start/">Get Started</a> documentation for minikube, just pick an installation option that works. Mine was <code>brew install minikube</code>.</p>
+<p>Then the Podman installation done with <code>brew install podman</code>.</p>
+<p>Simple enough.</p>
+<h1 id="start-up">
+  Start Up
+  <a class="heading-link" href="#start-up">
+    <i class="fa fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h1>
+<p>Create a Podman machine with the following command, giving it 2 CPU cores and 8Gi memory.</p>
+<div class="highlight"><pre tabindex="0" style="color:#d8dee9;background-color:#2e3440;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>podman machine init --cpus 2 --memory 8192 --disk-size 80
+</span></span><span style="display:flex;"><span>podman machine start
+</span></span><span style="display:flex;"><span>podman system connection default podman-machine-default-root
+</span></span></code></pre></div><p>Now Podman should be running in the background. One can check out the information with <code>podman info</code> command, or find out its running stats with <code>podman stats</code> command.</p>
+<p>To start minikube, follow the step below. By default, minikube uses Docker as the driver. One should pass a <code>--driver</code> argument to change that.</p>
+<div class="highlight"><pre tabindex="0" style="color:#d8dee9;background-color:#2e3440;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>minikube start --driver=podman --container-runtime=cri-o
+</span></span></code></pre></div><p>One should see the output similar to the following logs:</p>
+<div class="highlight"><pre tabindex="0" style="color:#d8dee9;background-color:#2e3440;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>❯ minikube start --driver=podman --container-runtime=cri-o
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>😄  minikube v1.26.1 on Darwin 12.5.1 (arm64)
+</span></span><span style="display:flex;"><span>✨  Using the podman (experimental) driver based on existing profile
+</span></span><span style="display:flex;"><span>👍  Starting control plane node minikube in cluster minikube
+</span></span><span style="display:flex;"><span>🚜  Pulling base image ...
+</span></span><span style="display:flex;"><span>E0829 11:34:04.822031   11181 cache.go:203] Error downloading kic artifacts:  not yet implemented, see issue #8426
+</span></span><span style="display:flex;"><span>🔄  Restarting existing podman container for &#34;minikube&#34; ...
+</span></span><span style="display:flex;"><span>🎁  Preparing Kubernetes v1.24.3 on CRI-O 1.24.1 ...
+</span></span><span style="display:flex;"><span>E0829 11:34:09.704438   11181 start.go:129] Unable to get host IP: RoutableHostIPFromInside is currently only implemented for linux
+</span></span><span style="display:flex;"><span>🔗  Configuring CNI (Container Networking Interface) ...
+</span></span><span style="display:flex;"><span>🔎  Verifying Kubernetes components...
+</span></span><span style="display:flex;"><span>    ▪ Using image gcr.io/k8s-minikube/storage-provisioner:v5
+</span></span><span style="display:flex;"><span>    ▪ Using image kubernetesui/dashboard:v2.6.0
+</span></span><span style="display:flex;"><span>    ▪ Using image kubernetesui/metrics-scraper:v1.0.8
+</span></span><span style="display:flex;"><span>🌟  Enabled addons: storage-provisioner, default-storageclass, dashboard
+</span></span><span style="display:flex;"><span>🏄  Done! kubectl is now configured to use &#34;minikube&#34; cluster and &#34;default&#34; namespace by default
+</span></span></code></pre></div><p>Alternative to explicitly passing the <code>--driver</code> argument, one can change the defautl driver with this command:</p>
+<div class="highlight"><pre tabindex="0" style="color:#d8dee9;background-color:#2e3440;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>minikube config set driver podman
+</span></span></code></pre></div><h1 id="stop--restart">
+  Stop / Restart
+  <a class="heading-link" href="#stop--restart">
+    <i class="fa fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h1>
+<p>To stop the minikube + Podman system, follow these commands:</p>
+<div class="highlight"><pre tabindex="0" style="color:#d8dee9;background-color:#2e3440;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>minikube stop
+</span></span><span style="display:flex;"><span>podman machine stop
+</span></span></code></pre></div><p>To restart the system, simply run <code>start</code> respectively (note the sequence, <code>podman</code> should go first as <code>minikube</code> depends on it):</p>
+<div class="highlight"><pre tabindex="0" style="color:#d8dee9;background-color:#2e3440;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>podman machine start
+</span></span><span style="display:flex;"><span>minikube start --driver<span style="color:#81a1c1">=</span>podman --container-runtime<span style="color:#81a1c1">=</span>cri-o
+</span></span><span style="display:flex;"><span><span style="color:#616e87;font-style:italic"># or with the default driver changed to podman:</span>
+</span></span><span style="display:flex;"><span>minikube start
+</span></span></code></pre></div><h1 id="anything-else">
+  Anything Else?
+  <a class="heading-link" href="#anything-else">
+    <i class="fa fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h1>
+<p><strong>Q</strong>: If there are multiple clusters to manage, including but not limited to GKE (by Google Cloud) and EKS (by AWS) etc., how to manage and switch from these clusters?</p>
+<p><strong>A</strong>: This can be configured through <code>~/.kube/config</code> easily as Kubernetes has the concept of &ldquo;Context&rdquo;, which basically means different clusters. Upon minikube successfully starting, a new context called <code>minikube</code> shall be inserted automatically to this config file. One can list and switch to a certain context using the following commands (switching to minikube for example):</p>
+<div class="highlight"><pre tabindex="0" style="color:#d8dee9;background-color:#2e3440;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>kubectl config get-contexts
+</span></span><span style="display:flex;"><span>kubectl config set current-context minikube
+</span></span></code></pre></div><hr>
+<p><strong>Q</strong>: How to test out a named <code>StorageClass</code> in a PVC object with minikube?</p>
+<p><strong>A</strong>: By default, minikube comes with a built-in SC named <code>standard</code>. It provides dynamic storage provisioning when one creates a PVC with non-named storage class. One should create a storage class with the customized name before creating the PVC with a named storage class to enable auto-creation of PV and PVC. First, create the named SC like this:</p>
+<div class="highlight"><pre tabindex="0" style="color:#d8dee9;background-color:#2e3440;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span><span style="color:#81a1c1">apiVersion</span><span style="color:#eceff4">:</span> storage.k8s.io/v1
+</span></span><span style="display:flex;"><span><span style="color:#81a1c1">kind</span><span style="color:#eceff4">:</span> StorageClass
+</span></span><span style="display:flex;"><span><span style="color:#81a1c1">metadata</span><span style="color:#eceff4">:</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#81a1c1">name</span><span style="color:#eceff4">:</span> your-custom-name
+</span></span><span style="display:flex;"><span>  <span style="color:#81a1c1">annotations</span><span style="color:#eceff4">:</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#81a1c1">storageclass.kubernetes.io/is-default-class</span><span style="color:#eceff4">:</span> <span style="color:#a3be8c">&#34;false&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#81a1c1">provisioner</span><span style="color:#eceff4">:</span> k8s.io/minikube-hostpath
+</span></span></code></pre></div><p>It&rsquo;s important to set the provisioner field to <code>k8s.io/minikube-hostpath</code>, otherwise no auto-creation would happen. After the SC has been successfully created, when applying the following PVC object, one should observe that a PV being automatically created and the PVC gets instantly fulfilled:</p>
+<div class="highlight"><pre tabindex="0" style="color:#d8dee9;background-color:#2e3440;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span><span style="color:#81a1c1">kind</span><span style="color:#eceff4">:</span> PersistentVolumeClaim
+</span></span><span style="display:flex;"><span><span style="color:#81a1c1">apiVersion</span><span style="color:#eceff4">:</span> v1
+</span></span><span style="display:flex;"><span><span style="color:#81a1c1">metadata</span><span style="color:#eceff4">:</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#81a1c1">name</span><span style="color:#eceff4">:</span> {{ .Name }}
+</span></span><span style="display:flex;"><span>  <span style="color:#81a1c1">namespace</span><span style="color:#eceff4">:</span> {{ .Namespace }}
+</span></span><span style="display:flex;"><span><span style="color:#81a1c1">spec</span><span style="color:#eceff4">:</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#81a1c1">accessModes</span><span style="color:#eceff4">:</span> <span style="color:#eceff4">[</span> <span style="color:#a3be8c">&#34;ReadWriteOnce&#34;</span> <span style="color:#eceff4">]</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#81a1c1">storageClassName</span><span style="color:#eceff4">:</span> your-custom-name
+</span></span><span style="display:flex;"><span>  <span style="color:#81a1c1">volumeMode</span><span style="color:#eceff4">:</span> Filesystem
+</span></span><span style="display:flex;"><span>  <span style="color:#81a1c1">resources</span><span style="color:#eceff4">:</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#81a1c1">requests</span><span style="color:#eceff4">:</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#81a1c1">storage</span><span style="color:#eceff4">:</span> {{ .DiskSize }}
+</span></span></code></pre></div><p>You&rsquo;ll find this article helpful with understanding <a href="https://platform9.com/blog/tutorial-dynamic-provisioning-of-persistent-storage-in-kubernetes-with-minikube/">dynamic provisioning of persistent storage with minikube</a>.</p>
+
+      </div>
+
+
+      <footer>
+        
+
+
+        <div id="disqus_thread"></div>
+<script>
+  window.disqus_config = function () {
+    
+    
+    
+    };
+    (function() {
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+            return;
+        }
+        var d = document, s = d.createElement('script'); s.async = true;
+        s.src = '//' + "otaku-mogita" + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+    
+    document.addEventListener('themeChanged', function (e) { 
+        if (document.readyState == 'complete') {
+          DISQUS.reset({ reload: true, config: disqus_config });
+        }
+    });
+</script>
+        
+        
+      </footer>
+    </article>
+
+    
+  </section>
+
+    </div>
+
+    <footer class="footer">
+  <section class="container">
+    ©
+    
+      2010 -
+    
+    2022
+     Yun Wang 
+    ·
+    
+    Powered by <a href="https://gohugo.io/">Hugo</a> & <a href="https://github.com/luizdepra/hugo-coder/">Coder</a>.
+    
+  </section>
+</footer>
+
+  </main>
+
+  
+
+  
+  
+  <script src="/js/coder.js"></script>
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+</body>
+
+</html>

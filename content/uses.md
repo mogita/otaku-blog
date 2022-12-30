@@ -45,6 +45,8 @@ type: page
 - Reeder
 - Infuse
 - Apple Pro Apps for A/V editing
+- Blender
+- Godot
 
 **iPhone**
 

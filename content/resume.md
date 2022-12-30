@@ -32,7 +32,7 @@ Software engineer manager, geo team
 
 **2015~2017**
 
-Software engineer, API, real-time A/V web and service team
+Software engineer, SaaS API, real-time A/V web and service team
 
 # Education
 

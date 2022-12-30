@@ -8,11 +8,13 @@ I'm Yun Wang, using the handle of @[mogita](https://twitter.com/mogita) (nearly)
 
 I believe in many things: open source, remote working (one [book](https://www.amazon.com/Remote-Office-Not-Required/dp/0804137501) that I recommend), RSS, cats dominate the human, Neo was The One, the Harry Potter folks do exist, and all those heavenly beautiful things from Michael Jackson's songs.
 
-You can also find a [list](/uses.html) of devices and softwares that I use most of the time.
+You can also find a list of devices and softwares [that I use](/uses.html) on a daily basis.
 
-This site was created with [Hugo](https://gohugo.io/) and a [customized](https://github.com/mogita/otaku-blog/blob/master/static/css/ezhil-custom.css) version of [ezhil](https://github.com/vividvilla/ezhil), without any trackers*. It contains my non-tech posts from my infant time in which you don't want to be interested. This is my personal website. Opinions are my own.
+This site was created with [Hugo](https://gohugo.io/) and [hugo-coder](https://github.com/luizdepra/hugo-coder/) with some [customizations](https://github.com/mogita/otaku-blog/tree/master/layouts), without any trackers*.
 
-> \* You can use [Privacy Badger](https://privacybadger.org) to block Disqus comments automatically.
+This is my personal website. Opinions are my own. It contains my infant time posts in which you don't want to be too interested.
+
+> \* You can even use [Privacy Badger](https://privacybadger.org) to block Disqus comments to demolish all possible third party codes on this site.
 
 # Bio
 
@@ -27,7 +29,7 @@ Quick contact through [Telegram](https://t.me/mogita). Or seriously, write an Em
 [me@mogita.com](mailto:me@mogita.com)<br />
 PGP: [`6DB7 2FE7 20F6 19F7 10CD B4C9 A0AA 1B9C 57A4 8ECF`](https://keybase.io/mogita/pgp_keys.asc?fingerprint=6db72fe720f619f710cdb4c9a0aa1b9c57a48ecf)
 
-Feel like talking? Block my calendar here https://cal.com/mogita
+Need to be serious? Block my calendar here https://cal.com/mogita
 
 # Portkeys <sup><a href="https://harrypotter.fandom.com/wiki/Portkey" target="_blank">?</a></sup>
 
@@ -40,6 +42,7 @@ Feel like talking? Block my calendar here https://cal.com/mogita
 - [GitLab](https://gitlab.com/mogita)
 - [GitHub](https://github.com/mogita)
 - [Twitter](https://twitter.com/mogita)
+- [Fediverse](https://mog.blue/@mogita)
 - [Lobsters](https://lobste.rs/u/mogita)
 
 # Projects

@@ -60,9 +60,6 @@ params:
   # customSCSS: ["scss/custom.scss"]
   # customJS: ["js/custom.js"]
   social:
-    - name: "Twitter"
-      icon: "fa fa-twitter fa-2x"
-      url: "https://twitter.com/mogita"
     - name: "Fediverse"
       icon: "fa fa-mastodon fa-2x"
       url: "https://mog.blue/@mogita"
@@ -72,6 +69,9 @@ params:
     - name: "LinkedIn"
       icon: "fa fa-linkedin fa-2x"
       url: "https://linkedin.com/in/mogita"
+    - name: "Twitter"
+      icon: "fa fa-twitter fa-2x"
+      url: "https://twitter.com/mogita"
 
 menu:
   main:

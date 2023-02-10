@@ -45,7 +45,7 @@ uglyURLs: true
 
 # --- hugo coder compatible params ---
 params:
-  author: "Yun Wang"
+  author: "mogita"
   info: "Empty Stack Developer"
   description: "mogita's personal website"
   keywords: "blog,developer,personal"
@@ -66,12 +66,6 @@ params:
     - name: "GitLab"
       icon: "fa fa-gitlab fa-2x"
       url: "https://gitlab.com/mogita"
-    - name: "LinkedIn"
-      icon: "fa fa-linkedin fa-2x"
-      url: "https://linkedin.com/in/mogita"
-    - name: "Twitter"
-      icon: "fa fa-twitter fa-2x"
-      url: "https://twitter.com/mogita"
 
 menu:
   main:

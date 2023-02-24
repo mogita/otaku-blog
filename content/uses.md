@@ -39,11 +39,12 @@ type: page
 - Neovim
 - Firefox
 - Apple Mail
-- Tweetbot
+- ~~Tweetbot~~ R.I.P.
+- Ivory
 - Notion
 - 1Password
 - Reeder
-- Infuse
+- Dropbox
 - Apple Pro Apps for A/V editing
 - Blender
 - Godot
@@ -54,3 +55,4 @@ type: page
 - WaterMinder
 - Overcast
 - Duolingo
+- Ivory

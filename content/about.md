@@ -22,7 +22,7 @@ This is my personal website. Opinions are my own. It contains my infant time pos
 🎮 Indie game dev<br />
 🎧 [Drummer](https://space.bilibili.com/70342), bedroom [producer](https://soundcloud.com/mogita)<br />
 🇸🇬 Located in Singapore<br />
-🇨🇳 汉语 🇬🇧 English 🇯🇵 日本語で数えることができる 🇪🇸 A veces leo en español
+🇨🇳 汉语 🇬🇧 English 🇯🇵 日本語で数えるのはできる 🇪🇸 A veces leo en español
 
 # Contact
 

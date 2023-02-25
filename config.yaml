@@ -1,7 +1,7 @@
 baseURL: "https://mogita.com/"
 languageCode: "en-US"
 defaultContentLanguage: "en"
-title: "mogita"
+title: "2001: A Nimbus Broom"
 theme: "hugo-coder"
 
 enableInlineShortcodes: true
@@ -46,7 +46,7 @@ uglyURLs: true
 # --- hugo coder compatible params ---
 params:
   author: "mogita"
-  info: "Empty Stack Developer"
+  info: "hi, I'm an empty stack developer"
   description: "mogita's personal website"
   keywords: "blog,developer,personal"
   gravatar: "me@mogita.com"

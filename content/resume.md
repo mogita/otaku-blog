@@ -22,15 +22,15 @@ type: page
 
 # Experience
 
-**[NextBillion.ai](https://nextbillion.ai), 2020~present**
+**[NextBillion.ai](https://nextbillion.ai), 2020~present** / Remote
 
 Software engineer, working on map SDK, live traffic systems, and in-house OSM eco-system building
 
-**[Grab](https://grab.com), 2017~2020**
+**[Grab](https://grab.com), 2017~2020** / Beijing - Remote
 
 Software engineer manager, geo team
 
-**2015~2017**
+**2015~2017** / Beijing
 
 Software engineer, SaaS API, real-time A/V web and service team
 
@@ -43,3 +43,7 @@ Master of aesthetics
 **Beijing International Studies University, 2006~2010**
 
 Bechelor of Spanish
+
+# References
+
+Available upon request.

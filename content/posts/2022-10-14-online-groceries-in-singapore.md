@@ -34,6 +34,11 @@ Having lived in Singapore for half a year now, me and my wife have been to a few
 - **Things you can buy**: full category
 - **Physical store**: [yes](https://www.fairprice.com.sg/store-locator)
 
+**[Market Fresh](https://marketfresh.com.sg)**
+
+- **Things you can buy**: full category (fish, meat, vegetables, etc.)
+- **Physical store**: no
+
 **[BeepBeep!](https://beepbeepmart.com/en-sg/)**
 
 - **Things you can buy**: wide category coverage but SKU is fairly limited

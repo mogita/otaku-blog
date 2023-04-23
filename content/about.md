@@ -14,7 +14,7 @@ This site was created with [Hugo](https://gohugo.io/) and [hugo-coder](https://g
 
 This is my personal website. Opinions are my own. It contains my infant time posts in which you don't want to be too interested.
 
-> \* You can even use [Privacy Badger](https://privacybadger.org) to block Disqus comments to demolish all possible third party codes on this site.
+> \* Feel free to also block Disqus comments with [Privacy Badger](https://privacybadger.org).
 
 # Bio
 

@@ -24,15 +24,15 @@ type: page
 
 **[NextBillion.ai](https://nextbillion.ai), 2020~present** / Remote
 
-Software engineer, working on map SDK, live traffic systems, and in-house OSM eco-system building
+Fullstack software engineer, working on map SDK, live traffic systems, and customizable OSM eco-system
 
-**[Grab](https://grab.com), 2017~2020** / Beijing - Remote
+**[Grab](https://grab.com), 2017~2020** / Beijing ~ Remote
 
 Software engineer manager, geo team
 
 **2015~2017** / Beijing
 
-Software engineer, SaaS API, real-time A/V web and service team
+Software engineer, SaaS API, real-time A/V service team
 
 # Education
 

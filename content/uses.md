@@ -23,7 +23,7 @@ type: page
 
 📱 iPhone 14 Pro
 
-🔊 Xiaomi Mi Soundbar MDZ-27-DA
+🎧 Sony MDR-7502 Headphones
 
 🎛 Focusrite 2i4 Audio Interface
 

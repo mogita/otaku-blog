@@ -1,7 +1,7 @@
 baseURL: "https://mogita.com/"
 languageCode: "en-US"
 defaultContentLanguage: "en"
-title: "2001: A Nimbus Broom"
+title: "mogita"
 theme: "hugo-coder"
 
 enableInlineShortcodes: true
@@ -24,28 +24,28 @@ uglyURLs: true
 # paginatePath: "page"
 #
 # params:
-  # subtitle: "満開の花が似合いのカタストロフィー"
-  # customCSS: "css/ezhil-custom.css"
-  # customDarkCSS: "css/ezhil-custom.css"
-  # mode: dark
-  # categories:
-  #   tech: 🛠️
-  #   journal: 📖
-  #   music: 🎸
-  # social:
-  #   - name: "Twitter"
-  #     icon: "twitter"
-  #     url: "https://twitter.com/mogita"
-  #   - name: "GitLab"
-  #     icon: "gitlab"
-  #     url: "https://gitlab.com/mogita"
-  #   - name: "LinkedIn"
-  #     icon: "linkedin"
-  #     url: "https://linkedin.com/in/mogita"
+# subtitle: "満開の花が似合いのカタストロフィー"
+# customCSS: "css/ezhil-custom.css"
+# customDarkCSS: "css/ezhil-custom.css"
+# mode: dark
+# categories:
+#   tech: 🛠️
+#   journal: 📖
+#   music: 🎸
+# social:
+#   - name: "Twitter"
+#     icon: "twitter"
+#     url: "https://twitter.com/mogita"
+#   - name: "GitLab"
+#     icon: "gitlab"
+#     url: "https://gitlab.com/mogita"
+#   - name: "LinkedIn"
+#     icon: "linkedin"
+#     url: "https://linkedin.com/in/mogita"
 
 # --- hugo coder compatible params ---
 params:
-  author: "mogita"
+  # author: "mogita"
   info: "hi, I'm an empty stack developer"
   description: "mogita's personal website"
   keywords: "blog,developer,personal"
@@ -53,9 +53,9 @@ params:
   since: 2010
   colorScheme: "auto"
   highlight: true
-  favicon_16: 'img/favicons/favicon16.png'
-  favicon_32: 'img/favicons/favicon32.png'
-  touchIcon: 'img/favicons/favicon.png'
+  favicon_16: "img/favicons/favicon16.png"
+  favicon_32: "img/favicons/favicon32.png"
+  touchIcon: "img/favicons/favicon.png"
   # customCSS: ["css/custom.css"]
   # customSCSS: ["scss/custom.scss"]
   # customJS: ["js/custom.js"]
@@ -94,4 +94,3 @@ markup:
   goldmark:
     renderer:
       unsafe: true
-

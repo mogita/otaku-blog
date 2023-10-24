@@ -22,9 +22,9 @@ type: page
 
 # Experience
 
-**[NextBillion.ai](https://nextbillion.ai), 2020~present** / Remote
+**[NextBillion.ai](https://nextbillion.ai), 2020~present** / Singapore ~ Remote
 
-Fullstack software engineer, working on map SDK, live traffic systems, and customizable OSM eco-system
+Fullstack software engineer, working on map data, map SDK, and live traffic systems
 
 **[Grab](https://grab.com), 2017~2020** / Beijing ~ Remote
 

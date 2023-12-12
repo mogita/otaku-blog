@@ -6,33 +6,37 @@ type: page
 
 # Professional Skills
 
-- Go
-- Python
-- Node.js
-- Web: React.js / ES6 / HTML / CSS
+- Languages
+  - Go
+  - Node.js
+  - Python
+  - Web: React.js / ES6 / HTML / CSS
 - Databases
   - RDBS: PostgreSQL / MySQL
+  - KV: BoltDB / Redis
   - NoSQL: MongoDB
-  - KV: Redis / BoltDB
 - GIS
   - PostGIS
-  - OpenStreetMap
-  - Vector tiles / Web maps
-  - Visualization
+  - OpenStreetMap / Mapbox
+  - OSRM / Valhalla / Overpass / OpenMapTiles
+  - Visualization / QGIS
+- DevOps
+  - Docker
+  - Kubernetes
 
-# Experience
+# Experiences
 
-**[NextBillion.ai](https://nextbillion.ai), 2020~present** / Singapore ~ Remote
+- **[NextBillion.ai](https://nextbillion.ai), 2020~present** / Singapore
 
-Fullstack software engineer, working on map data, map SDK, and live traffic systems
+  Fullstack software engineer: real-time traffic flow, map data and SDK, sales system
 
-**[Grab](https://grab.com), 2017~2020** / Beijing ~ Remote
+- **[Grab](https://grab.com), 2017~2020** / Beijing
 
-Software engineer manager, geo team
+  Software engineer manager: geo team, leading Grab Maps, Grab street view, and real-time visualization
 
-**2015~2017** / Beijing
+- **Geekniu** ([ref](https://pitchhub.36kr.com/project/1678508619002881)) **2015~2017** / Beijing
 
-Software engineer, SaaS API, real-time A/V service team
+  Software engineer: BaaS bootstrapping, in-store digital sales solution
 
 # Education
 
@@ -46,4 +50,4 @@ Bechelor of Spanish
 
 # References
 
-Available upon request.
+Available upon request or visit https://www.linkedin.com/in/mogita/

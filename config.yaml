@@ -46,7 +46,7 @@ uglyURLs: true
 # --- hugo coder compatible params ---
 params:
   # author: "mogita"
-  info: "hi, I'm an empty stack developer"
+  info: "an empty stack developer seeing the world through code"
   description: "mogita's personal website"
   keywords: "blog,developer,personal"
   gravatar: "me@mogita.com"

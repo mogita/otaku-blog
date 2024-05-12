@@ -46,6 +46,7 @@ This is my personal website. Opinions are my own. It contains my infant time pos
 
 # Projects
 
+- [GMB](https://gao.mobi) - Your AI assistant for work, GPT chatting, multiple models, image creation, with lower prices.
 - [YoCat](https://gitlab.com/mogita/yocat) - Powering the same named [bot](https://mog.blue/@yocat) for recognizing and repost cat pictures
 - [Go Fanfou](https://github.com/mogita/go-fanfou) - A Fanfou API library for Go
 - [Vue Zydialog](https://github.com/mogita/vue-zydialog) - A dialog component for Vue.js

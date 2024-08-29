@@ -4,6 +4,7 @@ slug: bottles-of-dreams
 category: journal
 date: 2012-09-07T17:31:12+00:00
 isCJKLanguage: true
+draft: true
 ---
 从昨天到今天，就像从江的北岸到南岸，不知为什么，就是过来了。
 

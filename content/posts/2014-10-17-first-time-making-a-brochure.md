@@ -4,6 +4,7 @@ slug: first-time-making-a-brochure
 date: 2014-10-16T20:52:28+00:00
 category: journal
 isCJKLanguage: true
+draft: true
 ---
 
 论文开题报告刚刚完成，为了写论文还有书目需要继续阅读。按自己设计的时间表，最迟年底就该完成初稿了。是忙碌了点，毫无规律的熬夜也多了起来。接下来尽量均分工作量吧。

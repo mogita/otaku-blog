@@ -4,6 +4,7 @@ slug: electrical-bricks
 date: 2013-12-23T18:14:06+00:00
 category: journal
 isCJKLanguage: true
+draft: true
 ---
 
 ![Electrical Bricks](/img/electrical-bricks.jpg)

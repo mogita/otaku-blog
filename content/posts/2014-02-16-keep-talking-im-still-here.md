@@ -4,6 +4,7 @@ slug: keep-talking-im-still-here
 date: 2014-02-16T15:12:42+00:00
 category: journal
 isCJKLanguage: true
+draft: true
 ---
 去年，我被说很「二次元」。  
 

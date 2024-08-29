@@ -60,12 +60,18 @@ params:
   # customSCSS: ["scss/custom.scss"]
   # customJS: ["js/custom.js"]
   social:
-    - name: "Fediverse"
-      icon: "fa fa-mastodon fa-2x"
-      url: "https://mog.blue/@mogita"
+    # - name: "Fediverse"
+    #   icon: "fa fa-mastodon fa-2x"
+    #   url: "https://mog.blue/@mogita"
+    - name: "GitHub"
+      icon: "fa fa-github fa-2x"
+      url: "https://github.com/mogita"
     - name: "GitLab"
       icon: "fa fa-gitlab fa-2x"
       url: "https://gitlab.com/mogita"
+    # - name: "LinkedIn"
+    #   icon: "fa fa-linkedin fa-2x"
+    #   url: "https://linkedin.com/in/mogita"
 
 menu:
   main:

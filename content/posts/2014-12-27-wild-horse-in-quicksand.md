@@ -4,6 +4,7 @@ slug: wild-horse-in-quicksand
 date: 2014-12-26T18:37:15+00:00
 category: journal
 isCJKLanguage: true
+draft: true
 ---
 
 ![Dormitory](/img/dorm.jpg)

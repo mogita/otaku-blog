@@ -5,6 +5,7 @@ date: 2013-06-03T17:06:50+00:00
 category: journal
 tags: [楳图一雄]
 isCJKLanguage: true
+draft: true
 ---
 
 ![Chicken George](/img/chicken-george.jpg)

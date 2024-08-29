@@ -4,6 +4,7 @@ slug: a-casual-instagram-video
 date: 2013-06-24T09:45:57+00:00
 category: journal
 isCJKLanguage: true
+draft: true
 ---
 
 <p id="custom-video" style="width: 100%;">

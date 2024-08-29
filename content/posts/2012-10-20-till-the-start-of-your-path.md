@@ -5,6 +5,7 @@ date: 2012-10-20T09:22:36+00:00
 updated: 2022-08-27T15:20:28+08:00
 category: journal
 isCJKLanguage: true
+draft: true
 ---
 说这句话之前他大概构思过，经过了说的那一点，就变成了我的好一阵回味。
 

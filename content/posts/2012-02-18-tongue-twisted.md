@@ -3,6 +3,7 @@ title: Tongue twisted
 slug: tongue-twisted
 date: 2012-02-17T16:21:18+00:00
 category: journal
+draft: true
 ---
 We were talking all night long, trying not to persuate of anything but just expressing. I didn&#8217;t mention my own thoughts. What was talked about was some kind of philosophucking or psycraplogical things. That was what I knew and what I remember now. Three men makes a band, and any two of them must be first in line. One of them hold an opinion that without a job, not mentioning some piece of art, one simply lives ge jiba. I don&#8217;t quite think so. But it was true, indeed. It being a part of art, it needs a ground on which I must stand firm, Mazax told me. I know where I came from and grew up with (bullsh1t). The job for me is being in one piece and never killing myself apart before my life ends itself. What can I do above that? I&#8217;ve been living for that question. Yes, according to the Oracle, I might have already answered that question. I&#8217;m now here to discover why I made that answer. I&#8217;m going to keep that safe. No one discovers it. Well, not many ones, I suppose.
 

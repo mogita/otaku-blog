@@ -4,6 +4,7 @@ slug: toumorokoshi-tenpura-keikaku-tsudzuku
 date: 2013-10-11T09:37:23+00:00
 category: journal
 isCJKLanguage: true
+draft: true
 ---
 
 超市玉米 2.5 元一根，嫩米、硬米的混在一起卖，又不知道怎么挑，就随手抓了 3 根。

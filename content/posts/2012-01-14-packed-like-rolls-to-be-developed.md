@@ -9,6 +9,7 @@ tags: [Song Writing]
 cover:
 share_cover:
 from:
+draft: true
 ---
 Please try and stay, I have to whisper, for whom behind the picture.  
 I&#8217;m not allowed to say what I think of, but we surely sense the same thing.

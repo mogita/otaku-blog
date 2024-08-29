@@ -5,6 +5,7 @@ date: 2013-09-21T17:08:14+00:00
 updated: 2022-08-26T23:19:21+00:00
 category: journal
 isCJKLanguage: true
+draft: true
 ---
 
 最近看了一堆日本电影。

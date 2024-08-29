@@ -4,6 +4,7 @@ slug: the-importance-of-being-hostile
 date: 2012-02-18T18:48:22+00:00
 category: journal
 isCJKLanguage: true
+draft: true
 ---
 它让人变得有干劲。  
 它让人思维变得活跃。  

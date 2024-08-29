@@ -4,6 +4,7 @@ slug: david-bailey-learns-french-in-17-days
 date: 2014-12-28T20:45:40+00:00
 category: journal
 isCJKLanguage: true
+draft: true
 ---
 读 Quora 发现一则《<a href="https://www.quora.com/What-are-the-best-ways-to-learn-a-language-as-an-adult/answer/David-Bailey-7" target="_blank">成年人的最佳外语学习方法</a>》回答，已获得 2k 多赞同。撰写者是 David Bailey，CEO Spotnight。
 

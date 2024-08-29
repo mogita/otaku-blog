@@ -4,6 +4,7 @@ slug: my-treasure
 date: 2014-02-25T17:40:35+00:00
 category: journal
 isCJKLanguage: true
+draft: true
 ---
 还是来了，妈妈收拾我的旧写字桌，说有几个纸条，还写的外语，问我还要不要。
 

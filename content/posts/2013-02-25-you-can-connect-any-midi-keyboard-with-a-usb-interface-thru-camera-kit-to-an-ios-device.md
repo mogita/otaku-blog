@@ -4,6 +4,7 @@ slug: you-can-connect-any-midi-keyboard-with-a-usb-interface-thru-camera-kit-to-
 date: 2013-02-24T17:17:48+00:00
 category: journal
 isCJKLanguage: true
+draft: true
 ---
 
 开个博客踹了这么多意（fèi）识（huà），少说也有一两万字了吧？但从此开始写有用的字？做不到的。动笔即有神，掐着我的手，『I must not tell lies』。

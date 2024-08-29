@@ -4,6 +4,7 @@ slug: the-catcher
 date: 2013-10-13T00:00:00+00:00
 category: journal
 isCJKLanguage: true
+draft: true
 ---
 > 「&#8230;但是提起的时候，是难过的，爱过的感觉就是这样吧。」
 > 

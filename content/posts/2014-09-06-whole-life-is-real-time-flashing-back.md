@@ -4,6 +4,7 @@ slug: the-whole-life-is-real-time-flash-back
 date: 2014-09-05T20:21:43+00:00
 category: journal
 isCJKLanguage: true
+draft: true
 ---
 在 reddit 上看到一条「<a href="https://www.reddit.com/r/Showerthoughts/" target="_blank">浴室想法</a>」，大意是
 

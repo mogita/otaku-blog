@@ -5,6 +5,7 @@ date: 2013-09-22T00:00:00+00:00
 updated: 2022-08-26T23:13:28+00:00
 category: journal
 isCJKLanguage: true
+draft: true
 ---
 
 手上积累了若干照片，一时兴起便想到印成明信片。意料内外遇到了各种情况，就在这里按流程先后、Q&A 的方式记载一下吧。事无巨细一点，希望能给尽量多的人帮助。关于 Photoshop 的使用入门和照片润饰技巧就不写了，可以参考专门的教程网站，比如<del><a href="https://www.68ps.com/zt/CS5/" target="_blank">这个</a></del>。

@@ -4,6 +4,7 @@ slug: cannot-be-what-im-like-now
 date: 2012-09-20T19:27:37+00:00
 category: journal
 isCJKLanguage: true
+draft: true
 ---
 一打开，一版乱糟糟的文字，一点也不含蓄。这个域名里装着的果然不是什么佳酿哟。
 

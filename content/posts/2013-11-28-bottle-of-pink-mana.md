@@ -4,6 +4,7 @@ slug: bottle-of-pink-mana
 date: 2013-11-27T18:09:59+00:00
 category: journal
 isCJKLanguage: true
+draft: true
 ---
 不知为啥今天吃着晚饭想起了两个十四年前搬家之后就再也没有见过的瓶子。
 

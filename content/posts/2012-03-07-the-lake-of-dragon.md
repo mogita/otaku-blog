@@ -4,6 +4,7 @@ slug: the-lake-of-dragon
 date: 2012-03-07T10:11:16+00:00
 category: music
 tags: [Song Writing]
+draft: true
 ---
 A wild plain, all in dark.  
 I&#8217;m chasing your trail.

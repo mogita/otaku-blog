@@ -4,6 +4,7 @@ slug: a-summer-vacation-letter
 date: 2014-02-18T05:41:26+00:00
 category: journal
 isCJKLanguage: true
+draft: true
 ---
 暑假。
 

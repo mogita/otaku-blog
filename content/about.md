@@ -4,7 +4,7 @@ date: 2021-03-23T12:32:03+08:00
 type: "page"
 ---
 
-I'm Yun, using the handle of @[mogita](https://mog.blue/@mogita) (nearly) everywhere. I've worked as a professional software engineer since 2015. Before that, I wrote programs by self-teaching. You can download my [resume](https://drive.google.com/file/d/1OvTeeDQ7UrW-dDmA3tx2Emarwt5Z53En/view?pli=1).
+I'm Yun, using the handle of @[mogita](https://mog.blue/@mogita) (nearly) everywhere. I've worked as a professional software engineer since 2015. Before that, I wrote programs by self-teaching. You can download my [resume](https://drive.google.com/file/d/141cJWg-hS-dyMbKFBeiigG_4QDR8xO3h/view?usp=sharing).
 
 Here's a list of devices and softwares [that I use](/uses.html) on a daily basis.
 

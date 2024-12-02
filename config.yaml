@@ -75,9 +75,9 @@ params:
 
 menu:
   main:
-    - identifier: "posts"
-      name: "Posts"
-      title: "Posts"
+    - identifier: "blog"
+      name: "Blog"
+      title: "Blog"
       url: "/posts.html"
       weight: 1
     - identifier: "rss"

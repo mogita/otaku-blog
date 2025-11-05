@@ -41,7 +41,7 @@ uglyURLs: true
 #     url: "https://gitlab.com/mogita"
 #   - name: "LinkedIn"
 #     icon: "linkedin"
-#     url: "https://linkedin.com/in/mogita"
+#     url: "https://linkedin.com/in/yun-wang-646d753d/"
 
 # --- hugo coder compatible params ---
 params:
@@ -71,7 +71,7 @@ params:
     #   url: "https://gitlab.com/mogita"
     # - name: "LinkedIn"
     #   icon: "fa fa-linkedin fa-2x"
-    #   url: "https://linkedin.com/in/mogita"
+    #   url: "https://linkedin.com/in/yun-wang-646d753d/"
 
 menu:
   main:

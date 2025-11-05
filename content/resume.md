@@ -50,4 +50,4 @@ Bechelor of Spanish
 
 # References
 
-Available upon request or visit https://www.linkedin.com/in/mogita/
+Available upon request or visit https://linkedin.com/in/yun-wang-646d753d/

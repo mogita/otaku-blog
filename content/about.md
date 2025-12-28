@@ -1,6 +1,7 @@
 ---
 title: "About"
 date: 2021-03-23T12:32:03+08:00
+updated: 2025-12-29T00:39:56+08:00
 type: "page"
 ---
 
@@ -12,7 +13,7 @@ This is my personal website. Opinions are my own.
 
 # Bio
 
-🧑‍💻 Software engineer // manager
+🧑‍💻 Staff Software engineer
 🎮 Indie game dev
 🎧 [Drummer](https://space.bilibili.com/70342), bedroom [producer](https://soundcloud.com/mogita)
 🇸🇬 Located in Singapore

@@ -1,6 +1,7 @@
 ---
 title: Resume
 date: 2022-10-12T12:22:42+08:00
+updated: 2025-12-29T00:39:56+08:00
 type: page
 ---
 
@@ -26,7 +27,11 @@ type: page
 
 # Experiences
 
-- **[NextBillion.ai](https://nextbillion.ai), 2020~present** / Singapore
+- **[Stream](https://getstream.io), 2025~present** / Amsterdam
+
+  Staff software engineer
+
+- **[NextBillion.ai](https://nextbillion.ai), 2020~2025** / Singapore
 
   Fullstack software engineer: real-time traffic flow, map data and SDK, sales system
 

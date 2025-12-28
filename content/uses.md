@@ -1,7 +1,7 @@
 ---
 title: Things I Use
 date: 2022-10-12T15:09:29+08:00
-updated: 2024-12-02T12:16:29+08:00
+updated: 2025-12-29T00:39:56+08:00
 type: page
 ---
 
@@ -17,7 +17,7 @@ These are the listings of the tools, hardware, and software I use on a daily bas
 
 📺 Mi Monitor A27U, 27" 4K Display
 
-🖱️ Logitech MX Vertical Mouse
+🖱️ Hecate G3Pro
 
 ⌨️ HHKB Professional BT Keyboard
 
@@ -39,7 +39,7 @@ These are the listings of the tools, hardware, and software I use on a daily bas
 - Apple Mail
 - ~~Tweetbot~~ Ivory
 - Notion
-- 1Password
+- ~~1Password~~ Bitwarden
 - Reeder
 - Dropbox
 - Apple Pro Apps for A/V editing
